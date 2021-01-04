@@ -1,3 +1,7 @@
+* {
+   margin: 0;
+   padding: 0;
+}
 /*general*/
 body {
    background: rgb(64, 55, 88);
@@ -13,18 +17,7 @@ nav,
 section {
    display: block;
 }
-body,
-h1,
-h2,
-p,
-ul,
-ol,
-li,
-dd,
-dl {
-   margin: 0;
-   padding: 0;
-}
+
 /*table styling*/
 header {
    padding: 50px 20px;

@@ -15,7 +15,54 @@ body {
    margin: 0 auto;
    height: 100%;
 }
+.logo {
+   background: violet;
+   width: 250px;
+   height: 100%;
+   float: left;
+}
+.search {
+   background: orange;
+   width: 300px;
+   height: 100%;
+   float: left;
+}
+.search_form {
+   background: firebrick;
+   width: 227px;
+   height: 100%;
+   float: left;
+}
+.search_btn {
+   background: red;
+   width: 54px;
+   height: 100%;
+   float: right;
+}
 
+.login_nav {
+   background: black;
+   width: 141px;
+   height: 100%;
+   float: right;
+}
+.login {
+   background: yellowgreen;
+   width: 100%;
+   height: 50%;
+}
+.nav {
+   background: gold;
+   width: 100%;
+   height: 50%;
+}
+.nav_item {
+   background: floralwhite;
+   width: 43px;
+   height: 100%;
+   margin: 0px 2px;
+   float: left;
+}
 /* For Sub Header */
 .header_sub {
    background: lightgray;
@@ -28,7 +75,169 @@ body {
    width: 940px;
    height: 100%;
 }
+.sub_nav {
+   background: yellow;
+   width: 480px;
+   height: 100%;
+   float: left;
+}
+.sub_nav_item {
+   background: green;
+   width: 112px;
+   height: 100%;
+   margin: 0px 4px;
+   float: left;
+}
+.notification {
+   background: indigo;
+   width: 300px;
+   height: 100%;
+   float: right;
+}
+.notification_item {
+   background: indianred;
+   width: 140px;
+   height: 100%;
+   margin: 0px 5px;
+   float: left;
+}
 
+/* For Body*/
+.body {
+   width: 100%;
+   height: 608px;
+   margin: 30px 0px;
+}
+.body_wrapper {
+   background: coral;
+   width: 940px;
+   height: 100%;
+   margin: 0px auto;
+}
+.body_sidebar {
+   background: chartreuse;
+   width: 195px;
+   height: 100%;
+   float: left;
+}
+.body_sidebar_title {
+   background: fuchsia;
+   width: 100%;
+   height: 40px;
+}
+.body_sidebar_item {
+   background: grey;
+   width: 100%;
+   height: 35px;
+}
+.body_sidebar_item:hover {
+   background: lightgrey;
+}
+.body_main {
+   background: aqua;
+   width: 720px;
+   height: 100%;
+   float: right;
+}
+.main {
+   background: purple;
+   width: 520px;
+   height: 100%;
+   float: left;
+}
+.main_title {
+   background: pink;
+   width: 100%;
+   height: 35px;
+}
+.main_header {
+   background: blue;
+   width: 100%;
+   height: 68px;
+}
+.main_header_title {
+   background: red;
+   width: 100%;
+   height: 32px;
+}
+.header_title_item {
+   background: yellow;
+   width: 252px;
+   height: 100%;
+   margin: 0px 4px;
+   float: left;
+}
+.main_header_subtitle {
+   background: green;
+   width: 100%;
+   height: 32px;
+}
+.header_subtitle_item {
+   background: LightSeaGreen;
+   width: 122px;
+   height: 32px;
+   margin: 0px 4px;
+}
+.subtitle_left {
+   float: left;
+}
+.subtitle_right {
+   float: right;
+}
+.main_content {
+   background: lightcyan;
+   width: 100%;
+   height: 505px;
+}
+.content_item {
+   background: darkorchid;
+   width: 100%;
+   height: 70px;
+   padding: 15px 0px;
+}
+.content_img {
+   background: grey;
+   width: 70px;
+   height: 100%;
+   float: left;
+}
+.content_info {
+   background: cornflowerblue;
+   width: 440px;
+   height: 100%;
+   float: right;
+}
+.content_divider {
+   background: grey;
+   width: 100%;
+   height: 1px;
+}
+.content_notification {
+   background: coral;
+   width: 20%;
+   height: 14px;
+}
+.content_title {
+   background: Chartreuse;
+   width: 80%;
+   height: 20px;
+}
+.content_details {
+   background: yellow;
+   width: 45%;
+   height: 20px;
+}
+.content_topic {
+   background: red;
+   width: 55%;
+   height: 16px;
+}
+.sidebar {
+   background: green;
+   width: 175px;
+   height: 100%;
+   float: right;
+}
 /* For Footer*/
 footer {
    background: grey;
@@ -36,7 +245,27 @@ footer {
    height: 45px;
 }
 .footer_wrapper {
-   background: greens;
+   background: forestgreen;
+   margin: 0 auto;
    width: 940px;
    height: 100%;
+}
+.footer_nav {
+   background: red;
+   width: 340px;
+   height: 100%;
+   float: left;
+}
+.footer_nav_item {
+   background: blue;
+   width: 62px;
+   height: 100%;
+   margin: 0px 3px;
+   float: left;
+}
+.copyright {
+   background: blue;
+   width: 100px;
+   height: 100%;
+   float: right;
 }
