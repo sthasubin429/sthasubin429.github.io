@@ -1,0 +1,42 @@
+body {
+   width: 100%;
+}
+
+/* For Main Header*/
+.header_main {
+   background: skyblue;
+   width: 100%;
+   height: 85px;
+}
+
+.header_main_wrapper {
+   background: green;
+   width: 940px;
+   margin: 0 auto;
+   height: 100%;
+}
+
+/* For Sub Header */
+.header_sub {
+   background: lightgray;
+   width: 100%;
+   height: 40px;
+}
+.header_sub_wrapper {
+   background: blue;
+   margin: 0 auto;
+   width: 940px;
+   height: 100%;
+}
+
+/* For Footer*/
+footer {
+   background: grey;
+   width: 100%;
+   height: 45px;
+}
+.footer_wrapper {
+   background: greens;
+   width: 940px;
+   height: 100%;
+}
