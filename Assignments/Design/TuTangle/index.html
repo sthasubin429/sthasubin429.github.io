@@ -1,160 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>TuTangle</title>
 </head>
 <body>
-    <!-- Main Header -->
-    <header class="header_main">
-        <div class="header_main_wrapper">
-            <div class="logo"></div>
-            <div class="search">
-                <div class="search_form"></div>
-                <div class="search_btn"></div>
-            </div>
-            <div class="login_nav">
-                <div class="login"></div>
-                <div class="nav">
-                    <div class="nav_item"></div>
-                    <div class="nav_item"></div>
-                    <div class="nav_item"></div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="main_wraper">
+            <!-- Main Header -->
+        <header class="header_main">
+            <div class="container clearfix">
+                <img src="./images/logo.png" alt="Logo" class="logo">
 
-    <!-- Sub Header-->
-    <Header class="header_sub">
-        <div class="header_sub_wrapper">
-            <div class="sub_nav">
-                <div class="sub_nav_item"></div>
-                <div class="sub_nav_item"></div>
-                <div class="sub_nav_item"></div>
-                <div class="sub_nav_item"></div>
-            </div>
-            <div class="notification">
-                <div class="notification_item"> </div>
-                <div class="notification_item"> </div>
-            </div>
-        </div>
-    </Header>
-
-    <!--  Boody -->
-    <div class="body">
-        <div class="body_wrapper">
-            <div class="body_sidebar">
-                <section>
-                    <div class="body_sidebar_title"></div>
-                    <div class="body_sidebar_item"></div>
-                    <div class="body_sidebar_item"></div>
-                </section>
-                <section>
-                    <div class="body_sidebar_title"></div>
-                    <div class="body_sidebar_item"></div>
-                    <div class="body_sidebar_item"></div>
-                    <div class="body_sidebar_item"></div>
-                    <div class="body_sidebar_item"></div>
-                    <div class="body_sidebar_item"></div>
-                </section>
-                
-            </div>
-            <div class="body_main">
-                <div class="main">
-                    <div class="main_title"></div>
-                    <div class="main_header">
-                        <div class="main_header_title">
-                            <div class="header_title_item"></div>     
-                            <div class="header_title_item"></div>     
-                        </div>
-                        <div class="main_header_subtitle">
-                                <div class="header_subtitle_item subtitle_left"></div>
-                                <div class="header_subtitle_item subtitle_left"></div>
-                                <div class="header_subtitle_item subtitle_right"></div>
-                                <div class="header_subtitle_item subtitle_right"></div>
+                <div class="search">
+                <form>
+                    <div class="search_form">
+                        <div class="search_form_left">
+                            <input type="search" placeholder="Search by Term, Member, or Entry Title" class="search_bar">
+                            <input type="submit" value="" class="search_icon">  
+                            <input type="reset" value="" class="search_cancel">
                             
                         </div>
                     </div>
-                    <div class="main_content">
-                        <div class="content_item">
-                            <div class="content_img"></div>
-                            <div class="content_info">
-                                <div class="content_title"></div>
-                                <div class="content_details"></div>
-                                <div class="content_topic"></div>
-                            </div>
+                </form>
+                    <div class="search_btn">
+                        <div class="search_btn_left"> 
+                            <div class="search_btn_right"><a href="#" class="search_text"> Search </a> </div>
                         </div>
-                        <div class="content_divider"></div>
-                        <div class="content_item">
-                            <div class="content_img"></div>
-                            <div class="content_info">
-                                <div class="content_notification"></div>
-                                <div class="content_title"></div>
-                                <div class="content_details"></div>
-                                <div class="content_topic"></div>
-                            </div>
-                        </div>
-                        <div class="content_divider"></div>
-                        <div class="content_item">
-                            <div class="content_img"></div>
-                            <div class="content_info">
-                                <div class="content_notification"></div>
-                                <div class="content_title"></div>
-                                <div class="content_details"></div>
-                                <div class="content_topic"></div>
-                            </div>
-                        </div>
-                        <div class="content_divider"></div>
-                        <div class="content_item">
-                            <div class="content_img"></div>
-                            <div class="content_info">
-                                <div class="content_title"></div>
-                                <div class="content_details"></div>
-                                <div class="content_topic"></div>
-                            </div>
-                        </div>
-                        <div class="content_divider"></div>
-                        <div class="content_item">
-                            <div class="content_img"></div>
-                            <div class="content_info">
-                                <div class="content_notification"></div>
-                                <div class="content_title"></div>
-                                <div class="content_details"></div>
-                                <div class="content_topic"></div>
-                            </div>
-                        </div>
-                        <div class="content_divider"></div>
+                    </div>            
+                </div>
+                <div class="login_nav">
+                    <p class="user_name">Joe Burros</p>
+                    <div class="nav">
+                        <ul>
+                            <li class="nav_item"> <a href="#">Home</a></li>
+                            <li class="nav_item"><a href="#">Setting</a></li>
+                            <li class="nav_item rm_padding"><a href="#">Log Out</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="sidebar">
-                    <section>
-                        <div class="body_sidebar_title"></div>
-                        <div class="body_sidebar_item"></div>
-                        <div class="body_sidebar_item"></div>
-                        <div class="body_sidebar_item"></div>
-                        <div class="body_sidebar_item"></div>
-                        <div class="body_sidebar_item"></div>
-                    </section>
+            </div>
+        </header>
+
+        <!-- Sub Header-->
+        <header class="header_sub">
+            <div class="container clearfix">
+                <div class="sub_nav">
+                    <ul>
+                        <li>
+                            <a href="#">Create a New Entry</a>                            
+                        </li>
+                        <li>
+                            <a href="#">My Topic Boxes</a>
+                        </li>
+                        <li>
+                            <a href="#">Friends</a>
+                        </li>
+                        <li>
+                            <a href="#">Invite New Member</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notification">
+                    <ul>
+                        <li class="notification_active"><a href="#"> <span class="icon_topic"> </span> Topic Boxes Invites - 2</a></li>
+                        <li><a href="#"> <span class="icon_request"> </span>    Friend Requests - 0</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!--  Boody -->
+        <div class="body">
+            <div class="container clearfix">
+                <div class="body_sidebar">
+                        <div class="body_sidebar_title"> <p>Recent Searches</p></div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Nick Cave and the Bad Seeds </p>  <span class="sidebar_icon sidebar_download"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> African Animals </p> <span class="sidebar_icon sidebar_download"> </span>  </a> 
+                        </div>
+                         
+
+                        <div class="body_sidebar_title"> <p>Recent Searches</p></div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Different Versions of the Tristan Und Isolde Prelude </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Music </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Guitar </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Bob Cohen </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Mark Schnack </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Jefferson Dickey </p>  <span class="sidebar_icon sidebar_burger"> </span> </a>
+                        </div>
+                    
+                </div>
+                <div class="body_main">
+                    <div class="main">
+                        <div class="main_title"></div>
+                        <div class="main_header">
+                            <div class="main_header_title">
+                                <div class="header_title_item"></div>     
+                                <div class="header_title_item"></div>     
+                            </div>
+                            <div class="main_header_subtitle">
+                                    <div class="header_subtitle_item subtitle_left"></div>
+                                    <div class="header_subtitle_item subtitle_left"></div>
+                                    <div class="header_subtitle_item subtitle_right"></div>
+                                    <div class="header_subtitle_item subtitle_right"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="main_content">
+                            <div class="content_item">
+                                <div class="content_img"></div>
+                                <div class="content_info">
+                                    <div class="content_title"></div>
+                                    <div class="content_details"></div>
+                                    <div class="content_topic"></div>
+                                </div>
+                            </div>
+                            <div class="content_divider"></div>
+                            <div class="content_item">
+                                <div class="content_img"></div>
+                                <div class="content_info">
+                                    <div class="content_notification"></div>
+                                    <div class="content_title"></div>
+                                    <div class="content_details"></div>
+                                    <div class="content_topic"></div>
+                                </div>
+                            </div>
+                            <div class="content_divider"></div>
+                            <div class="content_item">
+                                <div class="content_img"></div>
+                                <div class="content_info">
+                                    <div class="content_notification"></div>
+                                    <div class="content_title"></div>
+                                    <div class="content_details"></div>
+                                    <div class="content_topic"></div>
+                                </div>
+                            </div>
+                            <div class="content_divider"></div>
+                            <div class="content_item">
+                                <div class="content_img"></div>
+                                <div class="content_info">
+                                    <div class="content_title"></div>
+                                    <div class="content_details"></div>
+                                    <div class="content_topic"></div>
+                                </div>
+                            </div>
+                            <div class="content_divider"></div>
+                            <div class="content_item">
+                                <div class="content_img"></div>
+                                <div class="content_info">
+                                    <div class="content_notification"></div>
+                                    <div class="content_title"></div>
+                                    <div class="content_details"></div>
+                                    <div class="content_topic"></div>
+                                </div>
+                            </div>
+                            <div class="content_divider"></div>
+                        </div>
+                    </div>
+                    <div class="sidebar">
+                        <div class="body_sidebar_title"> <p> Video Tutorials</p></div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Overview of TuTangle </p> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Searching the Site </p></a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Previous & Saved Searches </p></a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> The Topic Box Page </p> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Creating a Topic Box</p></a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> View Topic Box Entries </p></a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Creating an Entry </p> </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Privacy Settings </p>  </a>
+                        </div>
+                        <div class="body_sidebar_item">
+                            <a href="#" class="clearfix"> <p class="sidebar_text"> Co-Authoring </p>  </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!--  Footer -->
-    <Footer>
-        <div class="footer_wrapper">
-            <div class="footer_nav">
-                <div class="footer_nav_item"></div>
-                <div class="footer_nav_item"></div>
-                <div class="footer_nav_item"></div>
-                <div class="footer_nav_item"></div>
-                <div class="footer_nav_item"></div>
+        
+        <!--  Footer -->
+        <footer>
+            <div class="container clearfix">
+                <div class="footer_nav">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FeedBack</a></li>
+
+                    </ul>
+                    <div class="copyright"> 
+                        &copy; TuTangle 2013
+                    </div>
+                </div>
+                
             </div>
-            <div class="copyright"> </div>
-        </div>
-    </Footer>
+        </footer>
+        
+
+    </div>
+
 </body>
 </html>
