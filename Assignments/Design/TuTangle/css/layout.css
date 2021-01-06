@@ -1,5 +1,7 @@
 .main_wraper {
    min-width: 1002px;
+   font-family: Arial, sans-serif;
+   font-size: 15px;
 }
 .container {
    background: inherit;
