@@ -123,7 +123,7 @@ ul {
    display: block;
 }
 .nav_item a:hover {
-   color: white;
+   color: #fff;
 }
 .nav_item {
    float: left;
@@ -158,7 +158,13 @@ ul {
 }
 .notification a {
    float: right;
-   padding: 10px 8px;
+   padding: 12px 8px 9px 8px;
+}
+.notification li a:hover {
+   color: #2f9eb1;
+}
+.notification li a:hover .icon_request {
+   background: url(../images/noti_request_color.png) no-repeat top left;
 }
 .icon_topic {
    background: url(../images/noti_topics.png) no-repeat top left;
@@ -174,6 +180,9 @@ ul {
 }
 .notification_active {
    font-weight: bold;
+}
+.notification_inactive a {
+   color: #3c3c3c;
 }
 /* For Body*/
 .body {
@@ -210,9 +219,7 @@ ul {
 .sidebar_icon {
    width: 20px;
    margin: 5px;
-}
-.body_sidebar_item p {
-   float: left;
+   display: inline;
 }
 .body_sidebar_item span {
    float: right;
@@ -265,7 +272,7 @@ ul {
 .header_title {
    text-align: center;
    padding: 14px 0 12px 0;
-   font-weight: 550;
+   font-weight: 600;
    font-size: 13px;
    color: #333333;
 }
