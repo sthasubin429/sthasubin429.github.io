@@ -302,11 +302,11 @@ ul {
 }
 .active_left {
    background: url(../images/subtitle_active_left.png) no-repeat top left;
-   padding-left: 15px;
 }
 
 .active_right {
    background: url(../images/subtitle_active_right.png) no-repeat top right;
+   padding: 0 15px;
 }
 
 .main_content {
