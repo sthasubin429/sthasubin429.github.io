@@ -10,10 +10,10 @@
    color: #d43f1e;
    font-weight: 600;
 }
+/* For Main Header*/
 .header_main {
    background: #7dd9e8;
 }
-/* For Main Header*/
 .logo {
    width: 26.595744%;
    margin: 20px 20px 16px 0;
@@ -231,11 +231,10 @@
    margin: 60px 0px 30px 0;
 }
 .body_sidebar {
-   width: 195px;
-   float: left;
-   background: #f5f5f5;
-   height: 608px;
-   display: none;
+   float: right;
+   width: 100%;
+   height: 300px;
+   margin-top: 20px;
 }
 .body_sidebar_title {
    background: #2fc1da;
@@ -250,6 +249,7 @@
    font-size: 12px;
    display: block;
    padding: 10px 6px;
+   background: #f5f5f5;
 }
 .body_sidebar_item a:hover {
    background: #fff;
@@ -275,6 +275,15 @@
    background: url(../images/sidebar_burger.png) no-repeat top left;
    width: 12px;
    height: 7px;
+}
+.col-1 {
+   width: 195px;
+   float: left;
+   margin-right: 10px;
+}
+.col-2 {
+   width: 195px;
+   float: left;
 }
 
 .body_main {
@@ -414,9 +423,8 @@
 .sidebar {
    background: #f5f5f5;
    width: 175px;
-   height: 608px;
-   float: right;
-   display: none;
+   float: left;
+   margin: 20px 0 0 10px;
 }
 
 /* For Footer*/
