@@ -1,0 +1,116 @@
+@media only screen and (min-width: 668px) {
+   .container {
+      min-width: 41.75em;
+   }
+   .login_nav {
+      width: 30%;
+      margin: 16px 0 0 0;
+   }
+   .sub_nav a {
+      font-size: 15px;
+   }
+
+   .footer {
+      background: #727272;
+      width: 100%;
+   }
+   .footer_nav {
+      margin: 10px 0;
+   }
+   .footer_nav li {
+      list-style-type: disc;
+      float: left;
+      margin-right: 30px;
+   }
+   .footer_nav ul .footer-first {
+      list-style-type: none;
+   }
+   .footer_nav a {
+      font-size: 11px;
+   }
+   .copyright {
+      font-size: 11px;
+      float: right;
+      margin-bottom: 10px;
+   }
+   .main {
+      width: 35em;
+      margin: 0 auto;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .container {
+      min-width: 48em;
+   }
+   .search {
+      display: block;
+      width: 46.666667%;
+   }
+
+   .search_btn {
+      width: 53px;
+      float: left;
+      margin-left: 2px;
+   }
+
+   .login_nav {
+      width: 20%;
+      height: 100%;
+      float: right;
+      margin-bottom: 20px;
+   }
+   .main {
+      width: 35em;
+      float: left;
+   }
+   .sidebar {
+      margin-left: 24px;
+      width: 12em;
+      display: block;
+      float: left;
+   }
+   .content_img {
+      width: 70px;
+   }
+   .content_info {
+      width: 440px;
+   }
+
+@media only screen and (min-width: 902px) {
+   .notification {
+      float: right;
+   }
+   .login_nav {
+      margin: 25px 0 16px 0;
+   }
+   .body {
+      margin: 30px 0px;
+   }
+}
+
+@media only screen and (min-width: 1020px) {
+   .container {
+      max-width: 62.625em;
+      margin: 0 auto;
+      padding: 0 31px;
+   }
+   .login_nav {
+      margin: 28px 0 16px 0;
+   }
+   .body_sidebar {
+      display: block;
+      float: left;
+      margin-right: 26px;
+   }
+   .main {
+      width: 35em;
+      display: inline;
+   }
+   .sidebar {
+      margin-left: 20px;
+      width: 11.5em;
+      display: block;
+      float: right;
+   }
+}
