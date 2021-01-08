@@ -1,3 +1,4 @@
+/*-----For Header-----*/
 header {
    width: 100%;
    background: #fafafa;
@@ -20,11 +21,11 @@ header {
 }
 .nav-menu {
    width: 10%;
-   margin: 10px;
+   margin: 14px;
 }
 .burger-menu {
-   width: 41px;
-   height: 41px;
+   width: 32px;
+   height: 32px;
 }
 .nav-links {
    width: 100%;

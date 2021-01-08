@@ -1,0 +1,53 @@
+/*-----For Banner-----*/
+.banner {
+   background: url("../images/banner.jpg");
+}
+.banner-content {
+   margin: 20% 0;
+}
+.banner-text {
+   text-align: end;
+   color: #ffffff;
+   font-size: 24px;
+}
+.banner-text .banner-shade {
+   color: #e6e6e6;
+}
+.banner-text .banner-gray {
+   color: #fafafa;
+}
+.banner-text .banner-life {
+   color: #3baafe;
+}
+.banner-btn {
+   text-align: end;
+   margin: 6% 0;
+}
+.banner-btn button {
+   font-size: 18px;
+   font-weight: bold;
+   padding: 12px;
+   border: none;
+   transition: 0.4s;
+}
+.banner-btn1 {
+   width: 140px;
+   margin-right: 10px;
+   background: #fff;
+   color: #777777;
+}
+.banner-btn2 {
+   width: 150px;
+   background: #555555;
+   color: #fff;
+}
+.banner-btn1:hover {
+   color: #fff;
+   background: #777777;
+   box-shadow: inset 0 0 0 4px #ffffff;
+}
+.banner-btn2:hover {
+   color: #555555;
+   background: #fff;
+   box-shadow: inset 0 0 0 4px #ffffff;
+}
