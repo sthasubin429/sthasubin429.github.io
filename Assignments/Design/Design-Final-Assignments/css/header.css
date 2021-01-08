@@ -1,0 +1,47 @@
+header {
+   width: 100%;
+   background: #fafafa;
+}
+.nav-bar {
+   width: 100%;
+   display: inline;
+}
+.nav-logo {
+   width: 50%;
+   margin: 10px;
+}
+.icon-sog {
+   width: 41px;
+   height: 41px;
+}
+.logo-sog {
+   margin: 10px;
+   width: 144px;
+}
+.nav-menu {
+   width: 40%;
+   margin: 10px;
+}
+.burger-menu {
+   width: 41px;
+   height: 41px;
+}
+.nav-links {
+   width: 100%;
+   display: none;
+
+   color: #999999;
+   font-size: 14px;
+   text-align: center;
+   font-weight: 600;
+}
+.nav-links ul li {
+   margin: 6px;
+}
+.nav-links .active {
+   border-bottom: 3px solid #3baafe;
+}
+.nav-menu:hover + .nav-links {
+   display: block;
+   float: left;
+}
