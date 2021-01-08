@@ -1,0 +1,29 @@
+Planning: 1hr
+
+Header: 1hr
+Banner: 1hr
+
+Sections:
+    Section1: 1hr
+    Section2(Why Choose Us): 1hr
+    Sectoin3(What we Do): 30mins
+    Section4(How we Work): 30mins
+    Section5(Meet Our Team): 2hrs
+    Section6(Quality of Work): 1hr 30mins
+    Section7(Our Portfolio): 1hr
+    Section8(Best Work Environments): 1hr
+    Section9(From Our Blog): 1hr 30mins
+    Section10: 2hr 30mins
+    Section10(Our Pricing): 1hr
+    Section11(Some Fun Facts): 30mins
+    Section12(Our Partners): 30mins
+
+Footer: 1hr 30mins
+
+Buffer: 2hrs
+
+Responsive: 4hr
+
+Bug Fixes: 3hr
+
+Total: 28 Hours
