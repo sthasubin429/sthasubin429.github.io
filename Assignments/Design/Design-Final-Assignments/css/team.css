@@ -1,0 +1,113 @@
+/**-----For Meet Our Team -----**/
+.team {
+   margin: 40px 0;
+}
+.team-content {
+   margin: 0 30px;
+}
+.team-content h2 {
+   text-align: center;
+   color: #3baafe;
+   position: relative;
+   margin-bottom: 40px;
+}
+.team-content h2 .under-line {
+   background: #b6b6b6;
+   position: absolute;
+   top: 40px;
+   left: 64%;
+}
+
+.team-cards article {
+   padding: 20px 30px 40px 30px;
+   position: relative;
+   max-width: 570px;
+   margin: 40px 10px;
+   background: #f5f5f5;
+}
+
+.team-image {
+   width: 155px;
+   height: 180px;
+   overflow: hidden;
+   border: 10px solid #e6e6e6;
+   display: inline-block;
+   position: absolute;
+   top: -20px;
+   left: 30px;
+}
+.team-social {
+   margin-top: 160px;
+   margin-left: 10px;
+}
+.team-social div {
+   width: 36px;
+   height: 36px;
+   display: inline-block;
+   text-align: center;
+   margin: 8px 4px;
+   background: #ffffff;
+   border-radius: 50%;
+   padding-top: 12px;
+}
+
+.team-card-content {
+   position: absolute;
+   top: 20px;
+   left: 205px;
+}
+.team-name {
+   padding: 15px 15px;
+   width: 150px;
+   background: #ffffff;
+   font-size: 1.125em;
+   clip-path: polygon(0 0, 100% 0, 91% 100%, 0 100%);
+   color: #777777;
+}
+
+.team-position {
+   padding: 13px 15px;
+   width: 125px;
+   margin-top: -11px;
+   background: #e6e6e6;
+   font-size: 0.75em;
+   clip-path: polygon(0 0, 100% 0, 91% 100%, 0 100%);
+}
+.team-card-content p {
+   margin: 15px 15px;
+   font-size: 0.875em;
+}
+
+.team-card-content .team-position,
+p {
+   color: #999999;
+}
+.team-name:hover {
+   cursor: pointer;
+   color: #3baafe;
+}
+
+/*For Icon Effects*/
+.team-facebook-active,
+.team-twitter-active,
+.team-gmail-active {
+   display: none;
+}
+.team-facebook:hover .team-facebook-inactive,
+.team-twitter:hover .team-twitter-inactive,
+.team-gmail:hover .team-gmail-inactive {
+   display: none;
+}
+.team-facebook:hover .team-facebook-active,
+.team-twitter:hover .team-twitter-active,
+.team-gmail:hover .team-gmail-active {
+   display: inline-block;
+   cursor: pointer;
+}
+
+@media only screen and (min-width: 1170px) {
+   .team-cards .team-card {
+      width: 50%;
+      float: left;
+   }
+}
