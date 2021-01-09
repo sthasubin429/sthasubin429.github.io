@@ -1,0 +1,48 @@
+/**----- For What We DO -----**/
+.what {
+   margin: 40px 0;
+}
+.what article {
+   margin: 0 30px;
+}
+.what article h2 {
+   color: #3baafe;
+}
+.what article h2 .under-line {
+   background: #b6b6b6;
+   margin: 8px 60%;
+}
+.what article h2 {
+   text-align: center;
+}
+.what-card {
+   width: 270px;
+   margin: 30px;
+}
+.what-card-header h3 {
+   margin: 10px;
+   color: #555555;
+}
+.what-icon {
+   width: 43px;
+   height: 43px;
+   background: #555555;
+   border-radius: 50%;
+   text-align: center;
+   display: inline-block;
+   margin-right: 10px;
+   transition: 0.3s;
+}
+.what-icon img {
+   margin: 12px;
+}
+.what-icon-fix img {
+   margin: 11px;
+}
+.what-card p {
+   color: #999999;
+}
+
+.what-icon:hover {
+   background: #3baafe;
+}

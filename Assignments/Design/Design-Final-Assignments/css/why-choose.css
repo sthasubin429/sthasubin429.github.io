@@ -1,6 +1,20 @@
 /**-----Why Choose Us-----**/
+.why {
+   background: #8e9eab; /* fallback for old browsers */
+   background: -webkit-linear-gradient(
+      to right,
+      #8e9eab,
+      #eef2f3
+   ); /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(
+      to right,
+      #8e9eab,
+      #eef2f3
+   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .why article {
    background: #f5f5f5;
+   margin: 0 30px;
    padding: 32px 0; /*Increase at larger screens*/
 }
 .why h2,
@@ -13,7 +27,7 @@
 }
 .why article h2 .under-line {
    background: #3baafe;
-   margin: 4px 0 0 150px;
+   margin: 8px 45%;
 }
 
 .why-cards {

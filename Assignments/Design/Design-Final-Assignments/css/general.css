@@ -7,3 +7,7 @@ p {
    background: #ffffff;
    transition: 0.3s;
 }
+.sog-icon {
+   width: 18px;
+   height: 18px;
+}

@@ -1,4 +1,10 @@
 /**----- For Section -1 -----**/
+.section-1 {
+   margin: 40px 0;
+}
+.sec1-card {
+   margin: 0px 30px;
+}
 .sec1-card article {
    background: #f5f5f5;
    padding: 49px 30px 30px 30px;
