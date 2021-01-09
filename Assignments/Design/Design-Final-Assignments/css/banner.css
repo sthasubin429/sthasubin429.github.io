@@ -8,7 +8,7 @@
 .banner-text {
    text-align: end;
    color: #ffffff;
-   font-size: 24px;
+   font-size: 1.5em;
 }
 .banner-text .banner-shade {
    color: #e6e6e6;
@@ -24,7 +24,7 @@
    margin: 6% 0;
 }
 .banner-btn button {
-   font-size: 18px;
+   font-size: 1.125em;
    font-weight: bold;
    padding: 12px;
    border: none;

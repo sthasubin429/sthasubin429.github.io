@@ -1,0 +1,62 @@
+/**----- For Section -1 -----**/
+.sec1-card article {
+   background: #f5f5f5;
+   padding: 49px 30px 30px 30px;
+   margin: 60px 0px; /*Increase Margin on larger screen*/
+   position: relative;
+}
+.sec1-icon {
+   position: absolute;
+   top: -30px;
+   left: 30px;
+   background: #555555;
+   width: 60px;
+   height: 60px;
+   text-align: center;
+   border-radius: 50%;
+   border: 5px solid #ffffff;
+   transition: 0.3s;
+}
+.sec1-icon img {
+   margin: 16px;
+}
+.sec1-card article h3 {
+   font-family: "Noto Sans", sans-serif;
+   margin: 12px 0 20px 0;
+   color: #777777;
+}
+.sec1-card article p {
+   color: #9f9f9f;
+   font-size: 1.125em; /*Decrease Font size*/
+}
+.sec1-card-line {
+   width: 60px;
+   height: 3px;
+   margin: 4px 0 0 190px;
+   background: #ffffff;
+   transition: 0.3s;
+}
+.sec1-card-3 h3 .sec1-card-line {
+   margin: 4px 0 0 170px;
+}
+.sec1-icon {
+   position: absolute;
+   top: -30px;
+   left: 30px;
+   background: #555555;
+   width: 60px;
+   height: 60px;
+   text-align: center;
+   border-radius: 50%;
+   border: 5px solid #ffffff;
+   transition: 0.3s;
+}
+.sec1-icon img {
+   margin: 16px;
+}
+.sec1-icon:hover {
+   background: #3baafe;
+}
+.sec1-icon:hover + h3 .sec1-card-line {
+   background: #3baafe;
+}
