@@ -1,0 +1,9 @@
+p {
+   font-size: 0.875em;
+}
+.under-line {
+   width: 60px;
+   height: 3px;
+   background: #ffffff;
+   transition: 0.3s;
+}

@@ -27,16 +27,12 @@
 }
 .sec1-card article p {
    color: #9f9f9f;
-   font-size: 1.125em; /*Decrease Font size*/
+   font-size: 1.125em; /*Decrease Font size on larger screens*/
 }
-.sec1-card-line {
-   width: 60px;
-   height: 3px;
+.sec1-card h3 .under-line {
    margin: 4px 0 0 190px;
-   background: #ffffff;
-   transition: 0.3s;
 }
-.sec1-card-3 h3 .sec1-card-line {
+.sec1-card-3 h3 .under-line {
    margin: 4px 0 0 170px;
 }
 .sec1-icon {
@@ -57,6 +53,6 @@
 .sec1-icon:hover {
    background: #3baafe;
 }
-.sec1-icon:hover + h3 .sec1-card-line {
+.sec1-icon:hover + h3 .under-line {
    background: #3baafe;
 }
