@@ -25,3 +25,14 @@ p {
    width: 18px;
    height: 18px;
 }
+.arrow-previous,
+.arrow-next {
+   display: inline-block;
+   width: 35px;
+   height: 35px;
+   border-radius: 50%;
+}
+.arrow-previous:hover,
+.arrow-next:hover {
+   background: #3baafe;
+}
