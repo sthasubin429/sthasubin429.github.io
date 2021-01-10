@@ -1,0 +1,112 @@
+/**----- Media Queries -----**/
+@media only screen and (min-width: 570px) {
+   /**----- For Best Work Enviromnent -----**/
+   .env-background {
+      width: 90%;
+      float: right;
+   }
+}
+@media only screen and (min-width: 768px) {
+   /*-----For Banner-----*/
+   .banner-content {
+      margin: 18% 30px;
+   }
+   .sec1-card article p {
+      color: #9f9f9f;
+      font-size: 1em;
+   }
+   /**----- For Section -1 -----**/
+   .sec1-card article {
+      margin: 60px 10px;
+   }
+   .why article {
+      padding: 48px 0;
+   }
+   /**-----Why Choose Us-----**/
+   .why h2,
+   .why-description,
+   .why-details {
+      margin: 48px;
+   }
+   /**----- For What We DO -----**/
+   .what-card p {
+      font-size: 0.75em;
+   }
+   /**-----For How We Work -----**/
+   .how-card {
+      width: 30%;
+      display: inline-block;
+   }
+   /**----- For Best Work Enviromnent -----**/
+   .env-background {
+      width: 60%;
+   }
+   .env {
+      margin: 80px 0;
+   }
+}
+@media only screen and (min-width: 1170px) {
+   /*-----For Header-----*/
+   .nav-logo {
+      width: 29%;
+   }
+   .nav-links {
+      width: 60%;
+      display: inline;
+   }
+   .nav-links ul {
+      float: right;
+      margin: 0 30px;
+   }
+   .nav-links ul li {
+      display: inline;
+      width: 60px;
+   }
+   .burger-menu {
+      display: none;
+   }
+   .nav-links ul li:hover {
+      border-bottom: 3px solid #777777;
+   }
+   /**-----For Meet Our Team -----**/
+   .team-cards .team-card {
+      width: 50%;
+      float: left;
+   }
+   /**-----For Quality of Our Work-----**/
+   .quality {
+      background: url("../images/quality-bg.png") no-repeat top right;
+   }
+   .quality-text {
+      height: 100%;
+      width: 100%;
+   }
+   .quality .quality-content article {
+      width: 44%;
+      display: inline-block;
+   }
+   .quality-img {
+      float: left;
+   }
+   .quality-text {
+      float: right;
+   }
+   .quality-text p {
+      font-size: 0.875em;
+   }
+   /**-----For Our Portfolio-----**/
+   .portfolio-content {
+      margin: 0;
+   }
+   /**----- For Best Work Enviromnent -----**/
+   .env-background {
+      width: 49%;
+   }
+   .env-cards article {
+      width: 45%;
+   }
+   /**-----For Stories-----**/
+   .stories-img {
+      bottom: 140px;
+   }
+}
