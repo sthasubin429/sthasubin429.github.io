@@ -25,9 +25,14 @@
 .why h2 {
    color: #ffffff;
 }
+.why article h2 span {
+   position: relative;
+}
 .why article h2 .under-line {
    background: #3baafe;
-   margin: 8px 45%;
+   position: absolute;
+   top: 36px;
+   left: -8px;
 }
 
 .why-cards {

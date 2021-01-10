@@ -6,20 +6,10 @@
 .portfolio-content {
    margin: 0 30px; /*Remove at higher screens*/
 }
-.portfolio-content h2 {
-   color: #3baafe;
-   text-align: center;
+.portfolio-content .section-header .under-line {
+   top: 34px;
+   left: 80px;
 }
-.portfolio-content h2 .under-line-word {
-   position: relative;
-}
-.portfolio-content h2 .under-line {
-   background: #b6b6b6;
-   position: absolute;
-   top: 38px;
-   left: 88px;
-}
-
 .portfolio ul {
    margin: 30px 0;
    text-align: center;

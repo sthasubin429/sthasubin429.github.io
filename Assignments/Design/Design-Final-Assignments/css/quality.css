@@ -34,9 +34,14 @@
 .quality-text h2 {
    color: #ffffff;
 }
+.quality-text h2 span {
+   position: relative;
+}
 .quality-text h2 .under-line {
    background: #3baafe;
-   margin: 4px 0 0 64%;
+   position: absolute;
+   top: 36px;
+   left: 30px;
 }
 .quality-desctiption {
    margin: 20px 0;

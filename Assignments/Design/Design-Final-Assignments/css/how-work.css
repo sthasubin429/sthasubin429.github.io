@@ -16,9 +16,17 @@ h3 {
 .how article p {
    color: #999999;
 }
+.how article h2 {
+   margin-bottom: 20px;
+}
+.how article h2 span {
+   position: relative;
+}
 .how article h2 .under-line {
    background: #3baafe;
-   margin: 6px 36%;
+   position: absolute;
+   top: 34px;
+   left: 30px;
 }
 .how-card {
    margin: 40px 40px 40px 0;

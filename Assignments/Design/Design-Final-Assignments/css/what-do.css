@@ -5,16 +5,7 @@
 .what article {
    margin: 0 30px;
 }
-.what article h2 {
-   color: #3baafe;
-}
-.what article h2 .under-line {
-   background: #b6b6b6;
-   margin: 8px 60%;
-}
-.what article h2 {
-   text-align: center;
-}
+
 .what-card {
    width: 270px;
    margin: 30px;

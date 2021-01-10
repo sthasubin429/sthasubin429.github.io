@@ -5,18 +5,6 @@
 .team-content {
    margin: 0 30px;
 }
-.team-content h2 {
-   text-align: center;
-   color: #3baafe;
-   position: relative;
-   margin-bottom: 40px;
-}
-.team-content h2 .under-line {
-   background: #b6b6b6;
-   position: absolute;
-   top: 40px;
-   left: 64%;
-}
 
 .team-cards article {
    padding: 20px 30px 40px 30px;
