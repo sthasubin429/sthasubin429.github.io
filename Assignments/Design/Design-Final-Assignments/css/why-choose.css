@@ -1,21 +1,15 @@
 /**-----Why Choose Us-----**/
 .why {
-   background: #8e9eab; /* fallback for old browsers */
-   background: -webkit-linear-gradient(
-      to right,
-      #8e9eab,
-      #eef2f3
-   ); /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(
-      to right,
-      #8e9eab,
-      #eef2f3
-   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: url("../images/portfolio-img2.jpg") repeat;
+   text-align: center;
 }
 .why article {
    background: #f5f5f5;
    margin: 0 30px;
-   padding: 32px 0; /*Increase at larger screens*/
+   padding: 32px 0;
+   max-width: 720px;
+   display: inline-block;
+   text-align: start;
 }
 .why h2,
 .why-description,
@@ -24,6 +18,9 @@
 }
 .why h2 {
    color: #ffffff;
+}
+.why-details {
+   text-align: center;
 }
 .why article h2 span {
    position: relative;
@@ -37,6 +34,8 @@
 
 .why-cards {
    margin-bottom: 32px;
+   display: inline-block;
+   text-align: start;
 }
 .why-card-description {
    width: 200px;
@@ -93,4 +92,15 @@
 }
 .icon-wheel:hover .wheel-active {
    display: inline;
+}
+
+@media only screen and (min-width: 768px) {
+   .why article {
+      padding: 48px 0;
+   }
+   .why h2,
+   .why-description,
+   .why-details {
+      margin: 48px;
+   }
 }

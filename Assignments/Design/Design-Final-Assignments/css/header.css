@@ -46,3 +46,26 @@ header {
    display: block;
    float: left;
 }
+@media only screen and (min-width: 1170px) {
+   .nav-logo {
+      width: 29%;
+   }
+   .nav-links {
+      width: 60%;
+      display: inline;
+   }
+   .nav-links ul {
+      float: right;
+      margin: 0 30px;
+   }
+   .nav-links ul li {
+      display: inline;
+      width: 60px;
+   }
+   .burger-menu {
+      display: none;
+   }
+   .nav-links ul li:hover {
+      border-bottom: 3px solid #777777;
+   }
+}

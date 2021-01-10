@@ -4,12 +4,16 @@
 }
 .sec1-card {
    margin: 0px 30px;
+   text-align: center;
 }
 .sec1-card article {
    background: #f5f5f5;
    padding: 49px 30px 30px 30px;
-   margin: 60px 0px; /*Increase Margin on larger screen*/
+   margin: 30px 10px;
    position: relative;
+   display: inline-block;
+   width: 280px;
+   text-align: start;
 }
 .sec1-icon {
    position: absolute;
@@ -61,4 +65,16 @@
 }
 .sec1-icon:hover + h3 .under-line {
    background: #3baafe;
+}
+@media only screen and (min-width: 768px) {
+   .sec1-card article p {
+      color: #9f9f9f;
+      font-size: 1em;
+   }
+   .sec1-card article {
+      margin: 60px 10px;
+   }
+}
+
+@media only screen and (min-width: 1170px) {
 }
