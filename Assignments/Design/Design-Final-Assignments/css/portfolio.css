@@ -1,0 +1,88 @@
+.portfolio {
+   margin: 30px 0;
+}
+
+.portfolio-content {
+   margin: 0 30px; /*Remove at higher screens*/
+}
+.portfolio-content h2 {
+   color: #3baafe;
+   text-align: center;
+}
+.portfolio-content h2 .under-line-word {
+   position: relative;
+}
+.portfolio-content h2 .under-line {
+   background: #b6b6b6;
+   position: absolute;
+   top: 38px;
+   left: 88px;
+}
+
+.portfolio ul {
+   margin: 30px 0;
+   text-align: center;
+   display: block;
+}
+.portfolio ul li a {
+   padding: 10px 30px;
+   background: #f5f5f5;
+   display: inline-block;
+   margin: 4px;
+   font-size: 0.75em;
+   color: #777777;
+   transition: 0.3s;
+}
+.portfolio ul li a:hover {
+   background: #3baafe;
+   box-shadow: inset 0 0 0 4px #eeeeee;
+   font-size: 0.875em;
+}
+.portfolio-image-list {
+   text-align: center;
+}
+.portfolio-img {
+   overflow: hidden;
+   width: 289px;
+   height: 210px;
+   display: inline-block;
+   margin-bottom: -4px;
+   position: relative;
+}
+.portfolio-hover {
+   background: #3baafe;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   opacity: 0;
+   transition: 0.4s;
+}
+.portfolio-hover-img {
+   width: 41px;
+   height: 41px;
+   background: #ffffff;
+   border-radius: 50%;
+   display: inline-block;
+   margin-top: 25%;
+   transition: 0.4s;
+}
+.portfolio-hover-img img {
+   padding: 11px;
+}
+.portfolio-img:hover .portfolio-hover {
+   opacity: 90%;
+}
+.portfolio-hover-img :hover {
+   background: #eeeeee;
+   border-radius: 50%;
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1170px) {
+   .portfolio-content {
+      margin: 0;
+   }
+}
