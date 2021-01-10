@@ -1,21 +1,7 @@
 .quality {
    margin: 30px 0;
-   background: #eeeeee;
-} /*
-.quality-left-bg {
-   width: 100%;
-   clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
-   background: #fafafa;
-   height: 500px;
+   background-color: #fafafa;
 }
-
-.quality-left-bg {
-   width: 100%;
-   clip-path: polygon(100% 0, 60% 0, 40% 100%, 100% 100%);
-   background: gray;
-   height: 500px;
-}
-*/
 
 .quality-content {
    margin: 0 30px;
@@ -67,4 +53,29 @@
 .quality-point p {
    width: 80%;
    margin-left: 20px;
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1170px) {
+   .quality {
+      background: url("../images/quality-bg.png") no-repeat top right;
+   }
+   .quality-text {
+      height: 100%;
+      width: 100%;
+   }
+   .quality .quality-content article {
+      width: 44%;
+      display: inline-block;
+   }
+   .quality-img {
+      float: left;
+   }
+   .quality-text {
+      float: right;
+   }
+   .quality-text p {
+      font-size: 0.875em;
+   }
 }

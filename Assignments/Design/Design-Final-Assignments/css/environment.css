@@ -1,7 +1,7 @@
 /**----- For Best Work Enviromnent -----**/
 .env {
    margin: 52px 0;
-   background: url("../images/work-env.jpg") no-repeat top left;
+   background: url("../images/work-env.jpg") repeat top left;
 }
 .env-background {
    background: #313030;
