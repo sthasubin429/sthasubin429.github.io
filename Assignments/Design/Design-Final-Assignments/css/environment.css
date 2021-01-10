@@ -1,6 +1,6 @@
 /**----- For Best Work Enviromnent -----**/
 .env {
-   margin: 40px 0;
+   margin: 52px 0;
    background: url("../images/work-env.jpg") no-repeat top left;
 }
 .env-background {
@@ -56,6 +56,9 @@
 @media only screen and (min-width: 768px) {
    .env-background {
       width: 60%;
+   }
+   .env {
+      margin: 80px 0;
    }
 }
 
