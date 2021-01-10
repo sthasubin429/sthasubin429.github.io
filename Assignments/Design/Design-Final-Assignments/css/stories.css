@@ -21,11 +21,10 @@
 }
 .stories-card-1 {
    text-align: start;
-   padding: 60px 30px;
+   padding: 60px 30px 0 0;
    width: 334px;
 }
 .stories-speechbubble {
-   width: px;
    background: #fff;
    padding: 24px;
    border-radius: 5px;
@@ -47,7 +46,7 @@
    color: #777777;
 }
 .stories-card-2 {
-   height: 427px;
+   height: 500px;
    overflow: hidden;
 }
 .stories-card-3 {
