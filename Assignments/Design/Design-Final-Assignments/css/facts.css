@@ -1,0 +1,33 @@
+/**-----For Some Fun Facts**/
+
+.facts {
+   margin: 30px 0;
+   background: #000000;
+   color: #ffffff;
+   text-align: center;
+   padding-bottom: 40px;
+}
+
+.facts h2 {
+   padding: 42px 0px;
+}
+.facts article {
+   display: inline-block;
+   margin: 20px;
+}
+.facts-icon {
+   margin: 8px 8px;
+   padding: 0 16px;
+   border-right: 2px solid #ffffff;
+}
+
+.fact-num {
+   color: #ffffff;
+   display: block;
+   text-align: start;
+}
+.fact-text {
+   text-align: start;
+   color: #ffffff;
+   text-align: start;
+}
