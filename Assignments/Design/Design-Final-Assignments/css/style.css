@@ -183,6 +183,7 @@ header {
 }
 .sec1-card h3 .under-line {
    margin: 4px 0 0 190px;
+   display: block;
 }
 .sec1-card-3 h3 .under-line {
    margin: 4px 0 0 170px;
