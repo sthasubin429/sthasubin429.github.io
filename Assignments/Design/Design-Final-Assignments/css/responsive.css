@@ -1,9 +1,30 @@
 /**----- Media Queries -----**/
 @media only screen and (min-width: 570px) {
+   /**----- For Why Choose us -----**/
+   .why-card-description {
+      width: 200px;
+   }
    /**----- For Best Work Enviromnent -----**/
    .env-background {
       width: 90%;
       float: right;
+   }
+   /**----- For Stories -----**/
+   .stories-card-1 {
+      padding: 60px 30px 0 0;
+      width: 334px;
+   }
+   .speech-bubble-comma {
+      text-align: end;
+      margin: -24px -26px 0 0;
+      display: block;
+   }
+   /**-----For Footer------**/
+   .footer-card1 {
+      width: 280px;
+   }
+   .footer-card4 {
+      width: 380px;
    }
 }
 @media only screen and (min-width: 768px) {
@@ -18,6 +39,7 @@
    /**----- For Section -1 -----**/
    .sec1-card article {
       margin: 60px 10px;
+      width: 280px;
    }
    .why article {
       padding: 48px 0;
@@ -36,6 +58,17 @@
    .how-card {
       width: 30%;
       display: inline-block;
+   }
+   /**-----For Meet Our Team -----**/
+   .team-card {
+      width: 46%;
+   }
+   .team-name {
+      width: 160px;
+   }
+
+   .team-position {
+      width: 136px;
    }
    /**----- For Best Work Enviromnent -----**/
    .env-background {
@@ -69,10 +102,11 @@
       border-bottom: 3px solid #777777;
    }
    /**-----For Meet Our Team -----**/
-   .team-cards .team-card {
-      width: 50%;
-      float: left;
+
+   .team-card {
+      width: 48%;
    }
+
    /**-----For Quality of Our Work-----**/
    .quality {
       background: url("../images/quality-bg.png") no-repeat top right;

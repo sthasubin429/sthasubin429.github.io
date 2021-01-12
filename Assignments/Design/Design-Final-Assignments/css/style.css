@@ -154,7 +154,6 @@ header {
    margin: 30px 10px;
    position: relative;
    display: inline-block;
-   width: 280px;
    text-align: start;
 }
 .sec1-icon {
@@ -181,12 +180,13 @@ header {
    color: #9f9f9f;
    font-size: 1.125em; /*Decrease Font size on larger screens*/
 }
-.sec1-card h3 .under-line {
-   margin: 4px 0 0 190px;
-   display: block;
+.sec1-underline-word {
+   position: relative;
 }
-.sec1-card-3 h3 .under-line {
-   margin: 4px 0 0 170px;
+.sec1-underline-word .under-line {
+   position: absolute;
+   top: 30px;
+   left: 30px;
 }
 .sec1-icon {
    position: absolute;
@@ -249,7 +249,6 @@ header {
    text-align: start;
 }
 .why-card-description {
-   width: 200px;
    margin: 0 20px;
 }
 .why-icon {
@@ -402,13 +401,20 @@ h3 {
 .team-content {
    margin: 0 30px;
 }
-
-.team-cards article {
-   padding: 20px 30px 40px 30px;
-   position: relative;
-   max-width: 570px;
-   margin: 40px 10px;
+.team-cards {
+   text-align: center;
+}
+.team-card {
+   display: inline-block;
+   width: 100%;
+   margin: 72px 10px;
    background: #f5f5f5;
+   text-align: center;
+}
+.team-card-images {
+   display: inline-block;
+   width: 0 40px;
+   margin: -30px 0;
 }
 
 .team-image {
@@ -416,53 +422,54 @@ h3 {
    height: 180px;
    overflow: hidden;
    border: 10px solid #e6e6e6;
-   display: inline-block;
-   position: absolute;
-   top: -20px;
-   left: 30px;
+   margin-left: 30px;
+}
+.team-image img {
+   width: 155px;
 }
 .team-social {
-   margin-top: 160px;
-   margin-left: 10px;
+   margin: 0 0 45px 24px;
 }
 .team-social div {
+   border-radius: 50%;
    width: 36px;
-   height: 36px;
+   height: 30px;
    display: inline-block;
    text-align: center;
    margin: 8px 4px;
    background: #ffffff;
-   border-radius: 50%;
+
    padding-top: 12px;
 }
 
 .team-card-content {
-   position: absolute;
-   top: 20px;
-   left: 205px;
+   display: inline-block;
+   vertical-align: top;
+   width: 60%;
+   text-align: start;
 }
 .team-name {
    padding: 15px 15px;
    width: 150px;
    background: #ffffff;
-   font-size: 1.125em;
+   font-size: 1em;
    clip-path: polygon(0 0, 100% 0, 91% 100%, 0 100%);
    color: #777777;
+   margin: 20px 0 0 -4px;
 }
 
 .team-position {
    padding: 13px 15px;
    width: 125px;
-   margin-top: -11px;
+   margin: -11px 0 0 -4px;
    background: #e6e6e6;
    font-size: 0.75em;
    clip-path: polygon(0 0, 100% 0, 91% 100%, 0 100%);
 }
 .team-card-content p {
-   margin: 15px 15px;
+   margin: 15px 0 15px 20px;
    font-size: 0.875em;
 }
-
 .team-card-content .team-position,
 p {
    color: #999999;
@@ -489,6 +496,7 @@ p {
    display: inline-block;
    cursor: pointer;
 }
+
 /**-----For Quality of Our Work-----**/
 .quality {
    margin: 30px 0;
@@ -762,8 +770,7 @@ p {
 }
 .stories-card-1 {
    text-align: start;
-   padding: 60px 30px 0 0;
-   width: 334px;
+   padding: 60px 10px 0 0;
 }
 .stories-speechbubble {
    background: #fff;
@@ -777,8 +784,7 @@ p {
    padding: 12px;
 }
 .speech-bubble-comma {
-   text-align: end;
-   margin: -24px -26px 0 0;
+   display: none;
 }
 .stories-details {
    text-align: end;
@@ -934,9 +940,7 @@ footer {
    text-align: start;
    margin: 0 20px 10px 0;
 }
-.footer-card1 {
-   width: 280px;
-}
+
 .footer-logo {
    margin: 18px 0;
 }
@@ -956,11 +960,6 @@ footer {
 }
 .footer-social {
    margin: 15px 0px;
-}
-.footer-social div {
-   width: 24px;
-   height: 24px;
-   padding-top: 5px;
 }
 
 .footer-cards h3 {
@@ -993,19 +992,18 @@ footer {
    padding: 10px;
    margin: 8px 0;
 }
-.footer-card4 {
-   width: 380px;
+
+.footer-form1 {
+   width: 100%;
 }
-.footer-form1 input {
-   width: 44%;
-}
+
 .footer-card4 form textarea {
    background: #b6b6b6;
    border: none;
    outline: none;
    padding: 12px;
 
-   width: 94%;
+   width: 93%;
    height: 58px;
 }
 .footer-form3 input {
