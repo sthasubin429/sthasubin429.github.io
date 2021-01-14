@@ -91,7 +91,7 @@ header {
 }
 /*-----For Banner-----*/
 .banner {
-   background: url("../images/banner.jpg");
+   background: url("../images/banner.jpg") center;
 }
 .banner-content {
    margin: 20% 30px;
@@ -349,7 +349,7 @@ header {
 /**-----For How We Work -----**/
 .how {
    margin: 60px 0;
-   background: url(../images/img-work.jpg) repeat;
+   background: url(../images/img-work.jpg) repeat center;
    padding: 84px 0;
 }
 .how article {
