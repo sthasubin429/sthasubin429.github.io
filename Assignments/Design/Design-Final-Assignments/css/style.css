@@ -33,6 +33,7 @@ p {
    height: 35px;
    border-radius: 50%;
    margin-top: 10px;
+   cursor: pointer;
 }
 .arrow-previous:hover,
 .arrow-next:hover {
@@ -55,9 +56,10 @@ header {
 .icon-sog {
    width: 41px;
    height: 41px;
+   margin-right: 10px;
 }
 .logo-sog {
-   margin: 10px;
+   margin: 10px 10px 10px 0;
    width: 144px;
 }
 .nav-menu {
@@ -228,7 +230,7 @@ header {
    margin: 32px; /*Increase at larger screens*/
 }
 .why h2 {
-   color: #ffffff;
+   color: #999999;
 }
 .why-details {
    text-align: center;
@@ -264,9 +266,7 @@ header {
 .why article p {
    color: #999999;
 }
-.why h2:hover {
-   color: #3baafe;
-}
+
 .plane-active {
    display: none;
 }
@@ -413,7 +413,6 @@ h3 {
 }
 .team-card-images {
    display: inline-block;
-   width: 0 40px;
    margin: -30px 0;
 }
 
@@ -428,7 +427,7 @@ h3 {
    width: 155px;
 }
 .team-social {
-   margin: 0 0 45px 24px;
+   margin: 0 0 44px 24px;
 }
 .team-social div {
    border-radius: 50%;
@@ -510,6 +509,10 @@ p {
 .quality-content article {
    margin: 30px;
 }
+.quality-article {
+   margin: 30px;
+   display: block;
+}
 .quality-img {
    padding: 40px 0px;
 }
@@ -518,7 +521,7 @@ p {
    height: auto;
 }
 .quality-text h2 {
-   color: #ffffff;
+   color: #999999;
 }
 .quality-text h2 span {
    position: relative;
@@ -624,6 +627,7 @@ p {
 .portfolio-hover-img :hover {
    background: #eeeeee;
    border-radius: 50%;
+   cursor: pointer;
 }
 /**----- For Best Work Enviromnent -----**/
 .env {
@@ -742,6 +746,7 @@ p {
    background: #555555;
    color: #ffffff;
    transition: 0.4s;
+   cursor: pointer;
 }
 .blog-view-all:hover {
    background: #999999;
@@ -795,10 +800,12 @@ p {
 .stories-card-2 {
    height: 500px;
    overflow: hidden;
+   display: inline-block;
 }
 .stories-card-3 {
    display: grid;
    place-items: center;
+   display: inline-block;
 }
 
 .stories-img {
@@ -915,7 +922,7 @@ p {
    left: 84px;
 }
 
-.partners article {
+.partners-article {
    text-align: center;
    margin: 40px 0px;
 }
@@ -939,6 +946,7 @@ footer {
    display: inline-block;
    text-align: start;
    margin: 0 20px 10px 0;
+   vertical-align: top;
 }
 
 .footer-logo {
@@ -954,6 +962,12 @@ footer {
    padding: 0px;
    margin: 5px;
 }
+.footer-card1 {
+   display: inline-block;
+   text-align: start;
+   margin: 16px 20px 10px 0;
+   vertical-align: top;
+}
 
 .footer-card1 p {
    margin: 15px 0;
@@ -964,13 +978,16 @@ footer {
 
 .footer-cards h3 {
    color: #ffffff;
-   margin: 32px 0;
+   margin: 28px 0;
+   font-size: 1em;
 }
+
 .footer-address {
    margin: 32px 0;
 }
 .footer-email {
    margin: 20px 0;
+   display: inline;
 }
 .footer-card2 span {
    margin: 0 8px 0 0;
@@ -982,8 +999,16 @@ footer {
    margin-bottom: 20px;
    padding-left: 28px;
 }
-.footer-card3 p {
-   padding: 3px 0 2px 0;
+.footer-card3 li {
+   padding: 0px 0 2px 0;
+}
+.footer-card3 a {
+   font-size: 0.875em;
+   color: #909090;
+}
+
+.footer-card4 form {
+   width: 100%;
 }
 .footer-card4 form input {
    background: #b6b6b6;
@@ -996,19 +1021,26 @@ footer {
 .footer-form1 {
    width: 100%;
 }
-
+.footer-name,
+.footer-email {
+   width: 94%;
+}
+.footer-card4 form input.footer-name {
+   margin-bottom: 0;
+}
 .footer-card4 form textarea {
    background: #b6b6b6;
    border: none;
    outline: none;
    padding: 12px;
-
    width: 93%;
    height: 58px;
 }
 .footer-form3 input {
-   width: 100%;
    transition: 0.4s;
+}
+.footer-submit {
+   width: 100%;
 }
 .footer-form3 input:hover {
    background: #777777;

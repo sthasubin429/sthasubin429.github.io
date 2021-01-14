@@ -19,12 +19,20 @@
       margin: -24px -26px 0 0;
       display: block;
    }
+   /**-----For Some Fun Facts**/
+   .facts article {
+      margin: 20px 60px;
+   }
    /**-----For Footer------**/
    .footer-card1 {
       width: 280px;
    }
    .footer-card4 {
       width: 380px;
+   }
+   .footer-name,
+   .footer-email {
+      width: 70%;
    }
 }
 @media only screen and (min-width: 768px) {
@@ -77,6 +85,14 @@
    .env {
       margin: 80px 0;
    }
+   /**-----For Some Fun Facts**/
+   .facts article {
+      margin: 20px;
+   }
+   .footer-name,
+   .footer-email {
+      width: 44%;
+   }
 }
 @media only screen and (min-width: 1170px) {
    /*-----For Header-----*/
@@ -114,6 +130,10 @@
    .quality-text {
       height: 100%;
       width: 100%;
+   }
+   .quality-article {
+      width: 44%;
+      display: inline-block;
    }
    .quality .quality-content article {
       width: 44%;

@@ -102,7 +102,7 @@
     </div>
 
     <!-- Why Choose Us-->
-    <section class="wrapper why">
+    <div class="wrapper why">
         <div class="container">
             <article>
                 <h2>
@@ -160,10 +160,10 @@
                 </div>
             </article>            
         </div>
-    </section>
+    </div>
 
     <!-- What We Do -->
-    <section class="wrapper what">
+    <div class="wrapper what">
         <div class="container">
             <article>
                 <h2 class="section-header">
@@ -249,10 +249,10 @@
                 </div>
             </article>
         </div>
-    </section>
+    </div>
 
     <!-- How We Work-->
-    <section class="wrapper how">
+    <div class="wrapper how">
         <div class="container">
             <article>
                 <h2>
@@ -295,7 +295,7 @@
                 </div>
             </article>
         </div>
-    </section>
+    </div>
 
     <!-- Meet Our Team-->
     <section class="wrapper team">
@@ -425,15 +425,15 @@
     </section>
 
     <!-- Quality of Work-->
-    <section class="wrapper quality">
+    <div class="wrapper quality">
         <div class="quality-left-bg">        
         </div>
 
         <div class="container">
             <div class="quality-content clearfix">
-                <article class="quality-img">
+                <div class="quality-article quality-img">
                     <img src="images/img-apple.png" alt="Apple Products">
-                </article>
+                </div>
                 <article class="quality-text">
                     <h2>
                         QUALITY OF OUR 
@@ -468,10 +468,10 @@
                 </article>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Our Portfolio-->
-    <section class="wrapper portfolio">
+    <div class="wrapper portfolio">
         <div class="container">
             <article class="portfolio-content">
                 <h2 class="section-header">
@@ -582,7 +582,7 @@
                 </div>              
             </article>
         </div>
-    </section>
+    </div>
 
     <!-- Best Work Environment-->
     <section class="wrapper env clearfix">
@@ -759,7 +759,7 @@
     </section>
 
     <!-- Stories -->
-    <section class="wrapper stories">
+    <div class="wrapper stories">
         <div class="container">
             <div class="stories-content">
                 <article class="stories-card-1">
@@ -790,10 +790,10 @@
                     </div>
                 </article>
                 
-                <article class="stories-card-2">
+                <div class="stories-card-2">
                     <img src="images/team-img2.jpg" alt="Person" width="291">
-                </article>
-                <article class="stories-card-3 ">
+                </div>
+                <div class="stories-card-3 ">
                     <div class="stories-img ">
                         <img src="images/portfolio-img4.jpg" alt="Person" >
                     </div>
@@ -801,10 +801,10 @@
                         <img src="images/portfolio-img7.jpg" alt="Person" >
                     </div>
 
-                </article>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Our PRICING-->
     <section class="wrapper price">
@@ -936,7 +936,7 @@
                 </span>
             </h2>
         </div>
-        <article>
+        <div class="partners-article">
             <div class="partners-img">
                 <img src="images/portfolio-img6.jpg" alt="Partners" width="270">
             </div>
@@ -949,7 +949,7 @@
             <div class="partners-img">
                 <img src="images/portfolio-img1.jpg" alt="Partners" width="270">
             </div>
-        </article>
+        </div>
     </section>
     
     <!-- Footer -->
@@ -957,7 +957,7 @@
         <div class="container">
             <div class="footer">
                 <div class="footer-cards">
-                    <article class="footer-card1">
+                    <div class="footer-card1">
                         <div class="footer-card1-header">
                             <div class="footer-logo">
                                 <img src="images/icons/icon-sog.png" alt="icon-Shades of Grey" class="icon-sog">
@@ -986,7 +986,7 @@
                             </div>
                         </div>
 
-                    </article>
+                    </div>
 
                     <article class="footer-card2">
                         <h3>ADDRESS</h3>
@@ -1014,20 +1014,26 @@
                     </article>
                     <article class="footer-card3">
                         <h3>USEFUL LINKS</h3>
-                        <p>Terms & Condition</p>
-                        <p>Privacy Policy</p>
-                        <p>Legal Section</p>
-                        <p>Customer Care</p>
-                        <p>Advertising</p>
-                        <p>Coperate Solution</p>
-                        <p >Say Hello</p>
+                        <ul>
+                            <li>
+                                <a href="#" target="Terms & Condition">Terms & Condition</a>
+                            </li>
+                            <li>
+                                <a href="#" target="Privacy Policy"> Privacy Policy</a>
+                            </li>
+                            <li> <a href="#" target="Legal Section">Legal Section</a></li>
+                            <li> <a href="#" target="Customer Care">Customer Care</a></li>
+                            <li> <a href="#" target="Advertising">Advertising</a></li>
+                            <li> <a href="#" target="Coperate Solution">Coperate Solution</a></li>
+                            <li> <a href="#" target="Say Hello" >Say Hello</a></li>
+                        </ul>
                     </article>
                     <article class="footer-card4">
-                        <h3>Contact</h3>
+                        <h3>CONTACT</h3>
                         <form action="#">
                             <div class="footer-form1">
                                 <input type="text" name="Name" id="name" placeholder="Name" class="footer-name">
-                            <input type="email" name="Email" id="email" placeholder="Email" class="footer-email">
+                                <input type="email" name="Email" id="email" placeholder="Email" class="footer-email">
                             </div>
                             <div class="footer-form2">
                                 <textarea name="Text Area" id="textarea"  placeholder="Write Your Message Here" class="footer-textarea"></textarea>
