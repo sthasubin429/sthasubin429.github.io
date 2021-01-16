@@ -1,0 +1,14 @@
+.carousel-container {
+   position: relative;
+   overflow: hidden;
+   width: 600px;
+}
+
+.carousel-img-wrapper {
+   position: absolute;
+   left: 0;
+}
+
+.carousel-img-wrapper img {
+   float: left;
+}
