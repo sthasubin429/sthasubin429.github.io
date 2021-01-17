@@ -1,0 +1,19 @@
+.wrapper {
+   margin: 30px 0;
+}
+.carousel-container1 {
+   width: 600px;
+   height: 400px;
+}
+.carousel-container2 {
+   width: 400px;
+   height: 300px;
+}
+.carousel-container3 {
+   width: 500px;
+   height: 300px;
+}
+.carousel-container4 {
+   width: 768px;
+   height: 600px;
+}

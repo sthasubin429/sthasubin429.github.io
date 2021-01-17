@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="carousel-container carousel-container1">
+            <div class="carousel-img-wrapper">
+                <img src="images/img1.jpg" alt="Image">
+                <img src="images/img2.jpg" alt="Image">
+                <img src="images/img3.jpg" alt="Image">
+                <img src="images/img4.jpg" alt="Image">
+            </div>
+        </div>
+    </div>
+   
+    <div class="wrapper">
+        <div class="carousel-container carousel-container2">
+            <div class="carousel-img-wrapper">
+                <img src="https://picsum.photos/400/300" alt="Image">
+                <img src="https://picsum.photos/400/300" alt="Image">
+                <img src="https://picsum.photos/400/300" alt="Image">
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="carousel-container carousel-container3">
+            <div class="carousel-img-wrapper">
+                <img src="https://picsum.photos/500/300" alt="Image">
+                <img src="https://picsum.photos/500/300" alt="Image">
+                <img src="https://picsum.photos/500/300" alt="Image">
+                <img src="https://picsum.photos/500/300" alt="Image">
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="carousel-container carousel-container4">
+            <div class="carousel-img-wrapper">
+                <img src="https://picsum.photos/768/600" alt="Image">
+                <img src="https://picsum.photos/768/600" alt="Image">
+                <img src="https://picsum.photos/768/600" alt="Image">
+                <img src="https://picsum.photos/768/600" alt="Image">
+            </div>
+        </div>
+    </div>
+    <script src="js/carousel.js"></script>
+    <script>
+        createCarousel('carousel-container1', 10, 2000);
+        createCarousel('carousel-container2', 15, 1000);
+        createCarousel('carousel-container3', 30, 1000);
+        createCarousel('carousel-container4', 30, 1000);
+
+    </script>
+</body>
+</html>
