@@ -150,12 +150,13 @@ function moveImage() {
     else if(direction === 'right'){
         position += speed;
     }
-    if(position === (-currentIndex * IMG_WIDTH)-speed){
+    if(Math.abs(position - (-currentIndex * IMG_WIDTH)) < speed){
         speed = DEFAULT_SPEED;
         position = (-currentIndex * IMG_WIDTH);
         wrapper.style.left = position + 'px';
         changeDotColor();
         moving = false;
+
         return;
         
     }
