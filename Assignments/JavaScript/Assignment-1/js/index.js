@@ -1,27 +1,26 @@
-var containers= document.getElementsByClassName('carousel-container');
-// var wrappers = document.getElementsByClassName('carousel-img-wrapper');
-var imgWidth = 600;
-var imgHeight = 400;
+//Getting All DOM Elements
+var containers= document.getElementsByClassName('carousel-container')[0];
+var wrapper = document.getElementsByClassName('carousel-img-wrapper')[0];
 var images = document.querySelectorAll('.carousel-img-wrapper img');
 
+//constants
+const IMG_WIDTH = 600;
+const IMG_HEIGHT = 400;
+const DEFAULT_SPEED = 20;
 
+//variables
 var currentIndex = 0;
-var speed = 10;
+var speed = DEFAULT_SPEED;
 var position = 0
 var direction;
-var move;
+var moving = false;
 
 var dots = [];
 
-console.log(images);
-
-for( var i = 0; i< containers.length; i++){
-    containers[i].style.height = "400px";
-
-}
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-var wrapper = document.getElementsByClassName('carousel-img-wrapper')[0];
+//setting up container and wrapper sizes
+containers.style.height = IMG_HEIGHT +'px';
+containers.style.width = IMG_WIDTH + 'px';
+wrapper.style.width = images.length * IMG_WIDTH + 'px';
 
 //rendering arrows
 var leftArrow = document.createElement('img');
@@ -35,7 +34,8 @@ leftArrow.style.position = 'absolute';
 leftArrow.style.left = '560px';
 leftArrow.style.top = '40%';
 
-containers[0].appendChild(leftArrow);
+containers.appendChild(leftArrow);
+
 
 rightArrow.style.width = "25px";
 rightArrow.style.height = "25px";
@@ -45,25 +45,28 @@ rightArrow.style.position = 'absolute';
 rightArrow.style.left = '20px';
 rightArrow.style.top = '40%';
 
-containers[0].appendChild(rightArrow);
+containers.appendChild(rightArrow);
 
+//adding eventListeners to arrow buttons
 leftArrow.addEventListener('click', nextImage);
 rightArrow.addEventListener('click', prevImage);
 
-//rendering nav buttons
-for (var i =0; i<images.length; i++){   
+//rendering dots
+for (var i =0; i<images.length; i++){
     dots[i] = document.createElement('div');
     dots[i].style.position = 'absolute';
     dots[i].style.background = '#777';
     dots[i].style.width = '12px';
     dots[i].style.height = '12px';
     dots[i].style.borderRadius = '50%';
-    dots[i].style.left = 250 + (i * 20) + 'px';
+    dots[i].style.left = 280 + (i * 20) + 'px';
     dots[i].style.bottom = '8px';
     dots[i].addEventListener('click', changeFromDot);
     changeDotColor();
-    containers[0].appendChild(dots[i]);
+    containers.appendChild(dots[i]);
 }
+
+//Changing Image from dot
 function changeFromDot(e){
     for (var j =0; j < dots.length; j++){
         if (dots[j] === e.target){
@@ -72,22 +75,23 @@ function changeFromDot(e){
                 return
             }
             else if(Math.sign(currentIndex-j) === 1 ){
-                speed = 10*(currentIndex-j);
+                speed = DEFAULT_SPEED*(currentIndex-j);
                 currentIndex = j;
                 direction = 'right';
-                move = setInterval(moveImage,1000/60);  
+                moveImage(); 
             }
             else if(Math.sign(currentIndex-j) === -1){
-                speed = 10*(j-currentIndex);
+                speed = DEFAULT_SPEED*(j-currentIndex);
                 currentIndex = j;
                 direction = 'left';
-                move = setInterval(moveImage,1000/60);       
+                moveImage(); 
             }
 
         }
     }
 
 }
+//changin image colour
 function changeDotColor(){
     for (var j =0; j < dots.length; j++){
         if (j === currentIndex){
@@ -99,44 +103,46 @@ function changeDotColor(){
     }
 }
 
+//Going to next image
 function nextImage(){
-    currentIndex ++;
-    if (currentIndex === images.length){
-        currentIndex = 0;
-        direction = 'right';
-        speed = 30;
-        moveImage(); 
-        move = setInterval(moveImage,1000/60);   
+    if(!moving){
+        moving = true;
+        currentIndex ++;
+        if (currentIndex === images.length){
+            currentIndex = 0;
+            direction = 'right';
+            speed = DEFAULT_SPEED*2.5;
+            moveImage(); 
+        }
+        else{
+            direction = 'left';
+            moveImage();
+        }
+    }
 
-    }
-    else{
-        // console.log(currentIndex, (-currentIndex * imgWidth));
-        //wrapper.style.left = (-currentIndex * imgWidth)+ 'px';
-        direction = 'left';
-        // moveImage();
-        move = setInterval(moveImage,1000/60);
-    
-    }
 
 }
+
+//going to previous image
 function prevImage(){
-    if (currentIndex === 0){
-        currentIndex = images.length-1;
-        direction = 'left';
-        speed = 30;
-        // moveImage();
-        move = setInterval(moveImage,1000/60);
+    if(!moving){
+        moving = true;
+        if (currentIndex === 0){
+            currentIndex = images.length-1;
+            direction = 'left';
+            speed = DEFAULT_SPEED*2.5;
+            moveImage();
+        }
+        else{
+            currentIndex --;
+            direction = 'right';
+            moveImage();  
+        }
     }
-    else{
-        currentIndex --;
-        // console.log(currentIndex, (-currentIndex * imgWidth));
-        // wrapper.style.left = (-currentIndex * imgWidth)+ 'px';
-        direction = 'right';
-        // moveImage();  
-        move = setInterval(moveImage,1000/60);  
-    }
+
 }
 
+//changing image
 function moveImage() {
     if(direction === 'left'){
         position -= speed;
@@ -144,18 +150,18 @@ function moveImage() {
     else if(direction === 'right'){
         position += speed;
     }
-    if(position === (-currentIndex * imgWidth)-speed){
-        speed = 10;
-        position = (-currentIndex * imgWidth);
+    if(position === (-currentIndex * IMG_WIDTH)-speed){
+        speed = DEFAULT_SPEED;
+        position = (-currentIndex * IMG_WIDTH);
         wrapper.style.left = position + 'px';
         changeDotColor();
-        // return;
-        clearInterval(move)
+        moving = false;
+        return;
         
     }
     else{
         wrapper.style.left = position + 'px';
-        console.log(currentIndex, (-currentIndex * imgWidth));
     }
-    // requestAnimationFrame(moveImage)
+    requestAnimationFrame(moveImage);
+
 }

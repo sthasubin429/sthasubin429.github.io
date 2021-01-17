@@ -1,15 +1,18 @@
 .carousel-container {
    position: relative;
    overflow: hidden;
-   width: 600px;
    margin: 0 auto;
 }
-
 .carousel-img-wrapper {
    position: absolute;
+   overflow: auto;
    left: 0;
 }
-
+.carousel-image-wrapper::after {
+   clear: both;
+   content: "";
+   display: table;
+}
 .carousel-img-wrapper img {
    float: left;
 }
