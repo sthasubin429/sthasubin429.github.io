@@ -2,6 +2,7 @@
    position: relative;
    overflow: hidden;
    width: 600px;
+   margin: 0 auto;
 }
 
 .carousel-img-wrapper {
@@ -11,4 +12,8 @@
 
 .carousel-img-wrapper img {
    float: left;
+}
+
+.dot-active {
+   background: #fff;
 }
