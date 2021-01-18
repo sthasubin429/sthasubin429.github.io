@@ -1,0 +1,11 @@
+* {
+   padding: 0;
+   margin: 0;
+}
+.container {
+   border: 1px #000000 solid;
+   width: 800px;
+   height: 800px;
+   margin: 20px auto;
+   background: skyblue;
+}
