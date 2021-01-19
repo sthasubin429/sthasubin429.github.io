@@ -1,0 +1,10 @@
+.container {
+   border: 1px #000000 solid;
+   width: 400px;
+   height: 800px;
+   margin: 20px auto;
+   background: url(../images/road.png);
+}
+#score {
+   text-align: center;
+}
