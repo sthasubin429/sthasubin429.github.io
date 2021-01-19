@@ -2,6 +2,17 @@
    padding: 0;
    margin: 0;
 }
+.score-Header {
+   text-align: center;
+}
+h3 {
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   -o-user-select: none;
+   text-align: center;
+}
 .container {
    border: 1px #000000 solid;
    width: 800px;
