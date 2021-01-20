@@ -23,4 +23,12 @@ var tap = new Image();
 tap.src = "./images/tap.png";
 
 var gameOver = new Image();
-gameOver.src = "./images/game-over.png"
+gameOver.src = "./images/game-over.png";
+
+var birdUp = new Image();
+birdUp.src = "./images/bird-up.png";
+
+var birdDown = new Image();
+birdDown.src = "./images/bird-down.png";
+
+var birdImages = [birdUp, birdNormal, birdDown]

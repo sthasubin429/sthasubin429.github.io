@@ -6,6 +6,7 @@ class Bird{
             y:y
         }
         this.frame = 1;
+        this.count = 1;
 
         //funciton binding
         this.drawBird = this.drawBird.bind(this);
@@ -16,10 +17,11 @@ class Bird{
     }
 
     drawBird(){
-        this.ctx.drawImage(birdNormal,this.birdPosition.x,this.birdPosition.y,BIRD_WIDTH,BIRD_HEIGHT);
+        this.ctx.drawImage(birdImages[this.count%birdImages.length],this.birdPosition.x,this.birdPosition.y,BIRD_WIDTH,BIRD_HEIGHT);
     }
 
     updateBird(){
+        this.count++;
         this.birdPosition.y = this.birdPosition.y+(GRAVITY*this.frame)/2
     }
 

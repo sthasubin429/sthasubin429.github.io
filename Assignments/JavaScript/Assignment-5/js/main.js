@@ -153,7 +153,7 @@ class Main{
         this.ctx.font = "500 16px Noto Sans JP";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(`Score : ${this.score}`, 10, 30);
-        this.ctx.fillText(`Highest Score : ${this.highestScore}`, 160, 30);
+        this.ctx.fillText(`Highest Score : ${this.highestScore}`, 150, 30);
 
     }
 
