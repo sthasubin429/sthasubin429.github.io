@@ -1,5 +1,3 @@
-
-
 const ENEMY_WIDTH = 50;
 const ENEMY_HEIGHT = 104;
 function enemy(){
@@ -58,6 +56,31 @@ enemy.prototype.checkCollision = function(player){
 }
 enemy.prototype.getPositionY = function(){
     return this.enemyPosition.y;
+}
+enemy.prototype.detectStrike = function(bullets){
+    for(let i =0;i<bullets.length;i++){
+        var rect1 = {x: bullets[i].bulletPosition.x,
+            y: bullets[i].bulletPosition.y, 
+            width: BULLET_WIDTH, 
+            height: BULLET_HEIGHT}
+
+        var rect2 = {x: this.enemyPosition.x,
+                    y: this.enemyPosition.y, 
+                    width: ENEMY_WIDTH, 
+                    height: ENEMY_HEIGHT}
+
+        if (rect1.x < rect2.x + rect2.width &&
+        rect1.x + rect1.width > rect2.x &&
+        rect1.y < rect2.y + rect2.height &&
+        rect1.y + rect1.height > rect2.y) {
+            removeBullet(i)
+            return true
+        }
+        else{
+            return false;
+        }
+    }
+
 }
 // enemy.prototype.update = function(){
 
