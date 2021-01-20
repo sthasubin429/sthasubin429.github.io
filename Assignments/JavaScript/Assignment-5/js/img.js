@@ -12,3 +12,15 @@ botPipeImg.src = "./images/pipe-bottom.png";
 
 var birdNormal = new Image();
 birdNormal.src = "./images/bird.png";
+
+var flappyBird = new Image();
+flappyBird.src = "./images/flappy-bird.png";
+
+var getReady = new Image();
+getReady.src = "./images/get-ready.png";
+
+var tap = new Image();
+tap.src = "./images/tap.png";
+
+var gameOver = new Image();
+gameOver.src = "./images/game-over.png"
