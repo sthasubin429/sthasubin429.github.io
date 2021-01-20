@@ -1,0 +1,11 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+#container {
+   border: 1px #000000 solid;
+   width: 288px;
+   height: 608px;
+   margin: 20px auto;
+   background: url(../images/bg-bot.png) no-repeat bottom right;
+}
