@@ -163,10 +163,12 @@ function game(){
     function createEnemy(){
         var newEnemy = new enemy();
         this.enemies.push(newEnemy);
-        if(getRndInteger(0,9) === 0){
-            var newEnemy = new enemy();
-            this.enemies.push(newEnemy); 
-        }
+        //if block below may generate enemy cars in unfair positions
+        //it creates a 1 in 10 chance that a second car may be generated along same y axis
+        // if(getRndInteger(0,9) === 0){
+        //     var newEnemy = new enemy();
+        //     this.enemies.push(newEnemy); 
+        // }
     }
     function updateSpeed(){
         this.speed += 0.2;
