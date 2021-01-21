@@ -137,8 +137,8 @@ class Main{
 
         this.ctx.font = "400 24px Noto Sans JP";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText(`Your Score  :  ${currentScore}`, 60, 400);
-        this.ctx.fillText(`Highest Score  :  ${this.highestScore}`, 60, 440);
+        this.ctx.fillText(`Your Score  :  ${currentScore}`, 40, 400);
+        this.ctx.fillText(`Highest Score  :  ${this.highestScore}`, 40, 440);
 
         this.container.addEventListener('click', this.playGame);
     }
