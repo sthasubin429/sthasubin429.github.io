@@ -75,18 +75,18 @@ class Main{
         }
 
         this.generatePipe();
-        
-        for(let i =0;i<this.pipeArray.length;i++){
-            this.pipeArray[i].updatePipe();
-            this.pipeArray[i].drawPipe();
+        let temp = [...this.pipeArray];
+        for(let i =0;i<temp.length;i++){
+            temp[i].updatePipe();
+            temp[i].drawPipe();
 
-            if(this.pipeArray[i].detectCollision(this.bird)){
+            if(temp[i].detectCollision(this.bird)){
                 cancelAnimationFrame(this.animationID);
                 this.gameOver();
                 return;
             }
 
-            if(this.pipeArray[i].checkPipePosition()){
+            if(temp[i].checkPipePosition()){
                 this.pipeArray.splice(i,1);
                 this.updateScore();
             }
