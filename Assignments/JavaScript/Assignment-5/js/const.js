@@ -5,9 +5,10 @@ const CONTAINER_HEIGHT = 608;
 const BIRD_POS_X = 20; 
 const BIRD_WIDTH = 34;
 const BIRD_HEIGHT = 24;
-const BIRD_JUMP = 60;
+const BIRD_JUMP = 4;
+const BIRD_JUMP_DISTANCE = 60;
 
-const GRAVITY = 4;
+const GRAVITY = 3.5;
 
 const PIPE_WIDTH = 49;
 const PIPE_HEIGHT = 300;

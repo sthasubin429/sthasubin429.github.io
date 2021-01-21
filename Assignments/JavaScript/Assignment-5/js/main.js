@@ -55,6 +55,7 @@ class Main{
         this.world.init();
         
 
+        // this.bird.frameCount();
         this.bird.updateBird();
         this.bird.drawBird();
         

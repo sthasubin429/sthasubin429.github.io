@@ -24,8 +24,8 @@ class Pipe{
 
     detectCollision(bird){
         let rect1 = {x: bird.birdPosition.x, y: bird.birdPosition.y, width: BIRD_WIDTH, height: BIRD_HEIGHT}
-        let rect2 = {x: this.pipePosition.x, y: this.pipePosition.y, width: PIPE_WIDTH, height: PIPE_HEIGHT}
-        let rect3 = {x: this.pipePosition.x+16, y: (this.pipePosition.y+PIPE_HEIGHT+PIPE_GAP), width: PIPE_WIDTH, height: PIPE_HEIGHT}
+        let rect2 = {x: this.pipePosition.x+20, y: this.pipePosition.y+10, width: PIPE_WIDTH, height: PIPE_HEIGHT}
+        let rect3 = {x: this.pipePosition.x+36, y: (this.pipePosition.y+PIPE_HEIGHT+PIPE_GAP)+5, width: PIPE_WIDTH, height: PIPE_HEIGHT}
 
         if (rect1.x < rect2.x + rect2.width &&
         rect1.x + rect1.width > rect2.x &&
