@@ -1,3 +1,4 @@
+//Images that are drawn on cnavas
 var background = new Image();
 background.src="./images/bg.png";
 

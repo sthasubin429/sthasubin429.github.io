@@ -1,4 +1,10 @@
+//Bird Class
 class Bird{
+    /**
+     * 
+     * @param {Context} ctx Canvas Context
+     * @param {Integer} y Position of Bird along Y axis
+     */
     constructor(ctx, y){
         this.ctx = ctx;
         this.birdPosition={
@@ -21,6 +27,7 @@ class Bird{
         this.d = new Date();
     }
 
+    //Function That draws Bird on Canvas
     drawBird(){
         // this.ctx.drawImage(birdImages[this.count%birdImages.length],this.birdPosition.x,this.birdPosition.y,BIRD_WIDTH,BIRD_HEIGHT);
 
@@ -33,6 +40,7 @@ class Bird{
 
     }
 
+    //Function that updates Bird's position
     updateBird(){
         this.count++;
         if(this.isJumping){
@@ -48,6 +56,7 @@ class Bird{
         }
     }
 
+    //Function to make the bird jump
     jumpBird(){
         this.positionBeforeJump = this.birdPosition.y;
         this.rotation = -30;
@@ -56,6 +65,7 @@ class Bird{
         this.birdPosition.y  = this.birdPosition.y  - BIRD_JUMP;
     }
 
+    //Function to see if the bird collides with top or bottom part of screen
     wallCollision(){
         if(this.birdPosition.y < 5  || this.birdPosition.y > (CANVAS_HEIGHT-BIRD_HEIGHT)){
             return true;
@@ -63,6 +73,7 @@ class Bird{
         else{return false;}
     }
 
+    //Increases framecount ot simulate time passing
     frameCount(){
         
         this.frame ++;

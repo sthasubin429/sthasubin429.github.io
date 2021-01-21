@@ -1,4 +1,10 @@
+//Main Class that runs the game
 class Main{
+    /**
+     * 
+     * @param {String} canvasID ID of Canvas
+     * @param {String} containerID ID of Container
+     */
     constructor(canvasID, containerID){
         this.container = document.getElementById(containerID);
         this.canvas = document.getElementById(canvasID);
@@ -28,6 +34,7 @@ class Main{
         this.canvasSpaceKey = this.canvasSpaceKey.bind(this);
     }
 
+    //init function of the class, Renders Main screen 
     init(){
         if(this.isStart){
             this.world = new World(this.ctx);
@@ -49,6 +56,7 @@ class Main{
         }
     }
 
+    //Main Game loop
     update(){
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -88,6 +96,7 @@ class Main{
         this.animationID = requestAnimationFrame(this.update);
     }
 
+    //Resets the game and calls update function
     playGame(){
         this.container.removeEventListener('click', this.playGame);
 
@@ -112,6 +121,7 @@ class Main{
         document.addEventListener('keydown', this.canvasSpaceKey); 
     }
 
+    //Renders GameOver Screen
     gameOver(){
         let currentScore = this.score;
         this.restGame();
@@ -133,12 +143,14 @@ class Main{
         this.container.addEventListener('click', this.playGame);
     }
 
+    //resets all necessary game values
     restGame(){
         this.pipeArray = [];
         this.animationID = 0;
         this.score = 0;
     }
 
+    //Function to generate pipes
     generatePipe(){
         if(this.pipeArray.length <1){
             this.pipeArray.push(new Pipe(this.ctx));
@@ -150,6 +162,7 @@ class Main{
         }   
     }
 
+    //Function that draws score and highest score on top of the screen
     drawScore(){
         this.ctx.font = "500 16px Noto Sans JP";
         this.ctx.fillStyle = "white";
@@ -158,6 +171,8 @@ class Main{
 
     }
 
+    //Updates current score and also checks for highest score
+    //Stores the highest schore in local storage
     updateScore(){
         this.score ++;
         this.drawScore();
@@ -168,16 +183,19 @@ class Main{
 
     }
 
+    //Gets High score from local storage
     getHighScore(){
         if(localStorage.getItem(STORAGE_KEY) != null){
             this.highestScore = parseInt(localStorage.getItem(STORAGE_KEY));
         }
     }
 
+    //On Click listener Function
     canvasClick(){
         this.bird.jumpBird();
     }
 
+    //Space PressDown Listener Fuction
     canvasSpaceKey(event){
         switch (event.key) {
             case " ":
@@ -189,6 +207,7 @@ class Main{
 
 }
 
+//Functio to Load Game
 function runGame(){
     var g = new Main('game','container');
     g.init();    

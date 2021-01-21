@@ -1,4 +1,8 @@
 class Pipe{
+    /**
+     * 
+     * @param {Context} ctx Canvas Context
+     */
     constructor(ctx){
         this.ctx = ctx;
         this.top;
@@ -9,19 +13,26 @@ class Pipe{
         }
     }
 
+    //Function that draws the pipe
     drawPipe(){
         this.ctx.drawImage(topPipeImg,this.pipePosition.x,this.pipePosition.y,PIPE_WIDTH,PIPE_HEIGHT);
         this.ctx.drawImage(botPipeImg,this.pipePosition.x,this.pipePosition.y+PIPE_HEIGHT+PIPE_GAP, PIPE_WIDTH,PIPE_HEIGHT);
     }
 
+    //Function to update pipe position
     updatePipe(){
         this.pipePosition.x -= PIPE_SPEED;
     }
 
+    //Function that checks if the pipe is out of screen
     checkPipePosition(){
         return ((this.pipePosition.x+PIPE_WIDTH) < 0) ? true : false; 
     }
 
+    /**
+     * 
+     * @param {Object} bird Bird Object to detect Colision
+     */
     detectCollision(bird){
         let rect1 = {x: bird.birdPosition.x, y: bird.birdPosition.y, width: BIRD_WIDTH, height: BIRD_HEIGHT}
         let rect2 = {x: this.pipePosition.x+20, y: this.pipePosition.y+10, width: PIPE_WIDTH, height: PIPE_HEIGHT}
@@ -42,9 +53,9 @@ class Pipe{
         else{
             return false
         }
-
     }
-
+    
+    //Checks if the bird passed the pipe
     // checkPipePassed(){
     //     return this.pipePosition.x+PIPE_WIDTH<BIRD_POS_X; 
     // }
