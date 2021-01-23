@@ -1,9 +1,9 @@
 //Images that are drawn on cnavas
 var background = new Image();
-background.src="./images/bg.png";
+background.src = "./images/bg.png";
 
 var backgroundBot = new Image();
-backgroundBot.src="./images/bg-bot.png";
+backgroundBot.src = "./images/bg-bot.png";
 
 var topPipeImg = new Image();
 topPipeImg.src = "./images/pipe-top.png";
@@ -32,4 +32,4 @@ birdUp.src = "./images/bird-up.png";
 var birdDown = new Image();
 birdDown.src = "./images/bird-down.png";
 
-var birdImages = [birdUp, birdNormal, birdDown]
+var birdImages = [birdUp, birdNormal, birdDown];
