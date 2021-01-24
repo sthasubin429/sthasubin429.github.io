@@ -7,7 +7,7 @@ class Game {
       this.canvas.height = CANVAS_HEIGHT;
       this.stage;
 
-      this.ryu;
+      this.player1;
       //function binding
       this.gameLoop = this.gameLoop.bind(this);
    }
@@ -15,13 +15,15 @@ class Game {
    init() {
       this.stage = new Stage(this.ctx);
       this.stage.init();
+      this.player1 = new Ryu(this.ctx);
       this.gameLoop();
    }
    gameLoop() {
       frameCount++;
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.stage.init();
-      this.ryu = new Ryu(this.ctx);
-      this.ryu.drawRyu();
+      this.player1.drawPlayer();
+
       requestAnimationFrame(this.gameLoop);
    }
 }
