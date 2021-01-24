@@ -28,33 +28,59 @@ const RYU_SPRITE_POSITION = {
          y: 410,
       },
    ],
-   idle1: [
+   moveRight: [
       {
-         width: 125,
+         width: 139,
+         height: 239,
+         x: 11565,
+         y: 88,
+      },
+      {
+         width: 117,
+         height: 245,
+         x: 11705,
+         y: 83,
+      },
+      {
+         width: 107,
+         height: 241,
+         x: 11823,
+         y: 86,
+      },
+      {
+         width: 114,
+         height: 239,
+         x: 11930,
+         y: 88,
+      },
+   ],
+   moveLeft: [
+      {
+         width: 124,
          height: 229,
          x: 1496,
          y: 98,
       },
       {
-         width: 123,
+         width: 122,
          height: 239,
          x: 1621,
          y: 88,
       },
       {
-         width: 104,
+         width: 103,
          height: 241,
          x: 1743,
          y: 86,
       },
       {
-         width: 109,
+         width: 108,
          height: 245,
          x: 1851,
          y: 83,
       },
       {
-         width: 127,
+         width: 126,
          height: 239,
          x: 2082,
          y: 88,

@@ -11,20 +11,21 @@ class Animation {
     * @param {Integer} time time taken to complete the animation
     * @param {Boolen} loop defines if the animation loops or stops after once
     */
-   constructor(ctx, sprite, width, height, rotation, spritePosition, position, time, loop) {
+   constructor(ctx, sprite, rotation, spritePosition, position, time, loop, player) {
       this.ctx = ctx; //canvas context
       this.sprite = sprite; //sprite used for animation
-      this.width = width; //final width of image
-      this.height = height; //final height of image
+      // this.width = width; //final width of image
+      // this.height = height; //final height of image
       this.rotation = rotation; // weather to mirror the image or not
       this.spritePosition = spritePosition; //position of image on sprite
       this.position = position; //position to draw the image
       this.animationTime = time; //time taken to complete the animation
       this.loop = loop; //weather the animation loops or stops after once
       this.counter = 0;
+      this.player = player;
    }
 
-   animate() {
+   animate(frameCount) {
       this.ctx.save();
       if (this.rotation) {
          this.ctx.translate(CANVAS_WIDTH, 0);
@@ -38,8 +39,8 @@ class Animation {
          this.spritePosition[this.counter].height,
          this.position.x,
          this.position.y,
-         this.width,
-         this.height
+         this.spritePosition[this.counter].width,
+         this.spritePosition[this.counter].height
       );
 
       this.ctx.restore();
@@ -47,6 +48,10 @@ class Animation {
          this.counter++;
          if (this.counter === this.spritePosition.length - 1) {
             this.counter = 0;
+            if (!this.loop) {
+               this.player.currentState = resetState(this.player.currentState);
+               this.player.currentState.isIdle = true;
+            }
          }
       }
    }
