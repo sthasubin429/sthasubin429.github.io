@@ -12,7 +12,7 @@ class Game {
       this.player1;
       //function binding
       this.gameLoop = this.gameLoop.bind(this);
-      this.buttonPress = this.buttonPress.bind(this);
+      this.buttonDown = this.buttonDown.bind(this);
    }
 
    init() {
@@ -20,7 +20,7 @@ class Game {
       this.stage.init();
       this.player1 = new Ryu(this.ctx);
       this.gameLoop();
-      document.addEventListener('keydown', this.buttonPress);
+      document.addEventListener('keydown', this.buttonDown);
    }
    gameLoop() {
       this.frameCount++;
@@ -32,7 +32,7 @@ class Game {
       requestAnimationFrame(this.gameLoop);
    }
 
-   buttonPress(event) {
+   buttonDown(event) {
       switch (event.key) {
          case ARROW_LEFT:
             console.log('left pressed');

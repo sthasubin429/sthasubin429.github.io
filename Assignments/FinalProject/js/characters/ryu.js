@@ -26,15 +26,22 @@ class Ryu {
       if (this.currentState.isIdle) {
          this.makeIdle();
       } else if (this.currentState.isMovingRight) {
-         this.moveRight();
+         if (this.rotation) {
+            this.moveRight();
+         } else {
+            this.moveLeft();
+         }
       } else if (this.currentState.isMovingLeft) {
-         this.moveLeft();
+         if (this.rotation) {
+            this.moveLeft();
+         } else {
+            this.moveRight();
+         }
       }
    }
    makeIdle() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.idle;
       this.animation.loop = true;
-      this.animation.counter = 0;
    }
    moveRight() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.moveRight;
