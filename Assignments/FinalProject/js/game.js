@@ -46,9 +46,13 @@ class Game {
             break;
          case ARROW_UP:
             console.log('UP pressed');
+            this.player1.currentState = resetState(this.player1.currentState);
+            this.player1.currentState.isJumping = true;
             break;
          case ARROW_DOWN:
             console.log('Down pressed');
+            // this.player1.currentState = resetState(this.player1.currentState);
+            // this.player1.currentState.isCrouching = true;
             break;
       }
    }

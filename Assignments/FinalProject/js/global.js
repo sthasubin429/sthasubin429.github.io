@@ -1,1 +1,0 @@
-let frameCount = 0;

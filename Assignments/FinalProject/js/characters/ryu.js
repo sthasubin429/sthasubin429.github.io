@@ -22,6 +22,7 @@ class Ryu {
       this.animation.animate(frameCount);
       // resetState(this.currentState);
    }
+
    updatePlayer() {
       if (this.currentState.isIdle) {
          this.makeIdle();
@@ -37,20 +38,39 @@ class Ryu {
          } else {
             this.moveRight();
          }
+      } else if (this.currentState.isJumping) {
+         this.jump();
+      } else if (this.currentState.isCrouching) {
+         this.crouch();
       }
    }
+
    makeIdle() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.idle;
       this.animation.loop = true;
    }
+
    moveRight() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.moveRight;
       this.position.x -= moveSpeed;
       this.animation.loop = false;
    }
+
    moveLeft() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.moveLeft;
       this.position.x += moveSpeed;
+      this.animation.loop = false;
+   }
+
+   jump() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.jump;
+      // this.position.y -= moveSpeed;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME + 4;
+      this.animation.loop = false;
+   }
+   crouch() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.crouch;
+      // this.position.y -= moveSpeed;
       this.animation.loop = false;
    }
 }

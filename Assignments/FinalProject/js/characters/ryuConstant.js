@@ -86,4 +86,63 @@ const RYU_SPRITE_POSITION = {
          y: 88,
       },
    ],
+   jump: [
+      {
+         width: 128,
+         height: 227,
+         x: 3294,
+         y: 435,
+      },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+      {
+         width: 122,
+         height: 167,
+         x: 3544,
+         y: 495,
+      },
+      {
+         width: 128,
+         height: 221,
+         x: 3666,
+         y: 441,
+      },
+      //
+      // {
+      //    width: 122,
+      //    height: 167,
+      //    x: 3544,
+      //    y: 495,
+      // },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+   ],
+   crouch: [
+      {
+         width: 124,
+         height: 229,
+         x: 2151,
+         y: 200,
+      },
+      {
+         width: 126,
+         height: 185,
+         x: 2333,
+         y: 142,
+      },
+      {
+         width: 123,
+         height: 167,
+         x: 2460,
+         y: 160,
+      },
+   ],
 };
