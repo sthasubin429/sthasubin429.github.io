@@ -8,4 +8,4 @@ const ARROW_UP = 38;
 const ARROW_DOWN = 40;
 
 //move speed
-const moveSpeed = 3;
+const MOVE_SPEED = 3;

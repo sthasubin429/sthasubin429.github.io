@@ -28,7 +28,7 @@ class Game {
       this.frameCount++;
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.stage.init();
-      this.player1.updatePlayer();
+      this.player1.updatePlayer(this.frameCount);
       this.player1.drawPlayer(this.frameCount);
 
       requestAnimationFrame(this.gameLoop);
@@ -36,7 +36,6 @@ class Game {
 
    keyDownHandler(event) {
       this.player1.animationComplete = false;
-      console.log(event.keyCode);
       switch (event.keyCode) {
          case ARROW_LEFT:
             // console.log('left pressed');
@@ -59,8 +58,6 @@ class Game {
    }
 
    keyUpHandler(event) {
-      console.log(this.player1.currentState);
-      console.log(this.player1.animationComplete);
       if (this.player1.animationComplete) {
          this.player1.currentState = resetState(this.player1.currentState);
          this.player1.currentState.isIdle = true;

@@ -24,8 +24,10 @@ class Ryu {
       // resetState(this.currentState);
    }
 
-   updatePlayer() {
-      if (this.currentState.isMovingRight) {
+   updatePlayer(frameCount) {
+      if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
+         this.counter = 0;
+      } else if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
          } else {
@@ -38,7 +40,7 @@ class Ryu {
             this.moveRight();
          }
       } else if (this.currentState.isJumping) {
-         this.jump();
+         this.jump(frameCount);
       } else if (this.currentState.isCrouching) {
          this.crouch();
       } else if (this.currentState.isIdle) {
@@ -53,20 +55,26 @@ class Ryu {
 
    moveRight() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.moveRight;
-      this.position.x -= moveSpeed;
+      this.position.x -= MOVE_SPEED;
       this.animation.loop = false;
    }
 
    moveLeft() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.moveLeft;
-      this.position.x += moveSpeed;
+      this.position.x += MOVE_SPEED;
       this.animation.loop = false;
    }
 
-   jump() {
+   jump(frameCount) {
       this.animation.spritePosition = RYU_SPRITE_POSITION.jump;
-      // this.position.y -= moveSpeed;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME + 4;
+      if (frameCount % RYU_IDLE_ANIMATION_TIME === 0) {
+         this.position.y -= MOVE_SPEED * jumpHeightChange(this.animation.counter) + 30;
+      }
+      if (this.animation.counter >= this.animation.spritePosition.length - 2) {
+         this.position.y = 320;
+      }
+      console.log(this.position.y);
       this.animation.loop = false;
    }
    crouch() {
