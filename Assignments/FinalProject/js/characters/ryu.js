@@ -16,6 +16,7 @@ class Ryu {
          isJumping: false,
          isCrouching: false,
       };
+      this.animationComplete = false;
    }
 
    drawPlayer(frameCount) {
@@ -24,9 +25,7 @@ class Ryu {
    }
 
    updatePlayer() {
-      if (this.currentState.isIdle) {
-         this.makeIdle();
-      } else if (this.currentState.isMovingRight) {
+      if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
          } else {
@@ -42,6 +41,8 @@ class Ryu {
          this.jump();
       } else if (this.currentState.isCrouching) {
          this.crouch();
+      } else if (this.currentState.isIdle) {
+         this.makeIdle();
       }
    }
 

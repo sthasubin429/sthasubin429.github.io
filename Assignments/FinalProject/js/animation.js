@@ -51,6 +51,7 @@ class Animation {
             if (!this.loop) {
                this.player.currentState = resetState(this.player.currentState);
                this.player.currentState.isIdle = true;
+               this.player.animationComplete = true;
             }
          }
       }
