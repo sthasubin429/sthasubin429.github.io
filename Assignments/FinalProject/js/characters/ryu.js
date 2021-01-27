@@ -1,5 +1,5 @@
 class Ryu {
-   constructor(ctx) {
+   constructor(ctx, rotation) {
       this.ctx = ctx;
 
       this.position = {
@@ -7,8 +7,8 @@ class Ryu {
          y: 320,
       };
 
-      this.rotation = true;
-      this.animation = new Animation(this.ctx, ryuSprite, this.rotation, RYU_SPRITE_POSITION.idle, this.position, RYU_IDLE_ANIMATION_TIME, true, this);
+      this.rotation = rotation;
+      this.animation = new Animation(this.ctx, ryuSprite, this.rotation, RYU_SPRITE_POSITION.idle, this.position, RYU_IDLE_ANIMATION_TIME, true, false, this);
       this.currentState = {
          isIdle: true,
          isMovingRight: false,
@@ -27,6 +27,17 @@ class Ryu {
    updatePlayer(frameCount) {
       if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
          this.counter = 0;
+      } else if (this.currentState.isJumping && this.currentState.isMovingRight) {
+         console.log('jumping right');
+         this.jump();
+      } else if (this.currentState.isJumping && this.currentState.isMovingLeft) {
+         console.log('jumping left');
+         this.jump();
+      } else if (this.currentState.isCrouching && (this.currentState.isMovingLeft || this.currentState.isMovingRight)) {
+         console.log('crouch left right');
+         this.crouch();
+      } else if (this.currentState.isJumping && this.currentState.isCrouching) {
+         this.crouch();
       } else if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
@@ -40,7 +51,7 @@ class Ryu {
             this.moveRight();
          }
       } else if (this.currentState.isJumping) {
-         this.jump(frameCount);
+         this.jump();
       } else if (this.currentState.isCrouching) {
          this.crouch();
       } else if (this.currentState.isIdle) {
@@ -65,21 +76,14 @@ class Ryu {
       this.animation.loop = false;
    }
 
-   jump(frameCount) {
+   jump() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.jump;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME + 4;
-      if (frameCount % RYU_IDLE_ANIMATION_TIME === 0) {
-         this.position.y -= MOVE_SPEED * jumpHeightChange(this.animation.counter) + 30;
-      }
-      if (this.animation.counter >= this.animation.spritePosition.length - 2) {
-         this.position.y = 320;
-      }
-      console.log(this.position.y);
+      this.animation.increaseHeight = true;
       this.animation.loop = false;
    }
    crouch() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.crouch;
-      // this.position.y -= moveSpeed;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
       this.animation.loop = false;
    }
 }

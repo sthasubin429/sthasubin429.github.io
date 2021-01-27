@@ -111,13 +111,13 @@ const RYU_SPRITE_POSITION = {
          x: 3666,
          y: 441,
       },
-      //
-      // {
-      //    width: 122,
-      //    height: 167,
-      //    x: 3544,
-      //    y: 495,
-      // },
+      {
+         width: 122,
+         height: 167,
+         x: 3544,
+         y: 495,
+      },
+
       {
          width: 122,
          height: 180,
@@ -127,22 +127,34 @@ const RYU_SPRITE_POSITION = {
    ],
    crouch: [
       {
-         width: 124,
+         width: 125,
          height: 229,
-         x: 2151,
-         y: 200,
+         x: 2209,
+         y: 98,
       },
       {
-         width: 126,
+         width: 125,
          height: 185,
          x: 2333,
          y: 142,
       },
       {
-         width: 123,
+         width: 125,
          height: 167,
-         x: 2460,
+         x: 2458,
          y: 160,
+      },
+      {
+         width: 125,
+         height: 185,
+         x: 2333,
+         y: 142,
+      },
+      {
+         width: 125,
+         height: 229,
+         x: 2209,
+         y: 98,
       },
    ],
 };

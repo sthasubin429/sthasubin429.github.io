@@ -19,7 +19,8 @@ class Game {
    init() {
       this.stage = new Stage(this.ctx);
       this.stage.init();
-      this.player1 = new Ryu(this.ctx);
+      this.player1 = new Ryu(this.ctx, true);
+      this.player2 = new Ryu(this.ctx, false);
       this.gameLoop();
       document.addEventListener('keydown', this.keyDownHandler);
       document.addEventListener('keyup', this.keyUpHandler);
@@ -30,6 +31,8 @@ class Game {
       this.stage.init();
       this.player1.updatePlayer(this.frameCount);
       this.player1.drawPlayer(this.frameCount);
+      this.player2.updatePlayer(this.frameCount);
+      this.player2.drawPlayer(this.frameCount);
 
       requestAnimationFrame(this.gameLoop);
    }
@@ -51,8 +54,7 @@ class Game {
             break;
          case ARROW_DOWN:
             // console.log('Down pressed');
-            // this.player1.currentState = resetState(this.player1.currentState);
-            // this.player1.currentState.isCrouching = true;
+            this.player1.currentState.isCrouching = true;
             break;
       }
    }
