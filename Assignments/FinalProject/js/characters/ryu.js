@@ -3,8 +3,8 @@ class Ryu {
       this.ctx = ctx;
 
       this.position = {
-         x: 1000,
-         y: 320,
+         x: 300,
+         y: 100,
       };
 
       this.rotation = rotation;
@@ -20,6 +20,7 @@ class Ryu {
          isCrouching: false,
       };
       this.animationComplete = false;
+      this.keyListener = true;
    }
 
    drawPlayer(frameCount) {
@@ -28,8 +29,9 @@ class Ryu {
    }
 
    updatePlayer() {
+      this.keyListener = false;
       if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
-         this.counter = 0;
+         this.standingBlock();
       } else if (this.currentState.lowPunch) {
          this.lowPunch();
       } else if (this.currentState.isJumping && this.currentState.isMovingRight) {
@@ -37,9 +39,9 @@ class Ryu {
       } else if (this.currentState.isJumping && this.currentState.isMovingLeft) {
          this.backFlip();
       } else if (this.currentState.isCrouching && (this.currentState.isMovingLeft || this.currentState.isMovingRight)) {
-         this.crouch();
+         this.crouchingBlock();
       } else if (this.currentState.isJumping && this.currentState.isCrouching) {
-         this.crouch();
+         this.standingBlock();
       } else if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
@@ -58,11 +60,22 @@ class Ryu {
          this.crouch();
       } else if (this.currentState.isIdle) {
          this.makeIdle();
+         this.keyListener = true;
       }
    }
    lowPunch() {
-      console.log(this);
+      // console.log(this);
       this.animation.spritePosition = RYU_SPRITE_POSITION.lowPuch;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   standingBlock() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.standingBlock;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   crouchingBlock() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.crouchingBlock;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
       this.animation.loop = false;
    }
@@ -97,7 +110,7 @@ class Ryu {
    }
    frontFlip() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.frontFlip;
-      this.position.x -= MOVE_SPEED;
+      this.position.x += MOVE_SPEED;
       this.animation.changeFactor = 35;
       this.animation.loop = false;
       this.animation.increaseHeight = true;
@@ -105,7 +118,7 @@ class Ryu {
    }
    backFlip() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.backFlip;
-      this.position.x += MOVE_SPEED;
+      this.position.x -= MOVE_SPEED;
       this.animation.changeFactor = 35;
       this.animation.loop = false;
       this.animation.increaseHeight = true;

@@ -1,5 +1,7 @@
-const CANVAS_WIDTH = 1466;
-const CANVAS_HEIGHT = 617;
+// const CANVAS_WIDTH = 1466;
+// const CANVAS_HEIGHT = 617;
+const CANVAS_WIDTH = 1176;
+const CANVAS_HEIGHT = 494;
 
 //stage height
 const STAGE_HEIGHT = 50;
@@ -13,4 +15,6 @@ const ARROW_DOWN = 40;
 //Attack Codes for Player 1
 const PLAYER1_LOW_PUNCH = 81;
 //move speed
-const MOVE_SPEED = 3;
+const MOVE_SPEED = 2;
+
+const SCALE_SPRITE = 2;

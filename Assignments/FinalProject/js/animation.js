@@ -46,14 +46,14 @@ class Animation {
          this.spritePosition[this.counter].height,
          this.player.position.x,
          this.player.position.y,
-         this.spritePosition[this.counter].width,
-         this.spritePosition[this.counter].height
+         this.spritePosition[this.counter].width * SCALE_SPRITE,
+         this.spritePosition[this.counter].height * SCALE_SPRITE
       );
 
       this.ctx.restore();
       if (frameCount % this.animationTime === 0) {
          this.counter++;
-         if (this.counter === this.spritePosition.length - 1) {
+         if (this.counter >= this.spritePosition.length - 1) {
             this.counter = 0;
             this.increaseHeight = false;
             if (!this.loop) {
@@ -78,6 +78,6 @@ class Animation {
       }
    }
    updateHeight() {
-      return CANVAS_HEIGHT - STAGE_HEIGHT - this.spritePosition[this.counter].height;
+      return CANVAS_HEIGHT - STAGE_HEIGHT - this.spritePosition[this.counter].height * SCALE_SPRITE;
    }
 }

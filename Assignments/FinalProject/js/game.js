@@ -19,8 +19,8 @@ class Game {
    init() {
       this.stage = new Stage(this.ctx);
       this.stage.init();
-      this.player1 = new Ryu(this.ctx, true);
-      this.player2 = new Ryu(this.ctx, false);
+      this.player1 = new Ryu(this.ctx, false);
+      this.player2 = new Ryu(this.ctx, true);
       this.gameLoop();
       document.addEventListener('keydown', this.keyDownHandler);
       document.addEventListener('keyup', this.keyUpHandler);
@@ -38,27 +38,29 @@ class Game {
    }
 
    keyDownHandler(event) {
-      this.player1.animationComplete = false;
-      switch (event.keyCode) {
-         case PLAYER1_LOW_PUNCH:
-            this.player1.currentState.lowPunch = true;
-            break;
-         case ARROW_LEFT:
-            // console.log('left pressed');
-            this.player1.currentState.isMovingLeft = true;
-            break;
-         case ARROW_RIGHT:
-            // console.log('RIGHT pressed');
-            this.player1.currentState.isMovingRight = true;
-            break;
-         case ARROW_UP:
-            // console.log('UP pressed');
-            this.player1.currentState.isJumping = true;
-            break;
-         case ARROW_DOWN:
-            // console.log('Down pressed');
-            this.player1.currentState.isCrouching = true;
-            break;
+      if (this.player1.keyListener) {
+         this.player1.animationComplete = false;
+         switch (event.keyCode) {
+            case PLAYER1_LOW_PUNCH:
+               this.player1.currentState.lowPunch = true;
+               break;
+            case ARROW_LEFT:
+               // console.log('left pressed');
+               this.player1.currentState.isMovingLeft = true;
+               break;
+            case ARROW_RIGHT:
+               // console.log('RIGHT pressed');
+               this.player1.currentState.isMovingRight = true;
+               break;
+            case ARROW_UP:
+               // console.log('UP pressed');
+               this.player1.currentState.isJumping = true;
+               break;
+            case ARROW_DOWN:
+               // console.log('Down pressed');
+               this.player1.currentState.isCrouching = true;
+               break;
+         }
       }
    }
 
@@ -66,6 +68,7 @@ class Game {
       if (this.player1.animationComplete) {
          this.player1.currentState = resetState(this.player1.currentState);
          this.player1.currentState.isIdle = true;
+         this.player1.keyListener = true;
          this.player1.animationComplete = false;
       }
    }
