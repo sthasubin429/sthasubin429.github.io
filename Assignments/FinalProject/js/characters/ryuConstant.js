@@ -157,4 +157,118 @@ const RYU_SPRITE_POSITION = {
          y: 98,
       },
    ],
+   frontFlip: [
+      {
+         width: 122,
+         height: 274,
+         x: 7410,
+         y: 54,
+      },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+      {
+         width: 186,
+         height: 119,
+         x: 7532,
+         y: 208,
+      },
+      {
+         width: 110,
+         height: 195,
+         x: 7718,
+         y: 129,
+      },
+      {
+         width: 230,
+         height: 136,
+         x: 7828,
+         y: 192,
+      },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+      {
+         width: 122,
+         height: 274,
+         x: 7410,
+         y: 54,
+      },
+   ],
+   backFlip: [
+      {
+         width: 122,
+         height: 274,
+         x: 7410,
+         y: 54,
+      },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+      {
+         width: 230,
+         height: 136,
+         x: 7828,
+         y: 192,
+      },
+      {
+         width: 110,
+         height: 195,
+         x: 7718,
+         y: 129,
+      },
+      {
+         width: 186,
+         height: 119,
+         x: 7532,
+         y: 208,
+      },
+      {
+         width: 122,
+         height: 180,
+         x: 3422,
+         y: 482,
+      },
+      {
+         width: 122,
+         height: 274,
+         x: 7410,
+         y: 54,
+      },
+   ],
+   lowPuch: [
+      {
+         width: 149,
+         height: 242,
+         x: 7628,
+         y: 420,
+      },
+      {
+         width: 149,
+         height: 242,
+         x: 7628,
+         y: 420,
+      },
+      {
+         width: 204,
+         height: 244,
+         x: 7776,
+         y: 418,
+      },
+      {
+         width: 204,
+         height: 244,
+         x: 7776,
+         y: 418,
+      },
+   ],
 };

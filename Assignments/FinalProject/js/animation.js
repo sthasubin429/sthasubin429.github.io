@@ -23,10 +23,12 @@ class Animation {
       this.loop = loop; //weather the animation loops or stops after once
       this.counter = 0;
       this.increaseHeight = increaseHeight;
+      this.changeFactor = 30;
       this.player = player;
 
       //function binding
       this.changeHeight = this.changeHeight.bind(this);
+      this.updateHeight = this.updateHeight.bind(this);
    }
 
    animate(frameCount) {
@@ -42,8 +44,8 @@ class Animation {
          this.spritePosition[this.counter].y,
          this.spritePosition[this.counter].width,
          this.spritePosition[this.counter].height,
-         this.position.x,
-         this.position.y,
+         this.player.position.x,
+         this.player.position.y,
          this.spritePosition[this.counter].width,
          this.spritePosition[this.counter].height
       );
@@ -66,13 +68,16 @@ class Animation {
    changeHeight(frameCount) {
       if (this.increaseHeight) {
          if (frameCount % RYU_IDLE_ANIMATION_TIME === 0) {
-            this.position.y -= MOVE_SPEED * jumpHeightChange(this.counter) + 30;
+            this.position.y -= MOVE_SPEED * jumpHeightChange(this.counter) + this.changeFactor;
          }
          if (this.counter >= this.spritePosition.length - 2) {
-            this.position.y = CANVAS_HEIGHT - STAGE_HEIGHT - this.spritePosition[this.counter].height;
+            this.position.y = this.updateHeight();
          }
       } else {
-         this.position.y = CANVAS_HEIGHT - STAGE_HEIGHT - this.spritePosition[this.counter].height;
+         this.position.y = this.updateHeight();
       }
+   }
+   updateHeight() {
+      return CANVAS_HEIGHT - STAGE_HEIGHT - this.spritePosition[this.counter].height;
    }
 }
