@@ -16,6 +16,9 @@ class Ryu {
          mediumPunch: false,
          heavyPunch: false,
 
+         lowKick: false,
+         mediumKick: false,
+
          isMovingRight: false,
          isMovingLeft: false,
          isJumping: false,
@@ -34,12 +37,12 @@ class Ryu {
       this.keyListener = false;
       if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
          this.standingBlock();
-      } else if (this.currentState.lowPunch) {
-         this.lowPunch();
-      } else if (this.currentState.mediumPunch) {
-         this.mediumPunch();
-      } else if (this.currentState.heavyPunch) {
-         this.mediumPunch();
+      } else if (this.currentState.lowPunch && this.currentState.isMovingRight) {
+         this.forwardLowPunch();
+      } else if (this.currentState.mediumPunch && this.currentState.isMovingRight) {
+         this.forwardMediumPunch();
+      } else if (this.currentState.heavyPunch && this.currentState.isMovingRight) {
+         this.forwardHeavyPunch();
       } else if (this.currentState.isJumping && this.currentState.isMovingRight) {
          this.frontFlip();
       } else if (this.currentState.isJumping && this.currentState.isMovingLeft) {
@@ -48,6 +51,16 @@ class Ryu {
          this.crouchingBlock();
       } else if (this.currentState.isJumping && this.currentState.isCrouching) {
          this.standingBlock();
+      } else if (this.currentState.lowKick) {
+         this.lowKick();
+      } else if (this.currentState.mediumKick) {
+         this.lowKick();
+      } else if (this.currentState.lowPunch) {
+         this.lowPunch();
+      } else if (this.currentState.mediumPunch) {
+         this.mediumPunch();
+      } else if (this.currentState.heavyPunch) {
+         this.mediumPunch();
       } else if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
@@ -68,6 +81,26 @@ class Ryu {
          this.makeIdle();
          this.keyListener = true;
       }
+   }
+   lowKick() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.kick;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   forwardHeavyPunch() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardHeavyPunch;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   forwardMediumPunch() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardMediumPuch;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   forwardLowPunch() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardLowPunch;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
    }
    mediumPunch() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.punch;

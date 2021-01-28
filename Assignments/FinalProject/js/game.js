@@ -41,6 +41,12 @@ class Game {
       if (this.player1.keyListener) {
          this.player1.animationComplete = false;
          switch (event.keyCode) {
+            case PLAYER1_LOW_KICK:
+               this.player1.currentState.lowKick = true;
+               break;
+            case PLAYER1_MEDIUM_KICK:
+               this.player1.currentState.mediumKick = true;
+               break;
             case PLAYER1_LOW_PUNCH:
                this.player1.currentState.lowPunch = true;
                break;

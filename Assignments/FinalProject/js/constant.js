@@ -16,6 +16,11 @@ const ARROW_DOWN = 40;
 const PLAYER1_LOW_PUNCH = 81;
 const PLAYER1_MEDIUM_PUNCH = 87;
 const PLAYER1_HEAVY_PUNCH = 69;
+
+const PLAYER1_LOW_KICK = 65;
+const PLAYER1_MEDIUM_KICK = 83;
+const PLAYER1_HEAVY_KICK = 68;
+
 //move speed
 const MOVE_SPEED = 2;
 
