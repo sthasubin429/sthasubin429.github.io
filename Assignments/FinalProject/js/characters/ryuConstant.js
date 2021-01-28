@@ -1,6 +1,10 @@
 const RYU_WIDTH = 100;
 const RYU_HEIGHT = 250;
 const RYU_IDLE_ANIMATION_TIME = 10;
+const RYU_POSITON = {
+   x: 300,
+   y: 100,
+};
 const RYU_SPRITE_POSITION = {
    idle: [
       {

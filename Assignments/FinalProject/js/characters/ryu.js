@@ -1,37 +1,14 @@
-class Ryu {
+class Ryu extends Player {
    constructor(ctx, rotation) {
-      this.ctx = ctx;
-
-      this.position = {
-         x: 300,
-         y: 100,
+      let props = {
+         ctx: ctx,
+         position: RYU_POSITON,
+         rotation: rotation,
+         sprite: ryuSprite,
+         animationArray: RYU_SPRITE_POSITION.idle,
+         animationTime: RYU_IDLE_ANIMATION_TIME,
       };
-
-      this.rotation = rotation;
-      this.animation = new Animation(this.ctx, ryuSprite, this.rotation, RYU_SPRITE_POSITION.idle, this.position, RYU_IDLE_ANIMATION_TIME, true, false, this);
-      this.currentState = {
-         isIdle: true,
-
-         lowPunch: false,
-         mediumPunch: false,
-         heavyPunch: false,
-
-         lowKick: false,
-         mediumKick: false,
-         heavyKick: false,
-
-         isMovingRight: false,
-         isMovingLeft: false,
-         isJumping: false,
-         isCrouching: false,
-      };
-      this.animationComplete = false;
-      this.keyListener = true;
-   }
-
-   drawPlayer(frameCount) {
-      this.animation.animate(frameCount);
-      // resetState(this.currentState);
+      super(props);
    }
 
    updatePlayer() {
@@ -59,17 +36,17 @@ class Ryu {
       } else if (this.currentState.isJumping && this.currentState.isCrouching) {
          this.standingBlock();
       } else if (this.currentState.lowKick) {
-         this.lowKick();
+         this.kick();
       } else if (this.currentState.mediumKick) {
-         this.lowKick();
+         this.kick();
       } else if (this.currentState.heavyKick) {
          this.heavyKick();
       } else if (this.currentState.lowPunch) {
          this.lowPunch();
       } else if (this.currentState.mediumPunch) {
-         this.mediumPunch();
+         this.punch();
       } else if (this.currentState.heavyPunch) {
-         this.mediumPunch();
+         this.punch();
       } else if (this.currentState.isMovingRight) {
          if (this.rotation) {
             this.moveRight();
@@ -92,108 +69,60 @@ class Ryu {
       }
    }
    forwardHeavyKick() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardHeavyKick;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardHeavyKick, RYU_IDLE_ANIMATION_TIME, false);
    }
    forwardMediumKick() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardMediumKick;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardMediumKick, RYU_IDLE_ANIMATION_TIME, false);
    }
    forwardLowKick() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardLowKick;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardLowKick, RYU_IDLE_ANIMATION_TIME, false);
    }
    heavyKick() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.heavyKick;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.heavyKick, RYU_IDLE_ANIMATION_TIME, false);
    }
-   lowKick() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.kick;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+   kick() {
+      this.updateState(RYU_SPRITE_POSITION.kick, RYU_IDLE_ANIMATION_TIME, false);
    }
    forwardHeavyPunch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardHeavyPunch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardHeavyPunch, RYU_IDLE_ANIMATION_TIME, false);
    }
    forwardMediumPunch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardMediumPuch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardMediumPuch, RYU_IDLE_ANIMATION_TIME, false);
    }
    forwardLowPunch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardLowPunch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.forwardLowPunch, RYU_IDLE_ANIMATION_TIME, false);
    }
-   mediumPunch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.punch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+   punch() {
+      this.updateState(RYU_SPRITE_POSITION.punch, RYU_IDLE_ANIMATION_TIME, false);
    }
    lowPunch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.lowPuch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.lowPuch, RYU_IDLE_ANIMATION_TIME, false);
    }
-   standingBlock() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.standingBlock;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
-   }
+
    crouchingBlock() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.crouchingBlock;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.crouchingBlock, RYU_IDLE_ANIMATION_TIME, false);
    }
    makeIdle() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.idle;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = true;
-      this.animation.increaseHeight = false;
+      super.makeIdle(RYU_SPRITE_POSITION.idle, RYU_IDLE_ANIMATION_TIME, true);
    }
 
    moveRight() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.moveRight;
-      this.position.x -= MOVE_SPEED;
-      this.animation.loop = false;
+      super.moveRight(RYU_SPRITE_POSITION.moveRight, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
    }
 
    moveLeft() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.moveLeft;
-      this.position.x += MOVE_SPEED;
-      this.animation.loop = false;
+      super.moveLeft(RYU_SPRITE_POSITION.moveLeft, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
    }
    jump() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.jump;
-      this.animation.increaseHeight = true;
-      this.animation.changeFactor = 45;
-      this.animation.loop = false;
+      super.jump(RYU_SPRITE_POSITION.jump, RYU_IDLE_ANIMATION_TIME, false, 45);
    }
    crouch() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.crouch;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
-      this.animation.loop = false;
+      this.updateState(RYU_SPRITE_POSITION.crouch, RYU_IDLE_ANIMATION_TIME, false);
    }
    frontFlip() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.frontFlip;
-      this.position.x += MOVE_SPEED + 3;
-      this.animation.changeFactor = 45;
-      this.animation.loop = false;
-      this.animation.increaseHeight = true;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME - 3;
+      super.frontFlip(RYU_SPRITE_POSITION.frontFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 45, MOVE_SPEED + 3);
    }
    backFlip() {
-      this.animation.spritePosition = RYU_SPRITE_POSITION.backFlip;
-      this.position.x -= MOVE_SPEED + 3;
-      this.animation.changeFactor = 45;
-      this.animation.loop = false;
-      this.animation.increaseHeight = true;
-      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME - 3;
+      super.backFlip(RYU_SPRITE_POSITION.backFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 45, MOVE_SPEED + 3);
    }
 }

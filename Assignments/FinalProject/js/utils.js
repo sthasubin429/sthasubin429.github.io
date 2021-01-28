@@ -5,11 +5,11 @@ function resetState(object) {
    }
    return object;
 }
-function jumpHeightChange(x) {
+function jumpHeightChange(x, y) {
    let temp = Math.floor(x / 2);
-   if (x < temp) {
+   if (y < temp) {
       return x;
    } else {
-      return -x - 2 * temp;
+      return -y - 2 * temp;
    }
 }
