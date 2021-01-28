@@ -172,7 +172,7 @@ class Ryu {
    jump() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.jump;
       this.animation.increaseHeight = true;
-      this.animation.changeFactor = 30;
+      this.animation.changeFactor = 45;
       this.animation.loop = false;
    }
    crouch() {
@@ -182,16 +182,16 @@ class Ryu {
    }
    frontFlip() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.frontFlip;
-      this.position.x += MOVE_SPEED;
-      this.animation.changeFactor = 35;
+      this.position.x += MOVE_SPEED + 3;
+      this.animation.changeFactor = 45;
       this.animation.loop = false;
       this.animation.increaseHeight = true;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME - 3;
    }
    backFlip() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.backFlip;
-      this.position.x -= MOVE_SPEED;
-      this.animation.changeFactor = 35;
+      this.position.x -= MOVE_SPEED + 3;
+      this.animation.changeFactor = 45;
       this.animation.loop = false;
       this.animation.increaseHeight = true;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME - 3;
