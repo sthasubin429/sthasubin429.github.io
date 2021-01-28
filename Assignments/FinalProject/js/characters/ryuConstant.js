@@ -350,6 +350,46 @@ const RYU_SPRITE_POSITION = {
          y: 18,
       },
    ],
+   punch: [
+      {
+         width: 43,
+         height: 81,
+         x: 170,
+         y: 134,
+      },
+      {
+         width: 51,
+         height: 85,
+         x: 218,
+         y: 130,
+      },
+      {
+         width: 72,
+         height: 85,
+         x: 274,
+         y: 130,
+      },
+      {
+         width: 51,
+         height: 85,
+         x: 353,
+         y: 130,
+      },
+      {
+         width: 43,
+         height: 81,
+         x: 411,
+         y: 134,
+      },
+   ],
+   forwardLowPunch: [
+      {
+         width: 43,
+         height: 81,
+         x: 170,
+         y: 134,
+      },
+   ],
 };
 // const RYU_SPRITE_POSITION = {
 //    idle: [

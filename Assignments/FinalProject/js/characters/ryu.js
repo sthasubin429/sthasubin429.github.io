@@ -13,6 +13,8 @@ class Ryu {
          isIdle: true,
 
          lowPunch: false,
+         mediumPunch: false,
+         heavyPunch: false,
 
          isMovingRight: false,
          isMovingLeft: false,
@@ -34,6 +36,10 @@ class Ryu {
          this.standingBlock();
       } else if (this.currentState.lowPunch) {
          this.lowPunch();
+      } else if (this.currentState.mediumPunch) {
+         this.mediumPunch();
+      } else if (this.currentState.heavyPunch) {
+         this.mediumPunch();
       } else if (this.currentState.isJumping && this.currentState.isMovingRight) {
          this.frontFlip();
       } else if (this.currentState.isJumping && this.currentState.isMovingLeft) {
@@ -62,6 +68,11 @@ class Ryu {
          this.makeIdle();
          this.keyListener = true;
       }
+   }
+   mediumPunch() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.punch;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
    }
    lowPunch() {
       // console.log(this);

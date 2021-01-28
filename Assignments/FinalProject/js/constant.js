@@ -14,6 +14,8 @@ const ARROW_DOWN = 40;
 
 //Attack Codes for Player 1
 const PLAYER1_LOW_PUNCH = 81;
+const PLAYER1_MEDIUM_PUNCH = 87;
+const PLAYER1_HEAVY_PUNCH = 69;
 //move speed
 const MOVE_SPEED = 2;
 

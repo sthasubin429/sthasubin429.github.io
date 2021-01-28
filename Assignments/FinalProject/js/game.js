@@ -44,6 +44,12 @@ class Game {
             case PLAYER1_LOW_PUNCH:
                this.player1.currentState.lowPunch = true;
                break;
+            case PLAYER1_MEDIUM_PUNCH:
+               this.player1.currentState.mediumPunch = true;
+               break;
+            case PLAYER1_HEAVY_PUNCH:
+               this.player1.currentState.heavyPunch = true;
+               break;
             case ARROW_LEFT:
                // console.log('left pressed');
                this.player1.currentState.isMovingLeft = true;
