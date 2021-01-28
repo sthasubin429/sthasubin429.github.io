@@ -18,6 +18,7 @@ class Ryu {
 
          lowKick: false,
          mediumKick: false,
+         heavyKick: false,
 
          isMovingRight: false,
          isMovingLeft: false,
@@ -37,6 +38,12 @@ class Ryu {
       this.keyListener = false;
       if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
          this.standingBlock();
+      } else if (this.currentState.lowKick && this.currentState.isMovingRight) {
+         this.forwardLowKick();
+      } else if (this.currentState.mediumKick && this.currentState.isMovingRight) {
+         this.forwardMediumKick();
+      } else if (this.currentState.heavyKick && this.currentState.isMovingRight) {
+         this.forwardHeavyKick();
       } else if (this.currentState.lowPunch && this.currentState.isMovingRight) {
          this.forwardLowPunch();
       } else if (this.currentState.mediumPunch && this.currentState.isMovingRight) {
@@ -55,6 +62,8 @@ class Ryu {
          this.lowKick();
       } else if (this.currentState.mediumKick) {
          this.lowKick();
+      } else if (this.currentState.heavyKick) {
+         this.heavyKick();
       } else if (this.currentState.lowPunch) {
          this.lowPunch();
       } else if (this.currentState.mediumPunch) {
@@ -82,6 +91,26 @@ class Ryu {
          this.keyListener = true;
       }
    }
+   forwardHeavyKick() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardHeavyKick;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   forwardMediumKick() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardMediumKick;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   forwardLowKick() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.forwardLowKick;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
+   heavyKick() {
+      this.animation.spritePosition = RYU_SPRITE_POSITION.heavyKick;
+      this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
+      this.animation.loop = false;
+   }
    lowKick() {
       this.animation.spritePosition = RYU_SPRITE_POSITION.kick;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
@@ -108,7 +137,6 @@ class Ryu {
       this.animation.loop = false;
    }
    lowPunch() {
-      // console.log(this);
       this.animation.spritePosition = RYU_SPRITE_POSITION.lowPuch;
       this.animation.animationTime = RYU_IDLE_ANIMATION_TIME;
       this.animation.loop = false;

@@ -47,6 +47,9 @@ class Game {
             case PLAYER1_MEDIUM_KICK:
                this.player1.currentState.mediumKick = true;
                break;
+            case PLAYER1_HEAVY_KICK:
+               this.player1.currentState.heavyKick = true;
+               break;
             case PLAYER1_LOW_PUNCH:
                this.player1.currentState.lowPunch = true;
                break;

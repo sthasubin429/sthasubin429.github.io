@@ -516,6 +516,152 @@ const RYU_SPRITE_POSITION = {
          y: 18,
       },
    ],
+   heavyKick: [
+      {
+         width: 43,
+         height: 81,
+         x: 195,
+         y: 265,
+      },
+      {
+         width: 55,
+         height: 84,
+         x: 245,
+         y: 262,
+      },
+      {
+         width: 69,
+         height: 84,
+         x: 306,
+         y: 262,
+      },
+      {
+         width: 58,
+         height: 70,
+         x: 382,
+         y: 276,
+      },
+      {
+         width: 43,
+         height: 73,
+         x: 448,
+         y: 273,
+      },
+      {
+         width: 43,
+         height: 81,
+         x: 6,
+         y: 18,
+      },
+   ],
+   forwardLowKick: [
+      {
+         width: 43,
+         height: 81,
+         x: 6,
+         y: 18,
+      },
+      {
+         width: 47,
+         height: 84,
+         x: 498,
+         y: 262,
+      },
+      {
+         width: 71,
+         height: 82,
+         x: 551,
+         y: 264,
+      },
+      {
+         width: 47,
+         height: 84,
+         x: 628,
+         y: 262,
+      },
+      {
+         width: 43,
+         height: 81,
+         x: 6,
+         y: 18,
+      },
+   ],
+   forwardMediumKick: [
+      {
+         width: 43,
+         height: 81,
+         x: 6,
+         y: 18,
+      },
+      {
+         width: 50,
+         height: 81,
+         x: 685,
+         y: 265,
+      },
+      {
+         width: 51,
+         height: 83,
+         x: 739,
+         y: 263,
+      },
+      {
+         width: 55,
+         height: 92,
+         x: 795,
+         y: 254,
+      },
+      {
+         width: 50,
+         height: 83,
+         x: 855,
+         y: 263,
+      },
+      {
+         width: 50,
+         height: 81,
+         x: 910,
+         y: 265,
+      },
+   ],
+   forwardHeavyKick: [
+      {
+         width: 43,
+         height: 81,
+         x: 6,
+         y: 18,
+      },
+      {
+         width: 47,
+         height: 84,
+         x: 969,
+         y: 262,
+      },
+      {
+         width: 79,
+         height: 99,
+         x: 1023,
+         y: 248,
+      },
+      {
+         width: 53,
+         height: 109,
+         x: 1107,
+         y: 237,
+      },
+      {
+         width: 79,
+         height: 98,
+         x: 1166,
+         y: 248,
+      },
+      {
+         width: 47,
+         height: 84,
+         x: 1251,
+         y: 262,
+      },
+   ],
 };
 // const RYU_SPRITE_POSITION = {
 //    idle: [
