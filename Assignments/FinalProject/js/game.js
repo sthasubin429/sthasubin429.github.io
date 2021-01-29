@@ -10,6 +10,7 @@ class Game {
       this.isIdle = true;
 
       this.player1;
+      this.player2;
       //function binding
       this.gameLoop = this.gameLoop.bind(this);
       this.keyDownHandler = this.keyDownHandler.bind(this);
@@ -40,6 +41,7 @@ class Game {
    keyDownHandler(event) {
       if (this.player1.keyListener) {
          this.player1.animationComplete = false;
+         // this.player1.animation.counter = 0;
          switch (event.keyCode) {
             case PLAYER1_LOW_KICK:
                this.player1.currentState.lowKick = true;
@@ -59,19 +61,19 @@ class Game {
             case PLAYER1_HEAVY_PUNCH:
                this.player1.currentState.heavyPunch = true;
                break;
-            case ARROW_LEFT:
+            case PLAYER1_LEFT:
                // console.log('left pressed');
                this.player1.currentState.isMovingLeft = true;
                break;
-            case ARROW_RIGHT:
+            case PLAYER1_RIGHT:
                // console.log('RIGHT pressed');
                this.player1.currentState.isMovingRight = true;
                break;
-            case ARROW_UP:
+            case PLAYER1_UP:
                // console.log('UP pressed');
                this.player1.currentState.isJumping = true;
                break;
-            case ARROW_DOWN:
+            case PLAYER1_DOWN:
                // console.log('Down pressed');
                this.player1.currentState.isCrouching = true;
                break;

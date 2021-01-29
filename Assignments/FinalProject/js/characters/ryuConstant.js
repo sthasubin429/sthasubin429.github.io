@@ -141,11 +141,17 @@ const RYU_SPRITE_POSITION = {
       },
    ],
    crouch: [
+      // {
+      //    width: 43,
+      //    height: 75,
+      //    x: 1113,
+      //    y: 24,
+      // },
       {
          width: 43,
-         height: 75,
-         x: 1113,
-         y: 24,
+         height: 55,
+         x: 1160,
+         y: 44,
       },
       {
          width: 43,
@@ -161,10 +167,16 @@ const RYU_SPRITE_POSITION = {
       },
       {
          width: 43,
-         height: 75,
-         x: 1113,
-         y: 24,
+         height: 55,
+         x: 1160,
+         y: 44,
       },
+      // {
+      //    width: 43,
+      //    height: 75,
+      //    x: 1113,
+      //    y: 24,
+      // },
    ],
    frontFlip: [
       {

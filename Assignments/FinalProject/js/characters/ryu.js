@@ -12,7 +12,7 @@ class Ryu extends Player {
    }
 
    updatePlayer() {
-      this.keyListener = false;
+      // this.keyListener = false;
       if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
          this.standingBlock();
       } else if (this.currentState.lowKick && this.currentState.isMovingRight) {
@@ -97,6 +97,9 @@ class Ryu extends Player {
    }
    lowPunch() {
       this.updateState(RYU_SPRITE_POSITION.lowPuch, RYU_IDLE_ANIMATION_TIME, false);
+   }
+   standingBlock() {
+      this.updateState(RYU_SPRITE_POSITION.standingBlock, RYU_IDLE_ANIMATION_TIME, false);
    }
 
    crouchingBlock() {

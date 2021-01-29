@@ -7,19 +7,19 @@ const CANVAS_HEIGHT = 494;
 const STAGE_HEIGHT = 50;
 
 //KEY CODES
-const ARROW_LEFT = 37;
-const ARROW_RIGHT = 39;
-const ARROW_UP = 38;
-const ARROW_DOWN = 40;
+const PLAYER1_LEFT = 65;
+const PLAYER1_RIGHT = 68;
+const PLAYER1_UP = 87;
+const PLAYER1_DOWN = 83;
 
 //Attack Codes for Player 1
-const PLAYER1_LOW_PUNCH = 81;
-const PLAYER1_MEDIUM_PUNCH = 87;
-const PLAYER1_HEAVY_PUNCH = 69;
+const PLAYER1_LOW_PUNCH = 85;
+const PLAYER1_MEDIUM_PUNCH = 73;
+const PLAYER1_HEAVY_PUNCH = 79;
 
-const PLAYER1_LOW_KICK = 65;
-const PLAYER1_MEDIUM_KICK = 83;
-const PLAYER1_HEAVY_KICK = 68;
+const PLAYER1_LOW_KICK = 74;
+const PLAYER1_MEDIUM_KICK = 75;
+const PLAYER1_HEAVY_KICK = 76;
 
 //move speed
 const MOVE_SPEED = 2;

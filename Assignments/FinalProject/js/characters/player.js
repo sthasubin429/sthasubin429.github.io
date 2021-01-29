@@ -56,7 +56,7 @@ class Player {
       if (this.increaseHeight) {
          this.position.y -= MOVE_SPEED + this.changeFactor;
 
-         if (this.animation.counter >= this.animation.spritePosition.length - 2) {
+         if (this.animation.counter >= this.animation.spritePosition.length - 2 && this.animation.spritePosition.length > 2) {
             this.position.y = this.updateHeight();
          }
       } else {
