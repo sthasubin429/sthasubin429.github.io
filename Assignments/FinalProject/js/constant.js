@@ -25,3 +25,5 @@ const PLAYER1_HEAVY_KICK = 76;
 const MOVE_SPEED = 2;
 
 const SCALE_SPRITE = 2;
+
+const CHARACTER_PADDING = 30;

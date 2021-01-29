@@ -18,6 +18,7 @@ class Player {
 
 			isMovingRight: false,
 			isMovingLeft: false,
+
 			isJumping: false,
 			isCrouching: false,
 		};
@@ -56,7 +57,16 @@ class Player {
 		this.animation.position = this.position;
 		this.animation.animate();
 	}
-
+	updatePlayer() {
+		this.checkWallColision();
+	}
+	checkWallColision() {
+		if (this.position.x <= 0) {
+			this.position.x = 0;
+		} else if (this.position.x >= CANVAS_WIDTH - this.animation.spritePosition[this.animation.counter].width - CHARACTER_PADDING) {
+			this.position.x = CANVAS_WIDTH - this.animation.spritePosition[this.animation.counter].width - CHARACTER_PADDING;
+		}
+	}
 	changeHeight() {
 		if (this.increaseHeight) {
 			this.position.y -= MOVE_SPEED + this.changeFactor;

@@ -68,6 +68,7 @@ class Ryu extends Player {
 			this.makeIdle();
 			this.keyListener = true;
 		}
+		super.updatePlayer();
 	}
 
 	forwardHeavyKick() {
@@ -131,7 +132,7 @@ class Ryu extends Player {
 	}
 
 	jump() {
-		super.jump(RYU_SPRITE_POSITION.jump, RYU_IDLE_ANIMATION_TIME, false, 2);
+		super.jump(RYU_SPRITE_POSITION.jump, RYU_IDLE_ANIMATION_TIME, false, 1);
 	}
 
 	crouch() {
