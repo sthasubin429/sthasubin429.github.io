@@ -40,10 +40,10 @@ class Game {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.stage.init();
 
-		this.player1.updatePlayer(this.frameCount);
+		this.player1.updatePlayer(this.player2);
 		this.player1.drawPlayer(this.frameCount);
 
-		this.player2.updatePlayer(this.frameCount);
+		this.player2.updatePlayer(this.player1);
 		this.player2.drawPlayer(this.frameCount);
 
 		requestAnimationFrame(this.gameLoop);
@@ -87,6 +87,46 @@ class Game {
 				case PLAYER1_DOWN:
 					// console.log('Down pressed');
 					this.player1.currentState.isCrouching = true;
+					break;
+			}
+		}
+		if (this.player2.keyListener) {
+			this.player2.animationComplete = false;
+			// this.player1.animation.counter = 0;
+			switch (event.keyCode) {
+				// case PLAYER1_LOW_KICK:
+				// 	this.player1.currentState.lowKick = true;
+				// 	break;
+				// case PLAYER1_MEDIUM_KICK:
+				// 	this.player1.currentState.mediumKick = true;
+				// 	break;
+				// case PLAYER1_HEAVY_KICK:
+				// 	this.player1.currentState.heavyKick = true;
+				// 	break;
+				// case PLAYER1_LOW_PUNCH:
+				// 	this.player1.currentState.lowPunch = true;
+				// 	break;
+				// case PLAYER1_MEDIUM_PUNCH:
+				// 	this.player1.currentState.mediumPunch = true;
+				// 	break;
+				// case PLAYER1_HEAVY_PUNCH:
+				// 	this.player1.currentState.heavyPunch = true;
+				// 	break;
+				case PLAYER2_LEFT:
+					// console.log('left pressed');
+					this.player2.currentState.isMovingLeft = true;
+					break;
+				case PLAYER2_RIGHT:
+					// console.log('RIGHT pressed');
+					this.player2.currentState.isMovingRight = true;
+					break;
+				case PLAYER2_UP:
+					// console.log('UP pressed');
+					this.player2.currentState.isJumping = true;
+					break;
+				case PLAYER2_DOWN:
+					// console.log('Down pressed');
+					this.player2.currentState.isCrouching = true;
 					break;
 			}
 		}

@@ -31,6 +31,9 @@ class Player {
 		this.increaseHeight = false;
 		this.changeFactor = 2;
 
+		this.colision = false;
+
+		this.isAttacked = false;
 		//function binding
 		this.updateState = this.updateState.bind(this);
 		this.changeHeight = this.changeHeight.bind(this);
@@ -53,13 +56,25 @@ class Player {
 				}
 			}
 		}
+		if (this.colision && this.rotation) {
+			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
 
+			this.colision = false;
+		}
+
+		if (this.colision && !this.rotation) {
+			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
+
+			this.colision = false;
+		}
+		this.colision = false;
+		// }
 		this.animation.position = this.position;
+
 		this.animation.animate();
+		this.colision = false;
 	}
-	updatePlayer() {
-		this.checkWallColision();
-	}
+
 	checkWallColision() {
 		if (this.position.x <= 0) {
 			this.position.x = 0;
@@ -67,6 +82,53 @@ class Player {
 			this.position.x = CANVAS_WIDTH - this.animation.spritePosition[this.animation.counter].width - CHARACTER_PADDING;
 		}
 	}
+
+	checkCollision(otherPlayer) {
+		let player1Rectangle = {
+			x: 0,
+			y: 0,
+			width: 0,
+			height: 0,
+		};
+
+		let player2Rectangle = {
+			x: 0,
+			y: 0,
+			width: 0,
+			height: 0,
+		};
+
+		//
+		player1Rectangle.y = this.position.y;
+
+		player1Rectangle.width = this.animation.spritePosition[this.animation.counter].width * SCALE_SPRITE;
+		player1Rectangle.height = this.animation.spritePosition[this.animation.counter].height * SCALE_SPRITE;
+
+		//
+		player2Rectangle.y = otherPlayer.position.y;
+
+		player2Rectangle.width = otherPlayer.animation.spritePosition[otherPlayer.animation.counter].width * SCALE_SPRITE;
+		player2Rectangle.height = otherPlayer.animation.spritePosition[otherPlayer.animation.counter].height * SCALE_SPRITE;
+
+		if (this.rotation) {
+			player1Rectangle.x = this.position.x * -1 + CANVAS_WIDTH + player1Rectangle.width - CHARACTER_PADDING * 2.1;
+		} else {
+			player1Rectangle.x = this.position.x + player1Rectangle.width - CHARACTER_PADDING * 2.1;
+		}
+
+		if (otherPlayer.rotation) {
+			player2Rectangle.x = otherPlayer.position.x * -1 + CANVAS_WIDTH;
+		} else {
+			player2Rectangle.x = otherPlayer.position.x;
+		}
+
+		//checking Collision
+		if (rectangularCollision(player1Rectangle, player2Rectangle)) {
+			this.colision = true;
+			console.log('collided');
+		}
+	}
+
 	changeHeight() {
 		if (this.increaseHeight) {
 			this.position.y -= MOVE_SPEED + this.changeFactor;

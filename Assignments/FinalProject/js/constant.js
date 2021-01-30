@@ -6,7 +6,7 @@ const CANVAS_HEIGHT = 494;
 //stage height
 const STAGE_HEIGHT = 50;
 
-//KEY CODES
+//Move Codes for Player 1
 const PLAYER1_LEFT = 65;
 const PLAYER1_RIGHT = 68;
 const PLAYER1_UP = 87;
@@ -21,6 +21,11 @@ const PLAYER1_LOW_KICK = 74;
 const PLAYER1_MEDIUM_KICK = 75;
 const PLAYER1_HEAVY_KICK = 76;
 
+//Move codes for player 2
+const PLAYER2_LEFT = 37;
+const PLAYER2_RIGHT = 39;
+const PLAYER2_UP = 38;
+const PLAYER2_DOWN = 40;
 //move speed
 const MOVE_SPEED = 2;
 

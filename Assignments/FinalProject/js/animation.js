@@ -8,7 +8,7 @@ class Animation {
 
 		this.spritePosition = spritePosition; //position of image on sprite
 
-		this.position = position; //position to draw the image
+		this.animationPosition = position; //position to draw the image
 
 		this.animationTime = time; //time taken to complete the animation
 
@@ -31,8 +31,8 @@ class Animation {
 			this.spritePosition[this.counter].y,
 			this.spritePosition[this.counter].width,
 			this.spritePosition[this.counter].height,
-			this.position.x,
-			this.position.y,
+			this.animationPosition.x,
+			this.animationPosition.y,
 			this.spritePosition[this.counter].width * SCALE_SPRITE,
 			this.spritePosition[this.counter].height * SCALE_SPRITE
 		);

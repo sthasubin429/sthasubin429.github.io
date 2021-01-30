@@ -10,9 +10,13 @@ class Ryu extends Player {
 		};
 
 		super(props);
+
+		this.moveLeft = this.moveLeft.bind(this);
 	}
 
-	updatePlayer() {
+	updatePlayer(otherPlayer) {
+		super.checkWallColision();
+		super.checkCollision(otherPlayer);
 		this.keyListener = false;
 		if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();
@@ -68,7 +72,6 @@ class Ryu extends Player {
 			this.makeIdle();
 			this.keyListener = true;
 		}
-		super.updatePlayer();
 	}
 
 	forwardHeavyKick() {
