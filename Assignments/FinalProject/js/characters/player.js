@@ -34,10 +34,15 @@ class Player {
 		this.colision = false;
 
 		this.isAttacked = false;
+
 		//function binding
 		this.updateState = this.updateState.bind(this);
+
 		this.changeHeight = this.changeHeight.bind(this);
+
 		this.updateHeight = this.updateHeight.bind(this);
+
+		this.checkAttacked = this.checkAttacked.bind(this);
 	}
 
 	drawPlayer(frameCount) {
@@ -56,22 +61,33 @@ class Player {
 				}
 			}
 		}
-		if (this.colision && this.rotation) {
-			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
 
-			this.colision = false;
-		}
+		this.checkAttacked();
 
-		if (this.colision && !this.rotation) {
-			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
-
-			this.colision = false;
-		}
-		this.colision = false;
-		// }
 		this.animation.position = this.position;
 
 		this.animation.animate();
+		this.colision = false;
+	}
+
+	checkAttacked() {
+		if (this.colision && this.rotation && this.isAttacked) {
+			// call attack animation
+			// chage sprites to attacked sprites
+		}
+
+		if (this.colision && !this.rotation && this.isAttacked) {
+			// call attack animation
+			//chage sprites to attacked sprites
+		}
+		if (this.colision && this.rotation) {
+			this.position.x += this.animation.spritePosition[this.animation.counter].width / 2;
+		}
+		if (this.colision && !this.rotation) {
+			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
+		}
+
+		this.isAttacked = false;
 		this.colision = false;
 	}
 
