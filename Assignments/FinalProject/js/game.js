@@ -54,6 +54,9 @@ class Game {
 			this.player1.animationComplete = false;
 			// this.player1.animation.counter = 0;
 			switch (event.keyCode) {
+				case PLAYER1_SPECIAL_MOVE1:
+					this.player1.currentState.specialMove1 = true;
+					break;
 				case PLAYER1_LOW_KICK:
 					this.player1.currentState.lowKick = true;
 					break;

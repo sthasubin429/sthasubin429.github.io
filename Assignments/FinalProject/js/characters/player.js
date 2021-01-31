@@ -21,6 +21,8 @@ class Player {
 
 			isJumping: false,
 			isCrouching: false,
+
+			specialMove1: false,
 		};
 
 		this.attackState = {
@@ -127,7 +129,6 @@ class Player {
 		//checking Collision
 		if (rectangularCollision(player1Rectangle, player2Rectangle)) {
 			this.colision = true;
-			console.log('collided');
 		}
 	}
 

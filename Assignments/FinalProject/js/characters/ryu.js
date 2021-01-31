@@ -12,6 +12,8 @@ class Ryu extends Player {
 		super(props);
 
 		this.moveLeft = this.moveLeft.bind(this);
+
+		this.projectile = null;
 	}
 
 	updatePlayer(otherPlayer) {
@@ -20,7 +22,10 @@ class Ryu extends Player {
 
 		this.keyListener = false;
 
-		if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
+		if (this.currentState.specialMove1 === true) {
+			this.haduken();
+			this.projectile = new Projectile(this, otherPlayer, this.ctx);
+		} else if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();
 		} else if (this.currentState.lowKick && this.currentState.isMovingRight) {
 			this.forwardLowKick();
@@ -120,6 +125,10 @@ class Ryu extends Player {
 
 		otherPlayer.health -= attackState.attackDamage;
 		console.log(otherPlayer.health);
+	}
+
+	haduken() {
+		this.updateState(RYU_SPRITE_POSITION.haduken, RYU_IDLE_ANIMATION_TIME, false);
 	}
 
 	forwardHeavyKick() {

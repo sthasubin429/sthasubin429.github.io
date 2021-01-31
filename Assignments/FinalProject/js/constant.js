@@ -21,6 +21,8 @@ const PLAYER1_LOW_KICK = 74;
 const PLAYER1_MEDIUM_KICK = 75;
 const PLAYER1_HEAVY_KICK = 76;
 
+const PLAYER1_SPECIAL_MOVE1 = 77;
+
 //Move codes for player 2
 const PLAYER2_LEFT = 37;
 const PLAYER2_RIGHT = 39;
