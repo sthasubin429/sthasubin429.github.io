@@ -48,6 +48,8 @@ class Player {
 		this.updateHeight = this.updateHeight.bind(this);
 
 		this.checkAttacked = this.checkAttacked.bind(this);
+
+		this.health = 1000;
 	}
 
 	drawPlayer(frameCount, otherPlayer) {
@@ -71,6 +73,8 @@ class Player {
 
 		this.animation.animate();
 		this.colision = false;
+
+		this.checkHealth();
 	}
 
 	checkWallColision() {
@@ -203,5 +207,11 @@ class Player {
 		this.changeFactor = changeFactor;
 
 		this.position.x -= moveSpeed;
+	}
+
+	checkHealth() {
+		if (this.health < 1) {
+			console.log('game over');
+		}
 	}
 }
