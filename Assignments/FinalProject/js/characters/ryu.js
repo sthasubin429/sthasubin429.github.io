@@ -17,7 +17,9 @@ class Ryu extends Player {
 	updatePlayer(otherPlayer) {
 		super.checkWallColision();
 		super.checkCollision(otherPlayer);
+
 		this.keyListener = false;
+
 		if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();
 		} else if (this.currentState.lowKick && this.currentState.isMovingRight) {
@@ -72,46 +74,106 @@ class Ryu extends Player {
 			this.makeIdle();
 			this.keyListener = true;
 		}
+
+		this.checkAttacked(otherPlayer);
+	}
+
+	checkAttacked(otherPlayer) {
+		if (this.colision && this.rotation && this.isAttacked) {
+			console.log(this.attackState);
+
+			this.attackState = {
+				attackType: null,
+				attackDamage: 0,
+			};
+			otherPlayer.setAttackedState(otherPlayer, this.attackState);
+
+			// otherPlayer.position.x += MOVE_SPEED * 2;
+		}
+
+		if (this.colision && !this.rotation && this.isAttacked) {
+			// call attack animation
+			//chage sprites to attacked sprites
+			console.log(this.attackState);
+
+			otherPlayer.setAttackedState(otherPlayer, this.attackState);
+
+			this.attackState = {
+				attackType: null,
+				attackDamage: 0,
+			};
+		}
+
+		this.isAttacked = false;
+		this.colision = false;
+	}
+
+	setAttackedState(otherPlayer, attackState) {
+		otherPlayer.currentState = resetState(otherPlayer.currentState);
+
+		if (attackState.attackType === FACE_HIT) {
+			otherPlayer.updateState(RYU_SPRITE_POSITION.faceHit, RYU_IDLE_ANIMATION_TIME, false);
+		} else if (attackState.attackType === STOMACH_HIT) {
+			otherPlayer.updateState(RYU_SPRITE_POSITION.stomachHit, RYU_IDLE_ANIMATION_TIME, false);
+		} else {
+			otherPlayer.updateState(RYU_SPRITE_POSITION.normalHit, RYU_IDLE_ANIMATION_TIME, false);
+		}
+
+		if (this.rotation) {
+			otherPlayer.position.x -= MOVE_SPEED * 1.5;
+		} else {
+			otherPlayer.position.x += MOVE_SPEED * 1.5;
+		}
 	}
 
 	forwardHeavyKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardHeavyKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, FACE_HIT);
 	}
 
 	forwardMediumKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardMediumKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	forwardLowKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardLowKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	heavyKick() {
 		this.updateState(RYU_SPRITE_POSITION.heavyKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, FACE_HIT);
 	}
 
 	kick() {
 		this.updateState(RYU_SPRITE_POSITION.kick, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, FACE_HIT);
 	}
 
 	forwardHeavyPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardHeavyPunch, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	forwardMediumPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardMediumPuch, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	forwardLowPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardLowPunch, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	punch() {
 		this.updateState(RYU_SPRITE_POSITION.punch, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	lowPunch() {
 		this.updateState(RYU_SPRITE_POSITION.lowPuch, RYU_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(100, NORMAL_HIT);
 	}
 
 	standingBlock() {

@@ -26,9 +26,15 @@ const PLAYER2_LEFT = 37;
 const PLAYER2_RIGHT = 39;
 const PLAYER2_UP = 38;
 const PLAYER2_DOWN = 40;
+
 //move speed
 const MOVE_SPEED = 2;
 
 const SCALE_SPRITE = 2;
 
 const CHARACTER_PADDING = 30;
+
+//HIT TYPES
+const FACE_HIT = 'faceHit';
+const STOMACH_HIT = 'stomachHit';
+const NORMAL_HIT = 'normalHit';

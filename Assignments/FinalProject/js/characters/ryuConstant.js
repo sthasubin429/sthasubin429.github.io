@@ -678,6 +678,84 @@ const RYU_SPRITE_POSITION = {
 			y: 262,
 		},
 	],
+	stomachHit: [
+		{
+			width: 43,
+			height: 76,
+			x: 5,
+			y: 760,
+		},
+		{
+			width: 47,
+			height: 75,
+			x: 53,
+			y: 761,
+		},
+		{
+			width: 49,
+			height: 65,
+			x: 106,
+			y: 771,
+		},
+		{
+			width: 43,
+			height: 82,
+			x: 163,
+			y: 754,
+		},
+	],
+	faceHit: [
+		{
+			width: 48,
+			height: 79,
+			x: 217,
+			y: 757,
+		},
+		{
+			width: 52,
+			height: 79,
+			x: 271,
+			y: 757,
+		},
+		{
+			width: 58,
+			height: 83,
+			x: 328,
+			y: 753,
+		},
+		{
+			width: 43,
+			height: 83,
+			x: 371,
+			y: 753,
+		},
+	],
+	normalHit: [
+		{
+			width: 43,
+			height: 81,
+			x: 6,
+			y: 18,
+		},
+		{
+			width: 51,
+			height: 79,
+			x: 1003,
+			y: 757,
+		},
+		{
+			width: 43,
+			height: 81,
+			x: 1060,
+			y: 755,
+		},
+		{
+			width: 43,
+			height: 82,
+			x: 1110,
+			y: 754,
+		},
+	],
 };
 // const RYU_SPRITE_POSITION = {
 //    idle: [

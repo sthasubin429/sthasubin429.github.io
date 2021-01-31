@@ -23,6 +23,11 @@ class Player {
 			isCrouching: false,
 		};
 
+		this.attackState = {
+			attackType: null,
+			attackDamage: 0,
+		};
+
 		this.animationComplete = false;
 		this.keyListener = true;
 
@@ -45,7 +50,7 @@ class Player {
 		this.checkAttacked = this.checkAttacked.bind(this);
 	}
 
-	drawPlayer(frameCount) {
+	drawPlayer(frameCount, otherPlayer) {
 		this.changeHeight(frameCount);
 		if (frameCount % this.animation.animationTime === 0) {
 			this.animation.counter++;
@@ -62,32 +67,9 @@ class Player {
 			}
 		}
 
-		this.checkAttacked();
-
 		this.animation.position = this.position;
 
 		this.animation.animate();
-		this.colision = false;
-	}
-
-	checkAttacked() {
-		if (this.colision && this.rotation && this.isAttacked) {
-			// call attack animation
-			// chage sprites to attacked sprites
-		}
-
-		if (this.colision && !this.rotation && this.isAttacked) {
-			// call attack animation
-			//chage sprites to attacked sprites
-		}
-		if (this.colision && this.rotation) {
-			this.position.x += this.animation.spritePosition[this.animation.counter].width / 2;
-		}
-		if (this.colision && !this.rotation) {
-			this.position.x -= this.animation.spritePosition[this.animation.counter].width / 2;
-		}
-
-		this.isAttacked = false;
 		this.colision = false;
 	}
 
@@ -143,6 +125,14 @@ class Player {
 			this.colision = true;
 			console.log('collided');
 		}
+	}
+
+	triggerAttack(damage, type) {
+		this.isAttacked = true;
+
+		this.attackState.attackDamage = damage;
+
+		this.attackState.attackType = type;
 	}
 
 	changeHeight() {

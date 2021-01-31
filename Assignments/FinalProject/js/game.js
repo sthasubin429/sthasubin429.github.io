@@ -41,10 +41,10 @@ class Game {
 		this.stage.init();
 
 		this.player1.updatePlayer(this.player2);
-		this.player1.drawPlayer(this.frameCount);
+		this.player1.drawPlayer(this.frameCount, this.player2);
 
 		this.player2.updatePlayer(this.player1);
-		this.player2.drawPlayer(this.frameCount);
+		this.player2.drawPlayer(this.frameCount, this.player1);
 
 		requestAnimationFrame(this.gameLoop);
 	}
