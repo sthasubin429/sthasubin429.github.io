@@ -121,9 +121,9 @@ class Player {
 		}
 
 		if (otherPlayer.rotation) {
-			player2Rectangle.x = otherPlayer.position.x * -1 + CANVAS_WIDTH;
+			player2Rectangle.x = otherPlayer.position.x * -1 + CANVAS_WIDTH + player2Rectangle.width - CHARACTER_PADDING * 2.1;
 		} else {
-			player2Rectangle.x = otherPlayer.position.x;
+			player2Rectangle.x = otherPlayer.position.x + player2Rectangle.width - CHARACTER_PADDING * 2.1;
 		}
 
 		//checking Collision

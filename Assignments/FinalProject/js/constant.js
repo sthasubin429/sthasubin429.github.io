@@ -29,6 +29,17 @@ const PLAYER2_RIGHT = 39;
 const PLAYER2_UP = 38;
 const PLAYER2_DOWN = 40;
 
+//Attack Codes for Player 2
+const PLAYER2_LOW_PUNCH = 100;
+const PLAYER2_MEDIUM_PUNCH = 101;
+const PLAYER2_HEAVY_PUNCH = 102;
+
+const PLAYER2_LOW_KICK = 103;
+const PLAYER2_MEDIUM_KICK = 104;
+const PLAYER2_HEAVY_KICK = 105;
+
+const PLAYER2_SPECIAL_MOVE1 = 97;
+
 //move speed
 const MOVE_SPEED = 2;
 

@@ -84,7 +84,7 @@ class Ryu extends Player {
 	}
 
 	checkAttacked(otherPlayer) {
-		if (this.colision && this.rotation && this.isAttacked) {
+		if (this.colision && this.isAttacked) {
 			otherPlayer.setAttackedState(otherPlayer, this.attackState);
 
 			this.attackState = {
@@ -93,7 +93,7 @@ class Ryu extends Player {
 			};
 		}
 
-		if (this.colision && !this.rotation && this.isAttacked) {
+		if (this.colision && this.isAttacked) {
 			otherPlayer.setAttackedState(otherPlayer, this.attackState);
 
 			this.attackState = {

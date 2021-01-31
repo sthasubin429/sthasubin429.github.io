@@ -97,24 +97,27 @@ class Game {
 			this.player2.animationComplete = false;
 			// this.player1.animation.counter = 0;
 			switch (event.keyCode) {
-				// case PLAYER1_LOW_KICK:
-				// 	this.player1.currentState.lowKick = true;
-				// 	break;
-				// case PLAYER1_MEDIUM_KICK:
-				// 	this.player1.currentState.mediumKick = true;
-				// 	break;
-				// case PLAYER1_HEAVY_KICK:
-				// 	this.player1.currentState.heavyKick = true;
-				// 	break;
-				// case PLAYER1_LOW_PUNCH:
-				// 	this.player1.currentState.lowPunch = true;
-				// 	break;
-				// case PLAYER1_MEDIUM_PUNCH:
-				// 	this.player1.currentState.mediumPunch = true;
-				// 	break;
-				// case PLAYER1_HEAVY_PUNCH:
-				// 	this.player1.currentState.heavyPunch = true;
-				// 	break;
+				case PLAYER2_SPECIAL_MOVE1:
+					this.player2.currentState.specialMove1 = true;
+					break;
+				case PLAYER2_LOW_KICK:
+					this.player2.currentState.lowKick = true;
+					break;
+				case PLAYER2_MEDIUM_KICK:
+					this.player2.currentState.mediumKick = true;
+					break;
+				case PLAYER2_HEAVY_KICK:
+					this.player2.currentState.heavyKick = true;
+					break;
+				case PLAYER2_LOW_PUNCH:
+					this.player2.currentState.lowPunch = true;
+					break;
+				case PLAYER2_MEDIUM_PUNCH:
+					this.player2.currentState.mediumPunch = true;
+					break;
+				case PLAYER2_HEAVY_PUNCH:
+					this.player2.currentState.heavyPunch = true;
+					break;
 				case PLAYER2_LEFT:
 					// console.log('left pressed');
 					this.player2.currentState.isMovingLeft = true;
