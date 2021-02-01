@@ -13,18 +13,36 @@ class Ryu extends Player {
 
 		this.moveLeft = this.moveLeft.bind(this);
 
-		this.projectile = null;
+		this.projectile = false;
 	}
 
-	updatePlayer(otherPlayer) {
+	updatePlayer(otherPlayer, frameCount) {
 		super.checkWallColision();
+
 		super.checkCollision(otherPlayer);
 
 		this.keyListener = false;
 
 		if (this.currentState.specialMove1 === true) {
-			this.haduken();
-			this.projectile = new Projectile(this, otherPlayer, this.ctx);
+			if (!this.projectile) {
+				this.haduken();
+
+				this.projectile = new Projectile(
+					this,
+					otherPlayer,
+
+					this.ctx,
+
+					ryuSprite,
+					this.position,
+
+					RYU_SPRITE_POSITION.projectileStart,
+					RYU_SPRITE_POSITION.projectileMove,
+					RYU_SPRITE_POSITION.projectileHit,
+
+					RYU_IDLE_ANIMATION_TIME
+				);
+			}
 		} else if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();
 		} else if (this.currentState.lowKick && this.currentState.isMovingRight) {
@@ -80,7 +98,23 @@ class Ryu extends Player {
 			this.keyListener = true;
 		}
 
+		if (this.projectile) {
+			this.updateProjectile(frameCount);
+		}
+
 		this.checkAttacked(otherPlayer);
+	}
+
+	updateProjectile(frameCount) {
+		if (this.projectile.checkProjectilePosition()) {
+			this.projectile = null;
+		}
+
+		this.projectile.update(frameCount);
+
+		if (this.projectile) {
+			this.projectile.animate();
+		}
 	}
 
 	checkAttacked(otherPlayer) {
@@ -111,6 +145,7 @@ class Ryu extends Player {
 		otherPlayer.position.x -= MOVE_SPEED * 1.5;
 
 		otherPlayer.health -= attackState.attackDamage;
+
 		console.log(otherPlayer.health);
 	}
 

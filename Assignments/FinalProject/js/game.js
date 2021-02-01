@@ -40,10 +40,10 @@ class Game {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.stage.init();
 
-		this.player1.updatePlayer(this.player2);
+		this.player1.updatePlayer(this.player2, this.frameCount);
 		this.player1.drawPlayer(this.frameCount, this.player2);
 
-		this.player2.updatePlayer(this.player1);
+		this.player2.updatePlayer(this.player1, this.frameCount);
 		this.player2.drawPlayer(this.frameCount, this.player1);
 
 		requestAnimationFrame(this.gameLoop);
@@ -144,6 +144,12 @@ class Game {
 			this.player1.currentState.isIdle = true;
 			this.player1.keyListener = true;
 			this.player1.animationComplete = false;
+		}
+		if (this.player2.animationComplete) {
+			this.player2.currentState = resetState(this.player2.currentState);
+			this.player2.currentState.isIdle = true;
+			this.player2.keyListener = true;
+			this.player2.animationComplete = false;
 		}
 	}
 }

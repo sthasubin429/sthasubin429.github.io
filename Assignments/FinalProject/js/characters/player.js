@@ -56,6 +56,7 @@ class Player {
 
 	drawPlayer(frameCount, otherPlayer) {
 		this.changeHeight(frameCount);
+
 		if (frameCount % this.animation.animationTime === 0) {
 			this.animation.counter++;
 

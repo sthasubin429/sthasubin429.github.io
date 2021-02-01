@@ -47,7 +47,13 @@ const SCALE_SPRITE = 2;
 
 const CHARACTER_PADDING = 30;
 
+const PROJECTILE_SPEED = 3;
+
 //HIT TYPES
 const FACE_HIT = 'faceHit';
 const STOMACH_HIT = 'stomachHit';
 const NORMAL_HIT = 'normalHit';
+
+const STATE_START = 'start';
+const STATE_MOVE = 'move';
+const STATE_HIT = 'hit';
