@@ -113,7 +113,6 @@ class Player {
 
 		player2Rectangle.width = otherPlayer.animation.spritePosition[otherPlayer.animation.counter].width * SCALE_SPRITE;
 		player2Rectangle.height = otherPlayer.animation.spritePosition[otherPlayer.animation.counter].height * SCALE_SPRITE;
-
 		if (this.rotation) {
 			player1Rectangle.x = this.position.x * -1 + CANVAS_WIDTH + player1Rectangle.width - CHARACTER_PADDING * 2.1;
 		} else {
@@ -127,8 +126,9 @@ class Player {
 		}
 
 		//checking Collision
-		if (rectangularCollision(player1Rectangle, player2Rectangle)) {
+		if (rectangularCollision(player1Rectangle, player2Rectangle, this.rotation)) {
 			this.colision = true;
+			// console.log('hello');
 		}
 	}
 

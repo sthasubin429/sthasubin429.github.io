@@ -792,9 +792,9 @@ const RYU_SPRITE_POSITION = {
 	projectileStart: [
 		{
 			width: 34,
-			height: 378,
-			x: 642,
-			y: 0,
+			height: 48,
+			x: 377,
+			y: 642,
 		},
 	],
 

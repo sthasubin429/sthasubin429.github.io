@@ -93,15 +93,6 @@ class Ryu extends Player {
 			};
 		}
 
-		if (this.colision && this.isAttacked) {
-			otherPlayer.setAttackedState(otherPlayer, this.attackState);
-
-			this.attackState = {
-				attackType: null,
-				attackDamage: 0,
-			};
-		}
-
 		this.isAttacked = false;
 		this.colision = false;
 	}
@@ -117,11 +108,7 @@ class Ryu extends Player {
 			otherPlayer.updateState(RYU_SPRITE_POSITION.normalHit, RYU_IDLE_ANIMATION_TIME, false);
 		}
 
-		if (this.rotation) {
-			otherPlayer.position.x -= MOVE_SPEED * 1.5;
-		} else {
-			otherPlayer.position.x += MOVE_SPEED * 1.5;
-		}
+		otherPlayer.position.x -= MOVE_SPEED * 1.5;
 
 		otherPlayer.health -= attackState.attackDamage;
 		console.log(otherPlayer.health);
