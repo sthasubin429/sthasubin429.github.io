@@ -1,4 +1,16 @@
-class Ryu extends Player {
+import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION } from './ryuConstant.js';
+
+import { ryuSprite } from '../../img/images.js';
+
+import Player from '../player.js';
+
+import Projectile from '../../components/projectile.js';
+
+import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT } from '../../utility/constant.js';
+
+import { resetState } from '../../utility/utils.js';
+
+export default class Ryu extends Player {
 	constructor(ctx, rotation) {
 		let props = {
 			ctx: ctx,
@@ -108,6 +120,8 @@ class Ryu extends Player {
 	updateProjectile(frameCount) {
 		if (this.projectile.checkProjectilePosition()) {
 			this.projectile = null;
+			this.currentState = resetState(this.currentState);
+			this.animation.counter = 0;
 		}
 
 		this.projectile.update(frameCount);

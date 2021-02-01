@@ -1,4 +1,7 @@
-class Stage {
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from '../utility/constant.js';
+import { stage1 } from '../img/images.js';
+
+export default class Stage {
 	constructor(ctx) {
 		this.ctx = ctx;
 	}

@@ -1,13 +1,13 @@
 //sets all the values in an object to false
 
-function resetState(object) {
+export function resetState(object) {
 	for (let i in object) {
 		object[i] = false;
 	}
 	return object;
 }
 
-function jumpHeightChange(x, y) {
+export function jumpHeightChange(x, y) {
 	let temp = Math.floor(x / 2);
 	if (y < temp) {
 		return x;
@@ -16,9 +16,7 @@ function jumpHeightChange(x, y) {
 	}
 }
 
-function rectangularCollision(rectangle1, rectangle2, rotation) {
-	// var rectangle1 = { x: 5, y: 5, width: 50, height: 50 };
-	// var rectangle2 = { x: 20, y: 10, width: 10, height: 10 };
+export function rectangularCollision(rectangle1, rectangle2, rotation) {
 	if (rotation) {
 		// console.log(rectangle1, rectangle2);
 		if (

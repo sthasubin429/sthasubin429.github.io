@@ -1,4 +1,6 @@
-class Animation {
+import { CANVAS_WIDTH, SCALE_SPRITE } from '../utility/constant.js';
+
+export default class Animation {
 	constructor(ctx, sprite, rotation, spritePosition, position, time, loop) {
 		this.ctx = ctx; //canvas context
 

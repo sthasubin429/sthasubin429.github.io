@@ -1,4 +1,10 @@
-class Player {
+import Animation from '../components/animation.js';
+
+import { MOVE_SPEED, CANVAS_WIDTH, CANVAS_HEIGHT, CHARACTER_PADDING, SCALE_SPRITE, STAGE_HEIGHT } from '../utility/constant.js';
+
+import { rectangularCollision, resetState } from '../utility/utils.js';
+
+export default class Player {
 	constructor(props) {
 		this.ctx = props.ctx;
 

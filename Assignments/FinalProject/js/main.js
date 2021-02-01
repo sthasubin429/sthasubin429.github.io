@@ -1,7 +1,9 @@
+import Game from './game.js';
+
 function startGame() {
-   // loadSprite();
-   let game = new Game('container', 'game');
-   game.init();
+	// loadSprite();
+	let game = new Game('container', 'game');
+	game.init();
 }
 
 window.onload = startGame;

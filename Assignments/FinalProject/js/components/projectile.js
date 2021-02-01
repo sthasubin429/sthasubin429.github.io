@@ -1,4 +1,8 @@
-class Projectile {
+import { CANVAS_WIDTH, STATE_START, STATE_MOVE, STATE_HIT, CHARACTER_PADDING, PROJECTILE_SPEED, SCALE_SPRITE, STOMACH_HIT } from '../utility/constant.js';
+
+import { rectangularCollision } from '../utility/utils.js';
+
+export default class Projectile {
 	constructor(creator, target, ctx, sprite, projectilePosition, start, move, hit, animationTime) {
 		this.ctx = ctx;
 		this.creator = creator;
@@ -124,9 +128,7 @@ class Projectile {
 		}
 
 		if (this.target.rotation) {
-			// targetRecangle.x = this.target.position.x * -1 + CANVAS_WIDTH + targetRecangle.width - CHARACTER_PADDING * 2.1;
 			targetRecangle.x = this.target.position.x * -1 + CANVAS_WIDTH - targetRecangle.width;
-			console.log(targetRecangle.x);
 		} else {
 			targetRecangle.x = this.target.position.x + targetRecangle.width - CHARACTER_PADDING * 2.1;
 		}

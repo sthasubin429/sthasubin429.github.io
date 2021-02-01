@@ -1,4 +1,24 @@
-class Game {
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
+
+import Stage from './components/stage.js';
+
+import Ryu from './characters/Ryu/ryu.js';
+
+//for player 1
+import { PLAYER1_LEFT, PLAYER1_RIGHT, PLAYER1_UP, PLAYER1_DOWN } from './utility/constant.js';
+import { PLAYER1_LOW_PUNCH, PLAYER1_HEAVY_PUNCH, PLAYER1_MEDIUM_PUNCH } from './utility/constant.js';
+import { PLAYER1_LOW_KICK, PLAYER1_MEDIUM_KICK, PLAYER1_HEAVY_KICK } from './utility/constant.js';
+import { PLAYER1_SPECIAL_MOVE1 } from './utility/constant.js';
+
+//for player 2
+import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility/constant.js';
+import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
+import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
+import { PLAYER2_SPECIAL_MOVE1 } from './utility/constant.js';
+
+import { resetState } from './utility/utils.js';
+
+export default class Game {
 	constructor(containerId, canvasId) {
 		this.container = document.getElementById(containerId);
 		this.canvas = document.getElementById(canvasId);
