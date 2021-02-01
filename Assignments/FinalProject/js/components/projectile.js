@@ -54,6 +54,9 @@ export default class Projectile {
 			this.state = STATE_HIT;
 			this.spritePosition = this.hit;
 			this.creator.colision = true;
+			this.target.animation.counter = 0;
+			this.target.animationComplete = true;
+			this.target.increaseHeight = false;
 			this.creator.triggerAttack(10, STOMACH_HIT);
 		}
 
@@ -70,6 +73,7 @@ export default class Projectile {
 			this.ctx.translate(CANVAS_WIDTH, 0);
 			this.ctx.scale(-1, 1);
 		}
+
 		this.ctx.drawImage(
 			this.sprite,
 			this.spritePosition[this.counter].x,
