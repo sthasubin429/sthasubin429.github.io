@@ -9,3 +9,6 @@ ryuSprite.src = './images/ryu/sprites2.png';
 export let kenSprite = new Image();
 // ryuSprite.src = './images/ryu/sprites2.png';
 kenSprite.src = './images/ken/ken.png';
+
+export let loadScreen = new Image();
+loadScreen.src = './images/loadscreen.jpg';

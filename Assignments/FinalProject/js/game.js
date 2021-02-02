@@ -1,4 +1,6 @@
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
+import { GAME_START, GAME_CHARACTER_SELECTION, GAME_PLAY, GAME_OVER } from './utility/constant.js';
+import { ENTER, LEFT, RIGHT, UP, DOWN } from './utility/constant.js';
 
 import Stage from './components/stage.js';
 
@@ -21,6 +23,8 @@ import Time from './components/Time.js';
 
 import { resetState } from './utility/utils.js';
 
+import { loadScreen } from './img/images.js';
+
 export default class Game {
 	constructor(containerId, canvasId) {
 		this.container = document.getElementById(containerId);
@@ -41,13 +45,34 @@ export default class Game {
 
 		this.timer = new Time(this.ctx);
 
+		this.gameState = GAME_START;
 		//function binding
 		this.gameLoop = this.gameLoop.bind(this);
+
 		this.keyDownHandler = this.keyDownHandler.bind(this);
 		this.keyUpHandler = this.keyUpHandler.bind(this);
+
+		this.playGame = this.playGame.bind(this);
+		this.startKeyDown = this.startKeyDown.bind(this);
 	}
 
 	init() {
+		if (this.gameState === GAME_START) {
+			this.ctx.drawImage(loadScreen, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+			this.ctx.font = '500 30px Noto Sans JP';
+			this.ctx.fillStyle = 'white';
+			this.ctx.fillText('Press Enter To Start', 500, 390);
+
+			document.addEventListener('keydown', this.startKeyDown);
+		}
+	}
+
+	playGame() {
+		document.removeEventListener('keydown', this.startKeyDown);
+
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
 		this.stage = new Stage(this.ctx);
 		this.stage.init();
 
@@ -59,10 +84,11 @@ export default class Game {
 		document.addEventListener('keydown', this.keyDownHandler);
 		document.addEventListener('keyup', this.keyUpHandler);
 	}
+
 	gameLoop() {
 		this.frameCount++;
 
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 		this.stage.init();
 
 		this.player1.updatePlayer(this.player2, this.frameCount);
@@ -74,6 +100,14 @@ export default class Game {
 		this.timer.updateTime(this.frameCount);
 
 		requestAnimationFrame(this.gameLoop);
+	}
+
+	startKeyDown(event) {
+		switch (event.keyCode) {
+			case ENTER:
+				this.playGame();
+				break;
+		}
 	}
 
 	keyDownHandler(event) {
