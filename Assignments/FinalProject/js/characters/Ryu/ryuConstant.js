@@ -1,10 +1,16 @@
 export const RYU_WIDTH = 100;
+
 export const RYU_HEIGHT = 250;
+
 export const RYU_IDLE_ANIMATION_TIME = 10;
+
 export const RYU_POSITON = {
 	x: 300,
 	y: 100,
 };
+
+export const RYU_HADUKEN_MANA = 45;
+
 export const RYU_SPRITE_POSITION = {
 	idle: [
 		{

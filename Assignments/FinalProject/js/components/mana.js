@@ -9,10 +9,11 @@ export default class Mana {
 		this.currentMana = 0;
 		//function binding
 		this.drawCurrentMana = this.drawCurrentMana.bind(this);
+		this.getWidth = this.getWidth.bind(this);
+		this.decreaseMana = this.decreaseMana.bind(this);
 	}
 
 	drawManabar(frameCount) {
-		console.log(frameCount);
 		if (frameCount % 50 === 0) {
 			this.currentMana++;
 		}
@@ -61,5 +62,8 @@ export default class Mana {
 		}
 
 		return PLAYER_MANABAR.width * manaPercentage;
+	}
+	decreaseMana(mana) {
+		this.currentMana -= mana;
 	}
 }

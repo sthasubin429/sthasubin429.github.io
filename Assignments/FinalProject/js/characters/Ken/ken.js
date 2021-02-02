@@ -1,4 +1,4 @@
-import { KEN_IDLE_ANIMATION_TIME, KEN_POSITON, KEN_SPRITE_POSITION } from './kenConstant.js';
+import { KEN_IDLE_ANIMATION_TIME, KEN_POSITON, KEN_SPRITE_POSITION, KEN_HADUKEN_MANA } from './kenConstant.js';
 
 import { kenSprite, ryuSprite } from '../../img/images.js';
 
@@ -36,7 +36,7 @@ export default class Ken extends Player {
 		this.keyListener = false;
 
 		if (this.currentState.specialMove1 === true) {
-			if (!this.projectile) {
+			if (!this.projectile && this.checkMana(KEN_HADUKEN_MANA)) {
 				this.haduken();
 
 				this.projectile = new Projectile(
@@ -54,6 +54,14 @@ export default class Ken extends Player {
 
 					KEN_IDLE_ANIMATION_TIME
 				);
+
+				this.manaBar.decreaseMana(KEN_HADUKEN_MANA);
+			} else if (this.projectile) {
+				this.haduken();
+			} else {
+				this.currentState = resetState(this.currentState);
+				this.currentState.isIdle = true;
+				this.makeIdle();
 			}
 		} else if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();

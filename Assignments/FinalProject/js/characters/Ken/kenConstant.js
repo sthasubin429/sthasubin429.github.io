@@ -1,10 +1,16 @@
 export const KEN_WIDTH = 100;
+
 export const KEN_HEIGHT = 250;
+
 export const KEN_IDLE_ANIMATION_TIME = 10;
+
 export const KEN_POSITON = {
 	x: 300,
 	y: 100,
 };
+
+export const KEN_HADUKEN_MANA = 45;
+
 export const KEN_SPRITE_POSITION = {
 	idle: [
 		{

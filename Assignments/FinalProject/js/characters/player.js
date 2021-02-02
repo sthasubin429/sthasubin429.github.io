@@ -96,6 +96,14 @@ export default class Player {
 		this.checkHealth();
 	}
 
+	checkMana(requiredMana) {
+		if (this.manaBar.currentMana > requiredMana) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	checkWallColision() {
 		if (this.position.x <= 0) {
 			this.position.x = 0;

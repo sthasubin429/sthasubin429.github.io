@@ -1,4 +1,4 @@
-import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION } from './ryuConstant.js';
+import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION, RYU_HADUKEN_MANA } from './ryuConstant.js';
 
 import { ryuSprite } from '../../img/images.js';
 
@@ -36,7 +36,7 @@ export default class Ryu extends Player {
 		this.keyListener = false;
 
 		if (this.currentState.specialMove1 === true) {
-			if (!this.projectile) {
+			if (!this.projectile && this.checkMana(RYU_HADUKEN_MANA)) {
 				this.haduken();
 
 				this.projectile = new Projectile(
@@ -54,6 +54,14 @@ export default class Ryu extends Player {
 
 					RYU_IDLE_ANIMATION_TIME
 				);
+
+				this.manaBar.decreaseMana(RYU_HADUKEN_MANA);
+			} else if (this.projectile) {
+				this.haduken();
+			} else {
+				this.currentState = resetState(this.currentState);
+				this.currentState.isIdle = true;
+				this.makeIdle();
 			}
 		} else if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
 			this.standingBlock();
