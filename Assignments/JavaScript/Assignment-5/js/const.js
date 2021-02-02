@@ -1,10 +1,10 @@
 //Global Constants
 const CANVAS_WIDTH = 288;
 const CANVAS_HEIGHT = 512;
-const CONTAINER_HEIGHT = 608; 
+const CONTAINER_HEIGHT = 608;
 
 //Bird constants
-const BIRD_POS_X = 20; 
+const BIRD_POS_X = 20;
 const BIRD_WIDTH = 34;
 const BIRD_HEIGHT = 24;
 const BIRD_JUMP = 4;
@@ -21,7 +21,7 @@ const PIPE_MUL = -1;
 const PIPE_SPEED = 2;
 
 //Storage Key
-const STORAGE_KEY = 'FlappyHighestScore'
+const STORAGE_KEY = 'FlappyHighestScore';
 
 //Start Screen
 const FLAPPY_BIRD_WIDTH = 150;
