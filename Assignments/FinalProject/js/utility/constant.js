@@ -69,3 +69,8 @@ export const PLAYER_HEALTHBAR = {
 };
 
 export const HEALTHBAR_PADDING = 3;
+
+export const TIME_POSITION = {
+	x: 590,
+	y: 50,
+};

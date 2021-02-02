@@ -16,6 +16,8 @@ import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './
 import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
 import { PLAYER2_SPECIAL_MOVE1 } from './utility/constant.js';
 
+import Time from './components/Time.js';
+
 import { resetState } from './utility/utils.js';
 
 export default class Game {
@@ -35,6 +37,8 @@ export default class Game {
 
 		this.player1;
 		this.player2;
+
+		this.timer = new Time(this.ctx);
 
 		//function binding
 		this.gameLoop = this.gameLoop.bind(this);
@@ -65,6 +69,8 @@ export default class Game {
 
 		this.player2.updatePlayer(this.player1, this.frameCount);
 		this.player2.drawPlayer(this.frameCount, this.player1);
+
+		this.timer.updateTime(this.frameCount);
 
 		requestAnimationFrame(this.gameLoop);
 	}
