@@ -58,3 +58,14 @@ export const NORMAL_HIT = 'normalHit';
 export const STATE_START = 'start';
 export const STATE_MOVE = 'move';
 export const STATE_HIT = 'hit';
+
+//healthbar position
+
+export const PLAYER_HEALTHBAR = {
+	width: 400,
+	height: 30,
+	x: 150,
+	y: 20,
+};
+
+export const HEALTHBAR_PADDING = 3;

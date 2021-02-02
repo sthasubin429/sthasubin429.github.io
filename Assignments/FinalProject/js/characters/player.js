@@ -4,6 +4,8 @@ import { MOVE_SPEED, CANVAS_WIDTH, CANVAS_HEIGHT, CHARACTER_PADDING, SCALE_SPRIT
 
 import { rectangularCollision, resetState } from '../utility/utils.js';
 
+import Health from '../components/health.js';
+
 export default class Player {
 	constructor(props) {
 		this.ctx = props.ctx;
@@ -57,7 +59,9 @@ export default class Player {
 
 		this.checkAttacked = this.checkAttacked.bind(this);
 
-		this.health = 1000;
+		this.health = 100;
+
+		this.healthBar = new Health(this.ctx, this);
 	}
 
 	drawPlayer(frameCount, otherPlayer) {
@@ -83,6 +87,7 @@ export default class Player {
 		this.animation.animate();
 		this.colision = false;
 
+		this.healthBar.drawHealthBar(this.health);
 		this.checkHealth();
 	}
 
