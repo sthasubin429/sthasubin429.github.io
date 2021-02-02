@@ -1,6 +1,6 @@
-import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION } from './ryuConstant.js';
+import { KEN_IDLE_ANIMATION_TIME, KEN_POSITON, KEN_SPRITE_POSITION } from './kenConstant.js';
 
-import { ryuSprite } from '../../img/images.js';
+import { kenSprite, ryuSprite } from '../../img/images.js';
 
 import Player from '../player.js';
 
@@ -10,15 +10,15 @@ import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../uti
 
 import { resetState } from '../../utility/utils.js';
 
-export default class Ryu extends Player {
+export default class Ken extends Player {
 	constructor(ctx, rotation) {
 		let props = {
 			ctx: ctx,
-			position: RYU_POSITON,
+			position: KEN_POSITON,
 			rotation: rotation,
-			sprite: ryuSprite,
-			animationArray: RYU_SPRITE_POSITION.idle,
-			animationTime: RYU_IDLE_ANIMATION_TIME,
+			sprite: kenSprite,
+			animationArray: KEN_SPRITE_POSITION.idle,
+			animationTime: KEN_IDLE_ANIMATION_TIME,
 		};
 
 		super(props);
@@ -48,11 +48,11 @@ export default class Ryu extends Player {
 					ryuSprite,
 					this.position,
 
-					RYU_SPRITE_POSITION.projectileStart,
-					RYU_SPRITE_POSITION.projectileMove,
-					RYU_SPRITE_POSITION.projectileHit,
+					KEN_SPRITE_POSITION.projectileStart,
+					KEN_SPRITE_POSITION.projectileMove,
+					KEN_SPRITE_POSITION.projectileHit,
 
-					RYU_IDLE_ANIMATION_TIME
+					KEN_IDLE_ANIMATION_TIME
 				);
 			}
 		} else if (this.currentState.isMovingRight && this.currentState.isMovingLeft) {
@@ -149,108 +149,107 @@ export default class Ryu extends Player {
 		otherPlayer.currentState = resetState(otherPlayer.currentState);
 
 		if (attackState.attackType === FACE_HIT) {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.faceHit, RYU_IDLE_ANIMATION_TIME, false);
+			otherPlayer.updateState(KEN_SPRITE_POSITION.faceHit, KEN_IDLE_ANIMATION_TIME, false);
 		} else if (attackState.attackType === STOMACH_HIT) {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.stomachHit, RYU_IDLE_ANIMATION_TIME, false);
+			otherPlayer.updateState(KEN_SPRITE_POSITION.stomachHit, KEN_IDLE_ANIMATION_TIME, false);
 		} else {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.normalHit, RYU_IDLE_ANIMATION_TIME, false);
+			otherPlayer.updateState(KEN_SPRITE_POSITION.normalHit, KEN_IDLE_ANIMATION_TIME, false);
 		}
 
 		otherPlayer.position.x -= MOVE_SPEED * 1.5;
-		otherPlayer.health -= attackState.attackDamage;
 
-		attackState.attackDamage = 0;
+		otherPlayer.health -= attackState.attackDamage;
 
 		console.log(otherPlayer.health);
 	}
 
 	haduken() {
-		this.updateState(RYU_SPRITE_POSITION.haduken, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.haduken, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
 	forwardHeavyKick() {
-		this.updateState(RYU_SPRITE_POSITION.forwardHeavyKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardHeavyKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
 	forwardMediumKick() {
-		this.updateState(RYU_SPRITE_POSITION.forwardMediumKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardMediumKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	forwardLowKick() {
-		this.updateState(RYU_SPRITE_POSITION.forwardLowKick, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardLowKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	heavyKick() {
-		this.updateState(RYU_SPRITE_POSITION.heavyKick, RYU_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE, FACE_HIT);
+		this.updateState(KEN_SPRITE_POSITION.heavyKick, KEN_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
 	kick() {
-		this.updateState(RYU_SPRITE_POSITION.kick, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.kick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
 	forwardHeavyPunch() {
-		this.updateState(RYU_SPRITE_POSITION.forwardHeavyPunch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardHeavyPunch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	forwardMediumPunch() {
-		this.updateState(RYU_SPRITE_POSITION.forwardMediumPuch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardMediumPuch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	forwardLowPunch() {
-		this.updateState(RYU_SPRITE_POSITION.forwardLowPunch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.forwardLowPunch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	punch() {
-		this.updateState(RYU_SPRITE_POSITION.punch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.punch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	lowPunch() {
-		this.updateState(RYU_SPRITE_POSITION.lowPuch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.lowPuch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
 	standingBlock() {
-		this.updateState(RYU_SPRITE_POSITION.standingBlock, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.standingBlock, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
 	crouchingBlock() {
-		this.updateState(RYU_SPRITE_POSITION.crouchingBlock, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.crouchingBlock, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
 	makeIdle() {
-		super.makeIdle(RYU_SPRITE_POSITION.idle, RYU_IDLE_ANIMATION_TIME, true);
+		super.makeIdle(KEN_SPRITE_POSITION.idle, KEN_IDLE_ANIMATION_TIME, true);
 	}
 
 	moveRight() {
-		super.moveRight(RYU_SPRITE_POSITION.moveRight, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
+		super.moveRight(KEN_SPRITE_POSITION.moveRight, KEN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
 	moveLeft() {
-		super.moveLeft(RYU_SPRITE_POSITION.moveLeft, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
+		super.moveLeft(KEN_SPRITE_POSITION.moveLeft, KEN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
 	jump() {
-		super.jump(RYU_SPRITE_POSITION.jump, RYU_IDLE_ANIMATION_TIME, false, 1);
+		super.jump(KEN_SPRITE_POSITION.jump, KEN_IDLE_ANIMATION_TIME, false, 1);
 	}
 
 	crouch() {
-		this.updateState(RYU_SPRITE_POSITION.crouch, RYU_IDLE_ANIMATION_TIME, false);
+		this.updateState(KEN_SPRITE_POSITION.crouch, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
 	frontFlip() {
-		super.frontFlip(RYU_SPRITE_POSITION.frontFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
+		super.frontFlip(KEN_SPRITE_POSITION.frontFlip, KEN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
 
 	backFlip() {
-		super.backFlip(RYU_SPRITE_POSITION.backFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
+		super.backFlip(KEN_SPRITE_POSITION.backFlip, KEN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
 }

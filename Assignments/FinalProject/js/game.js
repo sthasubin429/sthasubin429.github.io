@@ -3,6 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
 import Stage from './components/stage.js';
 
 import Ryu from './characters/Ryu/ryu.js';
+import Ken from './characters/Ken/ken.js';
 
 //for player 1
 import { PLAYER1_LEFT, PLAYER1_RIGHT, PLAYER1_UP, PLAYER1_DOWN } from './utility/constant.js';
@@ -51,7 +52,7 @@ export default class Game {
 		this.stage.init();
 
 		this.player1 = new Ryu(this.ctx, false);
-		this.player2 = new Ryu(this.ctx, true);
+		this.player2 = new Ken(this.ctx, true);
 
 		this.gameLoop();
 

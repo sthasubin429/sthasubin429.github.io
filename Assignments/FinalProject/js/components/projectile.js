@@ -1,4 +1,14 @@
-import { CANVAS_WIDTH, STATE_START, STATE_MOVE, STATE_HIT, CHARACTER_PADDING, PROJECTILE_SPEED, SCALE_SPRITE, STOMACH_HIT } from '../utility/constant.js';
+import {
+	CANVAS_WIDTH,
+	STATE_START,
+	STATE_MOVE,
+	STATE_HIT,
+	CHARACTER_PADDING,
+	PROJECTILE_SPEED,
+	SCALE_SPRITE,
+	STOMACH_HIT,
+	DAMAGE,
+} from '../utility/constant.js';
 
 import { rectangularCollision } from '../utility/utils.js';
 
@@ -57,7 +67,7 @@ export default class Projectile {
 			this.target.animation.counter = 0;
 			this.target.animationComplete = true;
 			this.target.increaseHeight = false;
-			this.creator.triggerAttack(10, STOMACH_HIT);
+			this.creator.triggerAttack(DAMAGE, STOMACH_HIT);
 		}
 
 		if (this.state === STATE_HIT && this.counter === this.hit.length - 1) {

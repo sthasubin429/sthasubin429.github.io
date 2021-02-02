@@ -49,6 +49,9 @@ export const CHARACTER_PADDING = 30;
 
 export const PROJECTILE_SPEED = 3;
 
+//damage types
+export const DAMAGE = 1;
+
 //HIT TYPES
 export const FACE_HIT = 'faceHit';
 export const STOMACH_HIT = 'stomachHit';
