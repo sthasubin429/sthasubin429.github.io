@@ -190,7 +190,7 @@ export default class Ryu extends Player {
 
 	kick() {
 		this.updateState(RYU_SPRITE_POSITION.kick, RYU_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE / 2, FACE_HIT);
+		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
 	forwardHeavyPunch() {

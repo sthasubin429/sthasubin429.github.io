@@ -67,7 +67,7 @@ export default class Projectile {
 			this.target.animation.counter = 0;
 			this.target.animationComplete = true;
 			this.target.increaseHeight = false;
-			this.creator.triggerAttack(DAMAGE, STOMACH_HIT);
+			this.creator.triggerAttack(DAMAGE * 3, STOMACH_HIT);
 		}
 
 		if (this.state === STATE_HIT && this.counter === this.hit.length - 1) {

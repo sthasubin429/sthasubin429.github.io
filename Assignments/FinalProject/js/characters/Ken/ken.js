@@ -209,7 +209,7 @@ export default class Ken extends Player {
 
 	punch() {
 		this.updateState(KEN_SPRITE_POSITION.punch, KEN_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE, NORMAL_HIT);
+		this.triggerAttack(DAMAGE / 2, NORMAL_HIT);
 	}
 
 	lowPunch() {

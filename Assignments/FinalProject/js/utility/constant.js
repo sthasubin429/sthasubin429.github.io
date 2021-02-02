@@ -30,13 +30,13 @@ export const PLAYER2_UP = 38;
 export const PLAYER2_DOWN = 40;
 
 //Attack Codes for Player 2
-export const PLAYER2_LOW_PUNCH = 100;
-export const PLAYER2_MEDIUM_PUNCH = 101;
-export const PLAYER2_HEAVY_PUNCH = 102;
+export const PLAYER2_LOW_PUNCH = 103;
+export const PLAYER2_MEDIUM_PUNCH = 104;
+export const PLAYER2_HEAVY_PUNCH = 105;
 
-export const PLAYER2_LOW_KICK = 103;
-export const PLAYER2_MEDIUM_KICK = 104;
-export const PLAYER2_HEAVY_KICK = 105;
+export const PLAYER2_LOW_KICK = 100;
+export const PLAYER2_MEDIUM_KICK = 101;
+export const PLAYER2_HEAVY_KICK = 102;
 
 export const PLAYER2_SPECIAL_MOVE1 = 97;
 
