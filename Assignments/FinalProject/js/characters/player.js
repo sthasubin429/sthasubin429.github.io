@@ -237,7 +237,7 @@ export default class Player {
 
 	checkHealth() {
 		if (this.health < 1) {
-			console.log('game over');
+			return true;
 		}
 	}
 }

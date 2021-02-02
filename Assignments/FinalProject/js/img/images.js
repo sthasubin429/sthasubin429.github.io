@@ -12,3 +12,6 @@ kenSprite.src = './images/ken/ken.png';
 
 export let loadScreen = new Image();
 loadScreen.src = './images/loadscreen.jpg';
+
+export let KO = new Image();
+KO.src = './images/KO.png';

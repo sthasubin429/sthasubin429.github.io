@@ -101,3 +101,8 @@ export const RIGHT = 39;
 
 export const UP = 38;
 export const DOWN = 40;
+
+export const KO_POSITION = {
+	x: 500,
+	y: 200,
+};

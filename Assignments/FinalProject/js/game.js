@@ -1,6 +1,7 @@
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
 import { GAME_START, GAME_CHARACTER_SELECTION, GAME_PLAY, GAME_OVER } from './utility/constant.js';
 import { ENTER, LEFT, RIGHT, UP, DOWN } from './utility/constant.js';
+import { KO_POSITION } from './utility/constant.js';
 
 import Stage from './components/stage.js';
 
@@ -23,7 +24,7 @@ import Time from './components/Time.js';
 
 import { resetState } from './utility/utils.js';
 
-import { loadScreen } from './img/images.js';
+import { loadScreen, KO } from './img/images.js';
 
 export default class Game {
 	constructor(containerId, canvasId) {
@@ -46,6 +47,9 @@ export default class Game {
 		this.timer = new Time(this.ctx);
 
 		this.gameState = GAME_START;
+
+		this.gameAnimationId;
+
 		//function binding
 		this.gameLoop = this.gameLoop.bind(this);
 
@@ -53,6 +57,9 @@ export default class Game {
 		this.keyUpHandler = this.keyUpHandler.bind(this);
 
 		this.playGame = this.playGame.bind(this);
+		this.restGame = this.restGame.bind(this);
+		this.gameOver = this.gameOver.bind(this);
+
 		this.startKeyDown = this.startKeyDown.bind(this);
 	}
 
@@ -99,7 +106,31 @@ export default class Game {
 
 		this.timer.updateTime(this.frameCount);
 
-		requestAnimationFrame(this.gameLoop);
+		if (this.player1.checkHealth() || this.player2.checkHealth()) {
+			cancelAnimationFrame(this.gameAnimationId);
+			this.gameOver();
+			return;
+		}
+
+		this.gameAnimationId = requestAnimationFrame(this.gameLoop);
+	}
+
+	gameOver() {
+		this.ctx.drawImage(KO, CANVAS_WIDTH / 4, CANVAS_HEIGHT / 4, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+		this.restGame();
+
+		this.ctx.font = '500 30px Noto Sans JP';
+		this.ctx.fillStyle = 'white';
+		this.ctx.fillText('Game Over, Enter To Restart', 550, 390);
+		this.ctx.textAlign = 'center';
+
+		document.addEventListener('keydown', this.startKeyDown);
+	}
+
+	restGame() {
+		this.frameCount = 0;
+		this.gameAnimationId = 0;
+		this.timer.currentTime = 0;
 	}
 
 	startKeyDown(event) {
