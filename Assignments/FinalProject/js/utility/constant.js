@@ -77,3 +77,12 @@ export const TIME_POSITION = {
 	x: 590,
 	y: 50,
 };
+
+export const PLAYER_MANABAR = {
+	width: 400,
+	height: 15,
+	x: 150,
+	y: 60,
+};
+
+export const MANABAR_PADDING = 2;

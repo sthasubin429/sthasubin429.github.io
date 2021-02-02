@@ -1,10 +1,12 @@
-import Animation from '../components/animation.js';
-
 import { MOVE_SPEED, CANVAS_WIDTH, CANVAS_HEIGHT, CHARACTER_PADDING, SCALE_SPRITE, STAGE_HEIGHT } from '../utility/constant.js';
 
 import { rectangularCollision, resetState } from '../utility/utils.js';
 
+import Animation from '../components/animation.js';
+
 import Health from '../components/health.js';
+
+import Mana from '../components/mana.js';
 
 export default class Player {
 	constructor(props) {
@@ -62,6 +64,8 @@ export default class Player {
 		this.health = 100;
 
 		this.healthBar = new Health(this.ctx, this);
+
+		this.manaBar = new Mana(this.ctx, this);
 	}
 
 	drawPlayer(frameCount, otherPlayer) {
@@ -88,6 +92,7 @@ export default class Player {
 		this.colision = false;
 
 		this.healthBar.drawHealthBar(this.health);
+		this.manaBar.drawManabar(frameCount);
 		this.checkHealth();
 	}
 
