@@ -109,4 +109,23 @@ export const CHARACTER_SELECTION = {
 		x: 50,
 		y: 30,
 	},
+
+	ryu: {
+		width: 54,
+		height: 93,
+		x: 560,
+		y: 120,
+	},
+	ken: {
+		width: 54,
+		height: 93,
+		x: 760,
+		y: 120,
+	},
+	chun: {
+		width: 54,
+		height: 93,
+		x: 960,
+		y: 120,
+	},
 };

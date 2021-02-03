@@ -94,6 +94,27 @@ export default class Game {
 			CHARACTER_SELECTION.streetFighter.width * SCALE_SPRITE,
 			CHARACTER_SELECTION.streetFighter.height * SCALE_SPRITE
 		);
+		this.ctx.drawImage(
+			ryu_potrait,
+			CHARACTER_SELECTION.ryu.x,
+			CHARACTER_SELECTION.ryu.y,
+			CHARACTER_SELECTION.ryu.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.ryu.height * SCALE_SPRITE
+		);
+		this.ctx.drawImage(
+			ken_potrait,
+			CHARACTER_SELECTION.ken.x,
+			CHARACTER_SELECTION.ken.y,
+			CHARACTER_SELECTION.ken.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.ken.height * SCALE_SPRITE
+		);
+		this.ctx.drawImage(
+			chun_potrait,
+			CHARACTER_SELECTION.chun.x,
+			CHARACTER_SELECTION.chun.y,
+			CHARACTER_SELECTION.chun.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.chun.height * SCALE_SPRITE
+		);
 
 		this.ctx.font = '500 35px Noto Sans JP';
 		this.ctx.fillStyle = 'white';
