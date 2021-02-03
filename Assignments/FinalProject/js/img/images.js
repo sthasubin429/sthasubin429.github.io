@@ -15,3 +15,15 @@ loadScreen.src = './images/loadscreen.jpg';
 
 export let KO = new Image();
 KO.src = './images/KO.png';
+
+export let sfLogo = new Image();
+sfLogo.src = './images/sf_logo.png';
+
+export let ryu_potrait = new Image();
+ryu_potrait.src = './images/ryu/ryu_potrait.png';
+
+export let ken_potrait = new Image();
+ken_potrait.src = './images/ken/ken_potrait.png';
+
+export let chun_potrait = new Image();
+chun_potrait.src = './images/chun/chun_potrait.png';

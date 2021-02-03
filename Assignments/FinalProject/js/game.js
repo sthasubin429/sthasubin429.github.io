@@ -1,7 +1,7 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, SCALE_SPRITE } from './utility/constant.js';
 import { GAME_START, GAME_CHARACTER_SELECTION, GAME_PLAY, GAME_OVER } from './utility/constant.js';
 import { ENTER, LEFT, RIGHT, UP, DOWN } from './utility/constant.js';
-import { KO_POSITION } from './utility/constant.js';
+import { CHARACTER_SELECTION } from './utility/constant.js';
 
 import Stage from './components/stage.js';
 
@@ -24,6 +24,7 @@ import Time from './components/Time.js';
 
 import { resetState } from './utility/utils.js';
 
+import { sfLogo, ryu_potrait, ken_potrait, chun_potrait } from './img/images.js';
 import { loadScreen, KO } from './img/images.js';
 
 export default class Game {
@@ -57,9 +58,11 @@ export default class Game {
 		this.keyUpHandler = this.keyUpHandler.bind(this);
 
 		this.playGame = this.playGame.bind(this);
+		this.selectCharacter = this.selectCharacter.bind(this);
 		this.restGame = this.restGame.bind(this);
 		this.gameOver = this.gameOver.bind(this);
 
+		this.selectKeyDown = this.selectKeyDown.bind(this);
 		this.startKeyDown = this.startKeyDown.bind(this);
 	}
 
@@ -75,8 +78,32 @@ export default class Game {
 		}
 	}
 
-	playGame() {
+	selectCharacter() {
 		document.removeEventListener('keydown', this.startKeyDown);
+
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+		this.ctx.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+		this.ctx.fillStyle = '#000050';
+		this.ctx.fill();
+
+		this.ctx.drawImage(
+			sfLogo,
+			CHARACTER_SELECTION.streetFighter.x,
+			CHARACTER_SELECTION.streetFighter.y,
+			CHARACTER_SELECTION.streetFighter.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.streetFighter.height * SCALE_SPRITE
+		);
+
+		this.ctx.font = '500 35px Noto Sans JP';
+		this.ctx.fillStyle = 'white';
+		this.ctx.fillText('Select Your Character', 100, 390);
+
+		document.addEventListener('keydown', this.selectKeyDown);
+	}
+
+	playGame() {
+		document.removeEventListener('keydown', this.selectKeyDown);
 
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -136,7 +163,17 @@ export default class Game {
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
+				this.selectCharacter();
+				this.gameState = GAME_CHARACTER_SELECTION;
+				break;
+		}
+	}
+
+	selectKeyDown(event) {
+		switch (event.keyCode) {
+			case ENTER:
 				this.playGame();
+				this.gameState = GAME_PLAY;
 				break;
 		}
 	}

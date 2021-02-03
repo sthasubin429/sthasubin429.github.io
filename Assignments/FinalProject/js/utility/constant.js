@@ -102,7 +102,11 @@ export const RIGHT = 39;
 export const UP = 38;
 export const DOWN = 40;
 
-export const KO_POSITION = {
-	x: 500,
-	y: 200,
+export const CHARACTER_SELECTION = {
+	streetFighter: {
+		width: 224,
+		height: 123,
+		x: 50,
+		y: 30,
+	},
 };
