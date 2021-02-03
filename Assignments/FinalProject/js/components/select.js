@@ -34,5 +34,6 @@ export default function selection(ctx) {
 
 	ctx.font = '500 35px Noto Sans JP';
 	ctx.fillStyle = 'white';
-	ctx.fillText('Select Your Character', text.x, text.y);
+	ctx.textAlign = 'center';
+	ctx.fillText('Select Your Character', CANVAS_WIDTH / 2, text.y);
 }
