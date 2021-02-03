@@ -96,12 +96,6 @@ export const GAME_OVER = 'GameOver';
 //Game navigation key codes
 export const ENTER = 13;
 
-export const LEFT = 37;
-export const RIGHT = 39;
-
-export const UP = 38;
-export const DOWN = 40;
-
 export const CHARACTER_SELECTION = {
 	streetFighter: {
 		width: 224,
@@ -113,19 +107,25 @@ export const CHARACTER_SELECTION = {
 	ryu: {
 		width: 54,
 		height: 93,
-		x: 560,
-		y: 120,
+		x: 570,
+		y: 165,
 	},
 	ken: {
 		width: 54,
 		height: 93,
-		x: 760,
-		y: 120,
+		x: 770,
+		y: 165,
 	},
 	chun: {
 		width: 54,
 		height: 93,
-		x: 960,
-		y: 120,
+		x: 970,
+		y: 165,
 	},
 };
+
+export const SELECTION_POSITION = [
+	{ x: 560, y: 120 },
+	{ x: 760, y: 120 },
+	{ x: 960, y: 120 },
+];

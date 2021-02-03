@@ -27,3 +27,9 @@ ken_potrait.src = './images/ken/ken_potrait.png';
 
 export let chun_potrait = new Image();
 chun_potrait.src = './images/chun/chun_potrait.png';
+
+export let p1Select = new Image();
+p1Select.src = './images/player1_select.png';
+
+export let p2Select = new Image();
+p2Select.src = './images/player2_select.png';

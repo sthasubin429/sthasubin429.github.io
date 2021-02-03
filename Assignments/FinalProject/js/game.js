@@ -1,7 +1,6 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT, SCALE_SPRITE } from './utility/constant.js';
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
 import { GAME_START, GAME_CHARACTER_SELECTION, GAME_PLAY, GAME_OVER } from './utility/constant.js';
-import { ENTER, LEFT, RIGHT, UP, DOWN } from './utility/constant.js';
-import { CHARACTER_SELECTION } from './utility/constant.js';
+import { ENTER, SELECTION_POSITION, CHARACTER_SELECTION, SCALE_SPRITE } from './utility/constant.js';
 
 import Stage from './components/stage.js';
 
@@ -24,8 +23,10 @@ import Time from './components/Time.js';
 
 import { resetState } from './utility/utils.js';
 
-import { sfLogo, ryu_potrait, ken_potrait, chun_potrait } from './img/images.js';
-import { loadScreen, KO } from './img/images.js';
+import { loadScreen, KO, p1Select, p2Select } from './img/images.js';
+
+import selection from './components/select.js';
+import { RYU_HADUKEN_MANA } from './characters/Ryu/ryuConstant.js';
 
 export default class Game {
 	constructor(containerId, canvasId) {
@@ -51,6 +52,16 @@ export default class Game {
 
 		this.gameAnimationId;
 
+		this.player1Selction = {
+			index: 0,
+			isSelected: false,
+		};
+
+		this.player2Selction = {
+			index: 2,
+			isSelected: false,
+		};
+
 		//function binding
 		this.gameLoop = this.gameLoop.bind(this);
 
@@ -59,8 +70,12 @@ export default class Game {
 
 		this.playGame = this.playGame.bind(this);
 		this.selectCharacter = this.selectCharacter.bind(this);
+
 		this.restGame = this.restGame.bind(this);
 		this.gameOver = this.gameOver.bind(this);
+
+		this.addCharacterSelection = this.addCharacterSelection.bind(this);
+		this.createPlayer = this.createPlayer.bind(this);
 
 		this.selectKeyDown = this.selectKeyDown.bind(this);
 		this.startKeyDown = this.startKeyDown.bind(this);
@@ -75,52 +90,9 @@ export default class Game {
 			this.ctx.fillText('Press Enter To Start', 500, 390);
 
 			document.addEventListener('keydown', this.startKeyDown);
+		} else {
+			this.selectCharacter();
 		}
-	}
-
-	selectCharacter() {
-		document.removeEventListener('keydown', this.startKeyDown);
-
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-		this.ctx.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-		this.ctx.fillStyle = '#000050';
-		this.ctx.fill();
-
-		this.ctx.drawImage(
-			sfLogo,
-			CHARACTER_SELECTION.streetFighter.x,
-			CHARACTER_SELECTION.streetFighter.y,
-			CHARACTER_SELECTION.streetFighter.width * SCALE_SPRITE,
-			CHARACTER_SELECTION.streetFighter.height * SCALE_SPRITE
-		);
-		this.ctx.drawImage(
-			ryu_potrait,
-			CHARACTER_SELECTION.ryu.x,
-			CHARACTER_SELECTION.ryu.y,
-			CHARACTER_SELECTION.ryu.width * SCALE_SPRITE,
-			CHARACTER_SELECTION.ryu.height * SCALE_SPRITE
-		);
-		this.ctx.drawImage(
-			ken_potrait,
-			CHARACTER_SELECTION.ken.x,
-			CHARACTER_SELECTION.ken.y,
-			CHARACTER_SELECTION.ken.width * SCALE_SPRITE,
-			CHARACTER_SELECTION.ken.height * SCALE_SPRITE
-		);
-		this.ctx.drawImage(
-			chun_potrait,
-			CHARACTER_SELECTION.chun.x,
-			CHARACTER_SELECTION.chun.y,
-			CHARACTER_SELECTION.chun.width * SCALE_SPRITE,
-			CHARACTER_SELECTION.chun.height * SCALE_SPRITE
-		);
-
-		this.ctx.font = '500 35px Noto Sans JP';
-		this.ctx.fillStyle = 'white';
-		this.ctx.fillText('Select Your Character', 100, 390);
-
-		document.addEventListener('keydown', this.selectKeyDown);
 	}
 
 	playGame() {
@@ -130,9 +102,9 @@ export default class Game {
 
 		this.stage = new Stage(this.ctx);
 		this.stage.init();
-
-		this.player1 = new Ryu(this.ctx, false);
-		this.player2 = new Ken(this.ctx, true);
+		this.createPlayer();
+		// this.player1 = new Ryu(this.ctx, false);
+		// this.player2 = new Ken(this.ctx, true);
 
 		this.gameLoop();
 
@@ -181,6 +153,54 @@ export default class Game {
 		this.timer.currentTime = 0;
 	}
 
+	createPlayer() {
+		if (this.player1Selction.index === 0) {
+			this.player1 = new Ryu(this.ctx, false);
+		} else if (this.player1Selction.index === 1) {
+			this.player1 = new Ken(this.ctx, false);
+		} else if (this.player1Selction.index === 2) {
+			this.player1 = new Ken(this.ctx, false);
+		}
+
+		if (this.player2Selction.index === 0) {
+			this.player2 = new Ryu(this.ctx, true);
+		} else if (this.player2Selction.index === 1) {
+			this.player2 = new Ken(this.ctx, true);
+		} else if (this.player2Selction.index === 2) {
+			this.player2 = new Ken(this.ctx, true);
+		}
+	}
+
+	selectCharacter() {
+		document.removeEventListener('keydown', this.startKeyDown);
+
+		selection(this.ctx);
+
+		this.addCharacterSelection();
+
+		document.addEventListener('keydown', this.selectKeyDown);
+
+		this.gameAnimationId = requestAnimationFrame(this.selectCharacter);
+	}
+
+	addCharacterSelection() {
+		this.ctx.drawImage(
+			p1Select,
+			SELECTION_POSITION[this.player1Selction.index].x,
+			SELECTION_POSITION[this.player1Selction.index].y,
+			CHARACTER_SELECTION.ryu.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.ryu.height * SCALE_SPRITE
+		);
+
+		this.ctx.drawImage(
+			p2Select,
+			SELECTION_POSITION[this.player2Selction.index].x,
+			SELECTION_POSITION[this.player2Selction.index].y,
+			CHARACTER_SELECTION.ryu.width * SCALE_SPRITE,
+			CHARACTER_SELECTION.ryu.height * SCALE_SPRITE
+		);
+	}
+
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
@@ -193,8 +213,48 @@ export default class Game {
 	selectKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
-				this.playGame();
+				cancelAnimationFrame(this.gameAnimationId);
+
 				this.gameState = GAME_PLAY;
+
+				this.playGame();
+
+				break;
+
+			case PLAYER1_RIGHT:
+				if (this.player1Selction.index === SELECTION_POSITION.length - 1) {
+					this.player1Selction.index = 0;
+				} else {
+					this.player1Selction.index++;
+				}
+
+				break;
+
+			case PLAYER1_LEFT:
+				if (this.player1Selction.index === 0) {
+					this.player1Selction.index = SELECTION_POSITION.length - 1;
+				} else {
+					this.player1Selction.index--;
+				}
+
+				break;
+
+			case PLAYER2_RIGHT:
+				if (this.player2Selction.index === SELECTION_POSITION.length - 1) {
+					this.player2Selction.index = 0;
+				} else {
+					this.player2Selction.index++;
+				}
+
+				break;
+
+			case PLAYER2_LEFT:
+				if (this.player2Selction.index === 0) {
+					this.player2Selction.index = SELECTION_POSITION.length - 1;
+				} else {
+					this.player2Selction.index--;
+				}
+
 				break;
 		}
 	}
@@ -226,19 +286,15 @@ export default class Game {
 					this.player1.currentState.heavyPunch = true;
 					break;
 				case PLAYER1_LEFT:
-					// console.log('left pressed');
 					this.player1.currentState.isMovingLeft = true;
 					break;
 				case PLAYER1_RIGHT:
-					// console.log('RIGHT pressed');
 					this.player1.currentState.isMovingRight = true;
 					break;
 				case PLAYER1_UP:
-					// console.log('UP pressed');
 					this.player1.currentState.isJumping = true;
 					break;
 				case PLAYER1_DOWN:
-					// console.log('Down pressed');
 					this.player1.currentState.isCrouching = true;
 					break;
 			}
@@ -269,19 +325,15 @@ export default class Game {
 					this.player2.currentState.heavyPunch = true;
 					break;
 				case PLAYER2_LEFT:
-					// console.log('left pressed');
 					this.player2.currentState.isMovingLeft = true;
 					break;
 				case PLAYER2_RIGHT:
-					// console.log('RIGHT pressed');
 					this.player2.currentState.isMovingRight = true;
 					break;
 				case PLAYER2_UP:
-					// console.log('UP pressed');
 					this.player2.currentState.isJumping = true;
 					break;
 				case PLAYER2_DOWN:
-					// console.log('Down pressed');
 					this.player2.currentState.isCrouching = true;
 					break;
 			}
