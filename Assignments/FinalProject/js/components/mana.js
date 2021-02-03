@@ -18,7 +18,7 @@ export default class Mana {
 			this.currentMana++;
 		}
 
-		if (this.currentMana === 100) {
+		if (this.currentMana >= 100) {
 			this.currentMana = 100;
 		}
 

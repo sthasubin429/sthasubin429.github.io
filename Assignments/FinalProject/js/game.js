@@ -26,7 +26,6 @@ import { resetState } from './utility/utils.js';
 import { loadScreen, KO, p1Select, p2Select } from './img/images.js';
 
 import selection from './components/select.js';
-import { RYU_HADUKEN_MANA } from './characters/Ryu/ryuConstant.js';
 
 export default class Game {
 	constructor(containerId, canvasId) {
@@ -102,9 +101,8 @@ export default class Game {
 
 		this.stage = new Stage(this.ctx);
 		this.stage.init();
+
 		this.createPlayer();
-		// this.player1 = new Ryu(this.ctx, false);
-		// this.player2 = new Ken(this.ctx, true);
 
 		this.gameLoop();
 
