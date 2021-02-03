@@ -1,5 +1,4 @@
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
-import { GAME_START, GAME_CHARACTER_SELECTION, GAME_PLAY, GAME_OVER } from './utility/constant.js';
 import { ENTER, SELECTION_POSITION, CHARACTER_SELECTION, SCALE_SPRITE } from './utility/constant.js';
 
 import Stage from './components/stage.js';
@@ -47,7 +46,7 @@ export default class Game {
 
 		this.timer = new Time(this.ctx);
 
-		this.gameState = GAME_START;
+		this.isStart = true;
 
 		this.gameAnimationId;
 
@@ -89,7 +88,8 @@ export default class Game {
 	}
 
 	init() {
-		if (this.gameState === GAME_START) {
+		if (this.isStart) {
+			this.isStart = false;
 			this.ctx.drawImage(loadScreen, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 			this.ctx.font = '500 30px Noto Sans JP';
@@ -266,7 +266,6 @@ export default class Game {
 		switch (event.keyCode) {
 			case ENTER:
 				this.playGame();
-				this.gameState = GAME_PLAY;
 				break;
 		}
 	}
@@ -274,7 +273,6 @@ export default class Game {
 		switch (event.keyCode) {
 			case ENTER:
 				this.selectCharacter();
-				this.gameState = GAME_CHARACTER_SELECTION;
 				break;
 		}
 	}
@@ -283,8 +281,6 @@ export default class Game {
 		switch (event.keyCode) {
 			case ENTER:
 				cancelAnimationFrame(this.gameAnimationId);
-
-				this.gameState = GAME_PLAY;
 
 				this.playGame();
 

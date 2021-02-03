@@ -87,12 +87,6 @@ export const PLAYER_MANABAR = {
 
 export const MANABAR_PADDING = 2;
 
-//game states
-export const GAME_START = 'GameStart';
-export const GAME_CHARACTER_SELECTION = 'CharacterSelection';
-export const GAME_PLAY = 'PlayGame';
-export const GAME_OVER = 'GameOver';
-
 //Game navigation key codes
 export const ENTER = 13;
 

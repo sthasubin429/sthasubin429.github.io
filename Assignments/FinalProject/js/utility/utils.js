@@ -20,7 +20,7 @@ export function rectangularCollision(rectangle1, rectangle2, rotation) {
 	if (rotation) {
 		// console.log(rectangle1, rectangle2);
 		if (
-			rectangle1.x - rectangle1.width < rectangle2.x + rectangle2.width * 1.5 &&
+			rectangle1.x - rectangle1.width < rectangle2.x + rectangle2.width &&
 			rectangle1.x - rectangle1.width > rectangle2.x - rectangle2.width &&
 			rectangle1.y < rectangle2.y + rectangle2.height &&
 			rectangle1.y + rectangle2.height > rectangle2.y
