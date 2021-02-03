@@ -5,6 +5,7 @@ import Stage from './components/stage.js';
 
 import Ryu from './characters/Ryu/ryu.js';
 import Ken from './characters/Ken/ken.js';
+import Chun from './characters/Chun/Chun.js';
 
 //for player 1
 import { PLAYER1_LEFT, PLAYER1_RIGHT, PLAYER1_UP, PLAYER1_DOWN } from './utility/constant.js';
@@ -220,7 +221,7 @@ export default class Game {
 		} else if (this.player1Selction.index === 1) {
 			this.player1 = new Ken(this.ctx, false);
 		} else if (this.player1Selction.index === 2) {
-			this.player1 = new Ken(this.ctx, false);
+			this.player1 = new Chun(this.ctx, false);
 		}
 
 		if (this.player2Selction.index === 0) {
@@ -228,7 +229,7 @@ export default class Game {
 		} else if (this.player2Selction.index === 1) {
 			this.player2 = new Ken(this.ctx, true);
 		} else if (this.player2Selction.index === 2) {
-			this.player2 = new Ken(this.ctx, true);
+			this.player2 = new Chun(this.ctx, true);
 		}
 	}
 
