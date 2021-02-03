@@ -52,6 +52,12 @@ export default class Player {
 
 		this.isAttacked = false;
 
+		this.health = 100;
+
+		this.healthBar = new Health(this.ctx, this);
+
+		this.manaBar = new Mana(this.ctx, this);
+
 		//function binding
 		this.updateState = this.updateState.bind(this);
 
@@ -61,11 +67,7 @@ export default class Player {
 
 		this.checkAttacked = this.checkAttacked.bind(this);
 
-		this.health = 100;
-
-		this.healthBar = new Health(this.ctx, this);
-
-		this.manaBar = new Mana(this.ctx, this);
+		this.writePlayerName = this.writePlayerName.bind(this);
 	}
 
 	drawPlayer(frameCount, otherPlayer) {
@@ -94,6 +96,16 @@ export default class Player {
 		this.healthBar.drawHealthBar(this.health);
 		this.manaBar.drawManabar(frameCount);
 		this.checkHealth();
+	}
+
+	writePlayerName(name) {
+		this.ctx.font = '600 30px Noto Sans JP';
+		this.ctx.fillStyle = '#d83060';
+		if (this.rotation) {
+			this.ctx.fillText(`${name}`, 1070, 45);
+		} else {
+			this.ctx.fillText(`${name}`, 100, 45);
+		}
 	}
 
 	checkMana(requiredMana) {

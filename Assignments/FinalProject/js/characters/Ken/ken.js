@@ -123,6 +123,8 @@ export default class Ken extends Player {
 		}
 
 		this.checkAttacked(otherPlayer);
+
+		this.writePlayerName('Ken');
 	}
 
 	updateProjectile(frameCount) {

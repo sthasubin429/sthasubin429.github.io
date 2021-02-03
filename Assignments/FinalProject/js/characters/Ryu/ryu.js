@@ -123,6 +123,8 @@ export default class Ryu extends Player {
 		}
 
 		this.checkAttacked(otherPlayer);
+
+		this.writePlayerName('Ryu');
 	}
 
 	updateProjectile(frameCount) {
