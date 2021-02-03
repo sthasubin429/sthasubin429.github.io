@@ -78,9 +78,17 @@ export default class Ken extends Player {
 		} else if (this.currentState.heavyPunch && this.currentState.isMovingRight) {
 			this.forwardHeavyPunch();
 		} else if (this.currentState.isJumping && this.currentState.isMovingRight) {
-			this.frontFlip();
+			if (this.rotation) {
+				this.backFlip();
+			} else {
+				this.frontFlip();
+			}
 		} else if (this.currentState.isJumping && this.currentState.isMovingLeft) {
-			this.backFlip();
+			if (this.rotation) {
+				this.frontFlip();
+			} else {
+				this.backFlip();
+			}
 		} else if (this.currentState.isCrouching && (this.currentState.isMovingLeft || this.currentState.isMovingRight)) {
 			this.crouchingBlock();
 		} else if (this.currentState.isJumping && this.currentState.isCrouching) {
