@@ -20,12 +20,12 @@ import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './uti
 import { PLAYER2_SPECIAL_MOVE1 } from './utility/constant.js';
 
 import Time from './components/Time.js';
+import selection from './components/select.js';
+import RoundScore from './components/score.js';
 
 import { resetState } from './utility/utils.js';
 
 import { loadScreen, KO, p1Select, p2Select } from './img/images.js';
-
-import selection from './components/select.js';
 
 export default class Game {
 	constructor(containerId, canvasId) {
@@ -51,14 +51,18 @@ export default class Game {
 
 		this.gameAnimationId;
 
+		this.gameComplete = false;
+
 		this.player1Selction = {
 			index: 0,
 			isSelected: false,
+			wins: 0,
 		};
 
 		this.player2Selction = {
 			index: 2,
 			isSelected: false,
+			wins: 0,
 		};
 
 		//function binding
@@ -76,8 +80,12 @@ export default class Game {
 		this.addCharacterSelection = this.addCharacterSelection.bind(this);
 		this.createPlayer = this.createPlayer.bind(this);
 
+		this.drawScore = this.drawScore.bind(this);
+		this.roundOver = this.roundOver.bind(this);
+
 		this.selectKeyDown = this.selectKeyDown.bind(this);
 		this.startKeyDown = this.startKeyDown.bind(this);
+		this.roundOverKeyDown = this.roundOverKeyDown.bind(this);
 	}
 
 	init() {
@@ -96,6 +104,8 @@ export default class Game {
 
 	playGame() {
 		document.removeEventListener('keydown', this.selectKeyDown);
+
+		document.removeEventListener('keydown', this.roundOverKeyDown);
 
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -124,13 +134,50 @@ export default class Game {
 
 		this.timer.updateTime(this.frameCount);
 
-		if (this.player1.checkHealth() || this.player2.checkHealth()) {
+		this.drawScore();
+
+		if (this.timer.checkTime()) {
 			cancelAnimationFrame(this.gameAnimationId);
-			this.gameOver();
+			this.roundOver();
 			return;
 		}
 
+		if (this.player1.checkHealth() || this.player2.checkHealth()) {
+			cancelAnimationFrame(this.gameAnimationId);
+
+			if (this.player1.checkHealth()) {
+				this.player1Selction.wins++;
+			} else if (this.player2.checkHealth()) {
+				this.player2Selction.wins++;
+			}
+
+			if (this.player1Selction.wins > 1 || this.player2Selction.wins > 1) {
+				this.gameOver();
+				return;
+			} else {
+				this.roundOver();
+				return;
+			}
+		}
+
 		this.gameAnimationId = requestAnimationFrame(this.gameLoop);
+	}
+
+	drawScore() {
+		RoundScore(this.ctx, this.player1Selction.wins, false);
+		RoundScore(this.ctx, this.player2Selction.wins, true);
+	}
+
+	roundOver() {
+		this.ctx.drawImage(KO, CANVAS_WIDTH / 4, CANVAS_HEIGHT / 4, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+		this.restGame();
+
+		this.ctx.font = '500 30px Noto Sans JP';
+		this.ctx.fillStyle = 'white';
+		this.ctx.fillText('Round Over, Enter Start Round', 550, 390);
+		this.ctx.textAlign = 'center';
+
+		document.addEventListener('keydown', this.roundOverKeyDown);
 	}
 
 	gameOver() {
@@ -142,13 +189,29 @@ export default class Game {
 		this.ctx.fillText('Game Over, Enter To Restart', 550, 390);
 		this.ctx.textAlign = 'center';
 
+		this.player1Selction = {
+			index: 0,
+			isSelected: false,
+			wins: 0,
+		};
+
+		this.player2Selction = {
+			index: 2,
+			isSelected: false,
+			wins: 0,
+		};
+
 		document.addEventListener('keydown', this.startKeyDown);
 	}
 
 	restGame() {
 		this.frameCount = 0;
 		this.gameAnimationId = 0;
+
+		this.timer = new Time(this.ctx);
 		this.timer.currentTime = 0;
+
+		this.gameAnimationId = 0;
 	}
 
 	createPlayer() {
@@ -199,6 +262,14 @@ export default class Game {
 		);
 	}
 
+	roundOverKeyDown(event) {
+		switch (event.keyCode) {
+			case ENTER:
+				this.playGame();
+				this.gameState = GAME_PLAY;
+				break;
+		}
+	}
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:

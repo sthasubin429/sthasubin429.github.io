@@ -3,7 +3,10 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT, SCALE_SPRITE, CHARACTER_SELECTION } from '
 import { sfLogo, ryu_potrait, ken_potrait, chun_potrait } from '../img/images.js';
 
 export default function selection(ctx) {
-	ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+	const text = {
+		x: 400,
+		y: 400,
+	};
 
 	ctx.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	ctx.fillStyle = '#000050';
@@ -31,5 +34,5 @@ export default function selection(ctx) {
 
 	ctx.font = '500 35px Noto Sans JP';
 	ctx.fillStyle = 'white';
-	ctx.fillText('Select Your Character', 100, 390);
+	ctx.fillText('Select Your Character', text.x, text.y);
 }

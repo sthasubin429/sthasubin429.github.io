@@ -23,4 +23,10 @@ export default class Time {
 		this.ctx.textAlign = 'center';
 		this.ctx.fillText(`${this.currentTime}`, TIME_POSITION.x, TIME_POSITION.y);
 	}
+
+	checkTime() {
+		if (this.currentTime >= 99) {
+			return true;
+		}
+	}
 }
