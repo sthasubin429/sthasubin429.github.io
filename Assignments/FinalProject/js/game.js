@@ -28,6 +28,8 @@ import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility
 import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
 import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
 
+import { audioSelect } from './audio/audio.js';
+
 //Main Game Function
 export default class Game {
 	/**
@@ -103,6 +105,7 @@ export default class Game {
 	init() {
 		if (this.isStart) {
 			this.isStart = false;
+
 			this.ctx.drawImage(loadScreen, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 			this.ctx.font = '500 30px Noto Sans JP';
@@ -130,7 +133,6 @@ export default class Game {
 		this.stage.init();
 
 		this.createPlayer();
-
 		this.gameLoop();
 
 		document.addEventListener('keydown', this.keyDownHandler);
@@ -334,6 +336,7 @@ export default class Game {
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
+				audioSelect.play();
 				this.selectCharacter();
 				break;
 		}
