@@ -1,3 +1,11 @@
+/**
+ *
+ * @param {Object} ctx Canvas Context
+ * @param {Integer} wins Number of wins
+ * @param {Boolean} rotation Weather the player is rotated or not
+ *
+ * Draws the score of each player before the start of every round
+ */
 export default function RoundScore(ctx, wins, rotation) {
 	let p1x = 158;
 	let p2x = 1015;

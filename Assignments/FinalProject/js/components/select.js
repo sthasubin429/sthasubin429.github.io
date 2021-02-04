@@ -2,6 +2,12 @@ import { sfLogo, ryu_potrait, ken_potrait, chun_potrait } from '../img/images.js
 
 import { CANVAS_WIDTH, CANVAS_HEIGHT, SCALE_SPRITE, CHARACTER_SELECTION } from '../utility/constant.js';
 
+/**
+ *
+ * @param {Object} ctx Canvas Context
+ *
+ * Draws the select character screen before each round
+ */
 export default function selection(ctx) {
 	const text = {
 		x: 400,

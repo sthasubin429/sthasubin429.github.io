@@ -1,18 +1,34 @@
-import { PLAYER_MANABAR, CANVAS_WIDTH, MANABAR_PADDING } from '../utility/constant.js';
+import { PLAYER_MANABAR, CANVAS_WIDTH, MANABAR_PADDING, DEFAULT_MANA } from '../utility/constant.js';
 
+/**
+ *
+ * For Mana of players
+ */
 export default class Mana {
+	/**
+	 *
+	 * @param {Object} ctx Canvas Context
+	 * @param {Object} player Correnponding player object for mana bar
+	 */
 	constructor(ctx, player) {
 		this.ctx = ctx;
 		this.player = player;
-		this.position = PLAYER_MANABAR;
 
-		this.currentMana = 50;
+		this.position = PLAYER_MANABAR;
+		this.currentMana = DEFAULT_MANA;
+
 		//function binding
-		this.drawCurrentMana = this.drawCurrentMana.bind(this);
 		this.getWidth = this.getWidth.bind(this);
 		this.decreaseMana = this.decreaseMana.bind(this);
+		this.drawCurrentMana = this.drawCurrentMana.bind(this);
 	}
 
+	/**
+	 *
+	 * @param {Integer} frameCount Current frame count
+	 *
+	 * Increases mana by 2 every 2 seconds and stops if greater than 100
+	 */
 	drawManabar(frameCount) {
 		if (frameCount % 50 === 0) {
 			this.currentMana++;
@@ -25,6 +41,10 @@ export default class Mana {
 		this.drawCurrentMana();
 	}
 
+	/**
+	 *
+	 * Draws the Mana Bar on Canvas
+	 */
 	drawCurrentMana() {
 		this.ctx.save();
 
@@ -55,6 +75,10 @@ export default class Mana {
 		this.ctx.restore();
 	}
 
+	/**
+	 *
+	 * Calculates the width of current Mana bar as a percentage
+	 */
 	getWidth() {
 		let manaPercentage = this.currentMana / 100;
 		if (manaPercentage < 0) {
@@ -63,6 +87,13 @@ export default class Mana {
 
 		return PLAYER_MANABAR.width * manaPercentage;
 	}
+
+	/**
+	 *
+	 * @param {Integer} mana Decrease Mana Value
+	 *
+	 * Decreases the supplied mana value from cureen mana when special move is used
+	 */
 	decreaseMana(mana) {
 		this.currentMana -= mana;
 	}

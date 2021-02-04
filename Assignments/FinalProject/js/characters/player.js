@@ -8,7 +8,15 @@ import Health from '../components/health.js';
 
 import Mana from '../components/mana.js';
 
+/**
+ *
+ * Player Super class for all characters
+ */
 export default class Player {
+	/**
+	 *
+	 * @param {Objects} props Object of values passed from child class
+	 */
 	constructor(props) {
 		this.ctx = props.ctx;
 
@@ -60,13 +68,9 @@ export default class Player {
 
 		//function binding
 		this.updateState = this.updateState.bind(this);
-
 		this.changeHeight = this.changeHeight.bind(this);
-
 		this.updateHeight = this.updateHeight.bind(this);
-
 		this.checkAttacked = this.checkAttacked.bind(this);
-
 		this.writePlayerName = this.writePlayerName.bind(this);
 	}
 

@@ -1,5 +1,9 @@
-//sets all the values in an object to false
-
+/**
+ *
+ * @param {Object} object Current State object of payers
+ *
+ * Resets all the state values to zero
+ */
 export function resetState(object) {
 	for (let i in object) {
 		object[i] = false;
@@ -7,6 +11,13 @@ export function resetState(object) {
 	return object;
 }
 
+/**
+ *
+ * @param {Integer} x X co-ordinate
+ * @param {Integer} y Y co-ordinates
+ *
+ * Heght generation function when player jumps.
+ */
 export function jumpHeightChange(x, y) {
 	let temp = Math.floor(x / 2);
 	if (y < temp) {
@@ -16,9 +27,16 @@ export function jumpHeightChange(x, y) {
 	}
 }
 
+/**
+ *
+ * @param {Object} rectangle1 First Rectangle Object
+ * @param {Object} rectangle2 Second Rectange Object
+ * @param {Boolean} rotation Weather the player is rotated or not
+ *
+ * Detects rectangular colision between two rectangles, takes into account if the rectangle has been mirrored
+ */
 export function rectangularCollision(rectangle1, rectangle2, rotation) {
 	if (rotation) {
-		// console.log(rectangle1, rectangle2);
 		if (
 			rectangle1.x - rectangle1.width < rectangle2.x + rectangle2.width &&
 			rectangle1.x - rectangle1.width > rectangle2.x - rectangle2.width &&

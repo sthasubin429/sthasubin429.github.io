@@ -1,5 +1,3 @@
-// const CANVAS_WIDTH = 1466;
-// const CANVAS_HEIGHT = 617;
 export const CANVAS_WIDTH = 1176;
 export const CANVAS_HEIGHT = 494;
 
@@ -63,7 +61,6 @@ export const STATE_MOVE = 'move';
 export const STATE_HIT = 'hit';
 
 //healthbar position
-
 export const PLAYER_HEALTHBAR = {
 	width: 400,
 	height: 30,
@@ -86,6 +83,7 @@ export const PLAYER_MANABAR = {
 };
 
 export const MANABAR_PADDING = 2;
+export const DEFAULT_MANA = 50;
 
 //Game navigation key codes
 export const ENTER = 13;
@@ -104,12 +102,14 @@ export const CHARACTER_SELECTION = {
 		x: 570,
 		y: 165,
 	},
+
 	ken: {
 		width: 54,
 		height: 93,
 		x: 770,
 		y: 165,
 	},
+
 	chun: {
 		width: 54,
 		height: 93,
@@ -118,6 +118,7 @@ export const CHARACTER_SELECTION = {
 	},
 };
 
+//Positions of selector pointer
 export const SELECTION_POSITION = [
 	{ x: 560, y: 120 },
 	{ x: 760, y: 120 },

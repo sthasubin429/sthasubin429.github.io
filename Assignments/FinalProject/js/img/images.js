@@ -1,3 +1,4 @@
+//Images
 export let stage1 = new Image();
 stage1.src = './images/stage2.png';
 

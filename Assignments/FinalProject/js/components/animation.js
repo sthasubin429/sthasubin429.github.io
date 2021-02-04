@@ -1,6 +1,19 @@
 import { CANVAS_WIDTH, SCALE_SPRITE } from '../utility/constant.js';
 
+/**
+ * For Animaiton of Characters
+ */
 export default class Animation {
+	/**
+	 *
+	 * @param {Object} ctx Canvas Context
+	 * @param {Image} sprite Image object of sprite
+	 * @param {Booelen} rotation If the character is rotated or not
+	 * @param {Object} spritePosition Position and size of image on sprite
+	 * @param {Object} position X and Y co-ordinate of position on canvas where image is drawn
+	 * @param {Integer} time Animation Time
+	 * @param {Boolen} loop Weather the animation loops or stops after completion
+	 */
 	constructor(ctx, sprite, rotation, spritePosition, position, time, loop) {
 		this.ctx = ctx; //canvas context
 
@@ -19,6 +32,10 @@ export default class Animation {
 		this.counter = 0;
 	}
 
+	/**
+	 *
+	 * Draws the image on canvas
+	 */
 	animate() {
 		this.ctx.save();
 

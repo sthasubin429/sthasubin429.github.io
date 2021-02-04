@@ -8,6 +8,9 @@ let imgCount = 0;
 
 let img = [];
 
+/**
+ * Loades images, after the images are loaded, starts the game
+ */
 function loadImages() {
 	images.forEach((image) => {
 		image.onload = () => {
@@ -20,6 +23,9 @@ function loadImages() {
 	});
 }
 
+/**
+ * Starts the Game
+ */
 function startGame() {
 	let game = new Game('container', 'game');
 	game.init();

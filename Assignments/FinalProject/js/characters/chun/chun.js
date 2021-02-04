@@ -176,8 +176,6 @@ export default class Chun extends Player {
 		otherPlayer.health -= attackState.attackDamage;
 
 		attackState.attackDamage = 0;
-
-		console.log(otherPlayer.health);
 	}
 
 	kikouken() {

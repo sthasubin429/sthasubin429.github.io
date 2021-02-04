@@ -176,8 +176,6 @@ export default class Ken extends Player {
 		otherPlayer.position.x -= MOVE_SPEED * 1.5;
 
 		otherPlayer.health -= attackState.attackDamage;
-
-		console.log(otherPlayer.health);
 	}
 
 	haduken() {

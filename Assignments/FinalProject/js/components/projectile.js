@@ -3,7 +3,22 @@ import { rectangularCollision } from '../utility/utils.js';
 import { CANVAS_WIDTH, STATE_START, STATE_MOVE, STATE_HIT } from '../utility/constant.js';
 import { CHARACTER_PADDING, PROJECTILE_SPEED, SCALE_SPRITE, STOMACH_HIT, DAMAGE } from '../utility/constant.js';
 
+/**
+ * Projectile Object when player fires attack
+ */
 export default class Projectile {
+	/**
+	 *
+	 * @param {Object} creator Object of Player who attacks
+	 * @param {Object} target Object of Player who is attacked
+	 * @param {Object} ctx Canvas Context
+	 * @param {Image} sprite Image Object
+	 * @param {Object} projectilePosition Position of image on canvas
+	 * @param {Object} start Position and size of start animation for projectile in sprite
+	 * @param {Object} move Position and size of Move animation for projectile in sprite
+	 * @param {Object} hit Position and size of Hit animation for projectile in sprite
+	 * @param {Integer} animationTime Switch time between sprites
+	 */
 	constructor(creator, target, ctx, sprite, projectilePosition, start, move, hit, animationTime) {
 		this.ctx = ctx;
 		this.creator = creator;
@@ -27,11 +42,17 @@ export default class Projectile {
 		this.projectilePosition.y += 20;
 
 		//Function Binding
+		this.checkHit = this.checkHit.bind(this);
 		this.moveProjectile = this.moveProjectile.bind(this);
 		this.checkProjectilePosition = this.checkProjectilePosition.bind(this);
-		this.checkHit = this.checkHit.bind(this);
 	}
 
+	/**
+	 *
+	 * @param {Integer} frameCount Current Frame Count
+	 *
+	 * Updates the position and sprite of the projectile
+	 */
 	update(frameCount) {
 		if (!(this.state === STATE_HIT)) {
 			this.moveProjectile();
@@ -67,6 +88,10 @@ export default class Projectile {
 		}
 	}
 
+	/**
+	 *
+	 * Draws and animates the projectile
+	 */
 	animate() {
 		this.ctx.save();
 
@@ -90,16 +115,29 @@ export default class Projectile {
 		this.ctx.restore();
 	}
 
+	/**
+	 *
+	 * Checks if the position of sprite is outside the canvas
+	 */
 	checkProjectilePosition() {
 		if (this.projectilePosition.x <= 0 || this.projectilePosition.x >= CANVAS_WIDTH - this.spritePosition[this.counter].width - CHARACTER_PADDING) {
 			return true;
 		}
 	}
 
+	/**
+	 *
+	 * Increases X position of the projectile
+	 */
 	moveProjectile() {
 		this.projectilePosition.x += PROJECTILE_SPEED;
 	}
 
+	/**
+	 *
+	 * Checks if the projectile has hit the target,
+	 * Returns true if the projectile has hit the target
+	 */
 	checkHit() {
 		let prjectileRectangle = {
 			x: 0,

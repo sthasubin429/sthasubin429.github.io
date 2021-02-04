@@ -1,5 +1,4 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
-import { ENTER, SELECTION_POSITION, CHARACTER_SELECTION, SCALE_SPRITE } from './utility/constant.js';
+import Time from './components/Time.js';
 
 import Stage from './components/stage.js';
 
@@ -7,19 +6,6 @@ import Ryu from './characters/Ryu/ryu.js';
 import Ken from './characters/Ken/ken.js';
 import Chun from './characters/Chun/Chun.js';
 
-//for player 1
-import { PLAYER1_LEFT, PLAYER1_RIGHT, PLAYER1_UP, PLAYER1_DOWN } from './utility/constant.js';
-import { PLAYER1_LOW_PUNCH, PLAYER1_HEAVY_PUNCH, PLAYER1_MEDIUM_PUNCH } from './utility/constant.js';
-import { PLAYER1_LOW_KICK, PLAYER1_MEDIUM_KICK, PLAYER1_HEAVY_KICK } from './utility/constant.js';
-import { PLAYER1_SPECIAL_MOVE1 } from './utility/constant.js';
-
-//for player 2
-import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility/constant.js';
-import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
-import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
-import { PLAYER2_SPECIAL_MOVE1 } from './utility/constant.js';
-
-import Time from './components/Time.js';
 import selection from './components/select.js';
 import RoundScore from './components/score.js';
 
@@ -27,7 +13,29 @@ import { resetState } from './utility/utils.js';
 
 import { loadScreen, KO, p1Select, p2Select } from './img/images.js';
 
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from './utility/constant.js';
+import { ENTER, SELECTION_POSITION, CHARACTER_SELECTION, SCALE_SPRITE } from './utility/constant.js';
+
+//for player 1
+import { PLAYER1_SPECIAL_MOVE1 } from './utility/constant.js';
+import { PLAYER1_LEFT, PLAYER1_RIGHT, PLAYER1_UP, PLAYER1_DOWN } from './utility/constant.js';
+import { PLAYER1_LOW_KICK, PLAYER1_MEDIUM_KICK, PLAYER1_HEAVY_KICK } from './utility/constant.js';
+import { PLAYER1_LOW_PUNCH, PLAYER1_HEAVY_PUNCH, PLAYER1_MEDIUM_PUNCH } from './utility/constant.js';
+
+//for player 2
+import { PLAYER2_SPECIAL_MOVE1 } from './utility/constant.js';
+import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility/constant.js';
+import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
+import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
+
+//Main Game Function
 export default class Game {
+	/**
+	 *
+	 * @param {string} containerId Id of Container
+	 * @param {string} canvasId Id of canvas
+	 */
+
 	constructor(containerId, canvasId) {
 		this.container = document.getElementById(containerId);
 		this.canvas = document.getElementById(canvasId);
@@ -67,27 +75,31 @@ export default class Game {
 
 		//function binding
 		this.gameLoop = this.gameLoop.bind(this);
-
-		this.keyDownHandler = this.keyDownHandler.bind(this);
-		this.keyUpHandler = this.keyUpHandler.bind(this);
+		this.restGame = this.restGame.bind(this);
 
 		this.playGame = this.playGame.bind(this);
-		this.selectCharacter = this.selectCharacter.bind(this);
-
-		this.restGame = this.restGame.bind(this);
 		this.gameOver = this.gameOver.bind(this);
 
-		this.addCharacterSelection = this.addCharacterSelection.bind(this);
-		this.createPlayer = this.createPlayer.bind(this);
-
-		this.drawScore = this.drawScore.bind(this);
 		this.roundOver = this.roundOver.bind(this);
+		this.drawScore = this.drawScore.bind(this);
 
-		this.selectKeyDown = this.selectKeyDown.bind(this);
+		this.keyUpHandler = this.keyUpHandler.bind(this);
 		this.startKeyDown = this.startKeyDown.bind(this);
+
+		this.createPlayer = this.createPlayer.bind(this);
+		this.selectKeyDown = this.selectKeyDown.bind(this);
+		this.keyDownHandler = this.keyDownHandler.bind(this);
+		this.selectCharacter = this.selectCharacter.bind(this);
+
 		this.roundOverKeyDown = this.roundOverKeyDown.bind(this);
+
+		this.addCharacterSelection = this.addCharacterSelection.bind(this);
 	}
 
+	/**
+	 *
+	 * Init function called to start the game
+	 */
 	init() {
 		if (this.isStart) {
 			this.isStart = false;
@@ -103,6 +115,10 @@ export default class Game {
 		}
 	}
 
+	/**
+	 *
+	 * Play game Function, creates player and starts game loop
+	 */
 	playGame() {
 		document.removeEventListener('keydown', this.selectKeyDown);
 
@@ -121,6 +137,10 @@ export default class Game {
 		document.addEventListener('keyup', this.keyUpHandler);
 	}
 
+	/**
+	 *
+	 * Main Game loop. Runs when characters are fighting.
+	 */
 	gameLoop() {
 		this.frameCount++;
 
@@ -164,11 +184,19 @@ export default class Game {
 		this.gameAnimationId = requestAnimationFrame(this.gameLoop);
 	}
 
+	/**
+	 *
+	 * Draws current score of the players
+	 */
 	drawScore() {
 		RoundScore(this.ctx, this.player1Selction.wins, false);
 		RoundScore(this.ctx, this.player2Selction.wins, true);
 	}
 
+	/**
+	 *
+	 * Called when each round is over i.e. when eithr one of the player dies
+	 */
 	roundOver() {
 		this.ctx.drawImage(KO, CANVAS_WIDTH / 4, CANVAS_HEIGHT / 4, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 		this.restGame();
@@ -181,6 +209,10 @@ export default class Game {
 		document.addEventListener('keydown', this.roundOverKeyDown);
 	}
 
+	/**
+	 *
+	 * Called when a player wins 2 games.
+	 */
 	gameOver() {
 		this.ctx.drawImage(KO, CANVAS_WIDTH / 4, CANVAS_HEIGHT / 4, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 		this.restGame();
@@ -205,6 +237,10 @@ export default class Game {
 		document.addEventListener('keydown', this.startKeyDown);
 	}
 
+	/**
+	 *
+	 * Resets game variables to restart the game again.
+	 */
 	restGame() {
 		this.frameCount = 0;
 		this.gameAnimationId = 0;
@@ -215,6 +251,10 @@ export default class Game {
 		this.gameAnimationId = 0;
 	}
 
+	/**
+	 *
+	 * Creats the object of the selected character
+	 */
 	createPlayer() {
 		if (this.player1Selction.index === 0) {
 			this.player1 = new Ryu(this.ctx, false);
@@ -233,6 +273,10 @@ export default class Game {
 		}
 	}
 
+	/**
+	 *
+	 * Renders select character screen and allows user to select characters
+	 */
 	selectCharacter() {
 		document.removeEventListener('keydown', this.startKeyDown);
 
@@ -245,6 +289,10 @@ export default class Game {
 		this.gameAnimationId = requestAnimationFrame(this.selectCharacter);
 	}
 
+	/**
+	 *
+	 * Draws the position of selector for player 1 and player2
+	 */
 	addCharacterSelection() {
 		this.ctx.drawImage(
 			p1Select,
@@ -263,6 +311,12 @@ export default class Game {
 		);
 	}
 
+	/**
+	 *
+	 * @param {Object} event Event object from key down event
+	 *
+	 * For Round over screen
+	 */
 	roundOverKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
@@ -270,6 +324,13 @@ export default class Game {
 				break;
 		}
 	}
+
+	/**
+	 *
+	 * @param {Object} event Event object from key down event
+	 *
+	 * For Main start screen
+	 */
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
@@ -278,6 +339,12 @@ export default class Game {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Object} event Event object from key down event
+	 *
+	 * For Select character screen.
+	 */
 	selectKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
@@ -325,6 +392,12 @@ export default class Game {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Object} event Event object from key down event
+	 *
+	 * Key down listeners for player 1 and player 2 during fighting
+	 */
 	keyDownHandler(event) {
 		if (this.player1.keyListener) {
 			this.player1.animationComplete = false;
@@ -404,7 +477,11 @@ export default class Game {
 		}
 	}
 
-	keyUpHandler(event) {
+	/**
+	 *
+	 * Resets the state for players during fighting when key up
+	 */
+	keyUpHandler() {
 		if (this.player1.animationComplete) {
 			this.player1.currentState = resetState(this.player1.currentState);
 			this.player1.currentState.isIdle = true;
