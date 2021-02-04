@@ -28,7 +28,7 @@ import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility
 import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
 import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
 
-import { audioPlayer1Select, audioPlayer2Select, audioSelect } from './audio/audio.js';
+import { audioPlayer1Select, audioPlayer2Select, audioSelect, audioStart } from './audio/audio.js';
 
 //Main Game Function
 export default class Game {
@@ -126,7 +126,7 @@ export default class Game {
 		document.removeEventListener('keydown', this.selectKeyDown);
 
 		document.removeEventListener('keydown', this.roundOverKeyDown);
-
+		audioSelect.muted = true;
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		this.stage = new Stage(this.ctx);
@@ -336,6 +336,8 @@ export default class Game {
 	startKeyDown(event) {
 		switch (event.keyCode) {
 			case ENTER:
+				audioStart.muted = true;
+				audioSelect.muted = false;
 				audioSelect.play();
 				this.selectCharacter();
 				break;
