@@ -133,34 +133,6 @@ export default class Ryu extends Player {
 		this.writePlayerName('Ryu');
 	}
 
-	updateProjectile(frameCount) {
-		if (this.projectile.checkProjectilePosition()) {
-			this.projectile = null;
-			this.currentState = resetState(this.currentState);
-			this.animation.counter = 0;
-		}
-
-		this.projectile.update(frameCount);
-
-		if (this.projectile) {
-			this.projectile.animate();
-		}
-	}
-
-	checkAttacked(otherPlayer) {
-		if (this.colision && this.isAttacked) {
-			otherPlayer.setAttackedState(otherPlayer, this.attackState);
-
-			this.attackState = {
-				attackType: null,
-				attackDamage: 0,
-			};
-		}
-
-		this.isAttacked = false;
-		this.colision = false;
-	}
-
 	setAttackedState(otherPlayer, attackState) {
 		otherPlayer.currentState = resetState(otherPlayer.currentState);
 
