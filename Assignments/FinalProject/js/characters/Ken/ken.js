@@ -175,6 +175,8 @@ export default class Ken extends Player {
 		this.position.x -= MOVE_SPEED * 1.5;
 
 		this.health -= attackState.attackDamage;
+
+		attackState.attackDamage = 0;
 	}
 
 	/**

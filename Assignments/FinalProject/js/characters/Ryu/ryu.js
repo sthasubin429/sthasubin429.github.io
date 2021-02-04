@@ -1,6 +1,7 @@
 import Player from '../player.js';
 
 import { ryuSprite } from '../../img/images.js';
+
 import { resetState } from '../../utility/utils.js';
 
 import { audioHadouken } from '../../audio/audio.js';
@@ -167,6 +168,7 @@ export default class Ryu extends Player {
 		}
 
 		this.position.x -= MOVE_SPEED * 1.5;
+
 		this.health -= attackState.attackDamage;
 
 		attackState.attackDamage = 0;

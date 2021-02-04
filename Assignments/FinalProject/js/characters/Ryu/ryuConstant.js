@@ -738,12 +738,6 @@ export const RYU_SPRITE_POSITION = {
 	],
 	normalHit: [
 		{
-			width: 43,
-			height: 81,
-			x: 6,
-			y: 18,
-		},
-		{
 			width: 51,
 			height: 79,
 			x: 1003,
