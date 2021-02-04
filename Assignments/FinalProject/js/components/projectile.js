@@ -1,16 +1,7 @@
-import {
-	CANVAS_WIDTH,
-	STATE_START,
-	STATE_MOVE,
-	STATE_HIT,
-	CHARACTER_PADDING,
-	PROJECTILE_SPEED,
-	SCALE_SPRITE,
-	STOMACH_HIT,
-	DAMAGE,
-} from '../utility/constant.js';
-
 import { rectangularCollision } from '../utility/utils.js';
+
+import { CANVAS_WIDTH, STATE_START, STATE_MOVE, STATE_HIT } from '../utility/constant.js';
+import { CHARACTER_PADDING, PROJECTILE_SPEED, SCALE_SPRITE, STOMACH_HIT, DAMAGE } from '../utility/constant.js';
 
 export default class Projectile {
 	constructor(creator, target, ctx, sprite, projectilePosition, start, move, hit, animationTime) {

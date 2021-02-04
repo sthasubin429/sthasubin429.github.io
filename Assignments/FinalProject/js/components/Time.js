@@ -1,4 +1,5 @@
 import { TIME_POSITION } from '../utility/constant.js';
+
 export default class Time {
 	constructor(ctx) {
 		this.ctx = ctx;

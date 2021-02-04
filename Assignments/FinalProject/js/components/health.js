@@ -7,6 +7,7 @@ export default class Health {
 		this.position = PLAYER_HEALTHBAR;
 
 		this.currentHealth = 100;
+
 		//function binding
 		this.drawCurrentHealth = this.drawCurrentHealth.bind(this);
 	}

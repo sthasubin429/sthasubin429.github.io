@@ -143,12 +143,12 @@ export default class Game {
 			return;
 		}
 
-		if (this.player1.checkHealth() || this.player2.checkHealth()) {
+		if (this.player1.isDead() || this.player2.isDead()) {
 			cancelAnimationFrame(this.gameAnimationId);
 
-			if (this.player1.checkHealth()) {
+			if (this.player1.isDead()) {
 				this.player1Selction.wins++;
-			} else if (this.player2.checkHealth()) {
+			} else if (this.player2.isDead()) {
 				this.player2Selction.wins++;
 			}
 

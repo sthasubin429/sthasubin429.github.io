@@ -1,5 +1,6 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT } from '../utility/constant.js';
 import { stage1 } from '../img/images.js';
+
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from '../utility/constant.js';
 
 export default class Stage {
 	constructor(ctx) {

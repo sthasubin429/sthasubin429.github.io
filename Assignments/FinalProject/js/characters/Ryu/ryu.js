@@ -1,14 +1,12 @@
-import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION, RYU_HADUKEN_MANA } from './ryuConstant.js';
+import Player from '../player.js';
 
 import { ryuSprite } from '../../img/images.js';
-
-import Player from '../player.js';
+import { resetState } from '../../utility/utils.js';
 
 import Projectile from '../../components/projectile.js';
 
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
-
-import { resetState } from '../../utility/utils.js';
+import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION, RYU_HADUKEN_MANA } from './ryuConstant.js';
 
 export default class Ryu extends Player {
 	constructor(ctx, rotation) {

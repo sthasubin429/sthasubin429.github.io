@@ -95,7 +95,7 @@ export default class Player {
 
 		this.healthBar.drawHealthBar(this.health);
 		this.manaBar.drawManabar(frameCount);
-		this.checkHealth();
+		this.isDead();
 	}
 
 	writePlayerName(name) {
@@ -246,7 +246,7 @@ export default class Player {
 		this.position.x -= moveSpeed;
 	}
 
-	checkHealth() {
+	isDead() {
 		if (this.health < 1) {
 			return true;
 		}
