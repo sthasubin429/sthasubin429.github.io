@@ -137,7 +137,7 @@ export default class Player {
 	 */
 	checkAttacked(otherPlayer) {
 		if (this.colision && this.isAttacked) {
-			otherPlayer.setAttackedState(otherPlayer, this.attackState);
+			otherPlayer.setAttackedState(this.attackState);
 
 			this.attackState = {
 				attackType: null,

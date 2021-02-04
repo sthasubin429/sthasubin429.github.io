@@ -156,19 +156,19 @@ export default class Ryu extends Player {
 	 *
 	 * Animates hit for player
 	 */
-	setAttackedState(otherPlayer, attackState) {
-		otherPlayer.currentState = resetState(otherPlayer.currentState);
+	setAttackedState(attackState) {
+		this.currentState = resetState(this.currentState);
 
 		if (attackState.attackType === FACE_HIT) {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.faceHit, RYU_IDLE_ANIMATION_TIME, false);
+			this.updateState(RYU_SPRITE_POSITION.faceHit, RYU_IDLE_ANIMATION_TIME, false);
 		} else if (attackState.attackType === STOMACH_HIT) {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.stomachHit, RYU_IDLE_ANIMATION_TIME, false);
+			this.updateState(RYU_SPRITE_POSITION.stomachHit, RYU_IDLE_ANIMATION_TIME, false);
 		} else {
-			otherPlayer.updateState(RYU_SPRITE_POSITION.normalHit, RYU_IDLE_ANIMATION_TIME, false);
+			this.updateState(RYU_SPRITE_POSITION.normalHit, RYU_IDLE_ANIMATION_TIME, false);
 		}
 
-		otherPlayer.position.x -= MOVE_SPEED * 1.5;
-		otherPlayer.health -= attackState.attackDamage;
+		this.position.x -= MOVE_SPEED * 1.5;
+		this.health -= attackState.attackDamage;
 
 		attackState.attackDamage = 0;
 	}

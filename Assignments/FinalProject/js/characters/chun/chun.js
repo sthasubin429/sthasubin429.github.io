@@ -156,19 +156,19 @@ export default class Chun extends Player {
 	 *
 	 * Animates hit for player
 	 */
-	setAttackedState(otherPlayer, attackState) {
-		otherPlayer.currentState = resetState(otherPlayer.currentState);
+	setAttackedState(attackState) {
+		this.currentState = resetState(this.currentState);
 
 		if (attackState.attackType === FACE_HIT) {
-			otherPlayer.updateState(CHUN_SPRITE_POSITION.faceHit, CHUN_IDLE_ANIMATION_TIME, false);
+			this.updateState(CHUN_SPRITE_POSITION.faceHit, CHUN_IDLE_ANIMATION_TIME, false);
 		} else if (attackState.attackType === STOMACH_HIT) {
-			otherPlayer.updateState(CHUN_SPRITE_POSITION.stomachHit, CHUN_IDLE_ANIMATION_TIME, false);
+			this.updateState(CHUN_SPRITE_POSITION.stomachHit, CHUN_IDLE_ANIMATION_TIME, false);
 		} else {
-			otherPlayer.updateState(CHUN_SPRITE_POSITION.normalHit, CHUN_IDLE_ANIMATION_TIME, false);
+			this.updateState(CHUN_SPRITE_POSITION.normalHit, CHUN_IDLE_ANIMATION_TIME, false);
 		}
 
-		otherPlayer.position.x -= MOVE_SPEED * 1.5;
-		otherPlayer.health -= attackState.attackDamage;
+		this.position.x -= MOVE_SPEED * 1.5;
+		this.health -= attackState.attackDamage;
 
 		attackState.attackDamage = 0;
 	}

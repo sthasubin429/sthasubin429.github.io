@@ -157,20 +157,20 @@ export default class Ken extends Player {
 	 *
 	 * Animates hit for player
 	 */
-	setAttackedState(otherPlayer, attackState) {
-		otherPlayer.currentState = resetState(otherPlayer.currentState);
+	setAttackedState(attackState) {
+		this.currentState = resetState(this.currentState);
 
 		if (attackState.attackType === FACE_HIT) {
-			otherPlayer.updateState(KEN_SPRITE_POSITION.faceHit, KEN_IDLE_ANIMATION_TIME, false);
+			this.updateState(KEN_SPRITE_POSITION.faceHit, KEN_IDLE_ANIMATION_TIME, false);
 		} else if (attackState.attackType === STOMACH_HIT) {
-			otherPlayer.updateState(KEN_SPRITE_POSITION.stomachHit, KEN_IDLE_ANIMATION_TIME, false);
+			this.updateState(KEN_SPRITE_POSITION.stomachHit, KEN_IDLE_ANIMATION_TIME, false);
 		} else {
-			otherPlayer.updateState(KEN_SPRITE_POSITION.normalHit, KEN_IDLE_ANIMATION_TIME, false);
+			this.updateState(KEN_SPRITE_POSITION.normalHit, KEN_IDLE_ANIMATION_TIME, false);
 		}
 
-		otherPlayer.position.x -= MOVE_SPEED * 1.5;
+		this.position.x -= MOVE_SPEED * 1.5;
 
-		otherPlayer.health -= attackState.attackDamage;
+		this.health -= attackState.attackDamage;
 	}
 
 	/**
