@@ -3,6 +3,8 @@ import Player from '../player.js';
 import { ryuSprite } from '../../img/images.js';
 import { resetState } from '../../utility/utils.js';
 
+import { audioHadouken } from '../../audio/audio.js';
+
 import Projectile from '../../components/projectile.js';
 
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
@@ -52,6 +54,7 @@ export default class Ryu extends Player {
 		if (this.currentState.specialMove1 === true) {
 			if (!this.projectile && this.checkMana(RYU_HADUKEN_MANA)) {
 				this.haduken();
+				audioHadouken.play();
 
 				this.projectile = new Projectile(
 					this,

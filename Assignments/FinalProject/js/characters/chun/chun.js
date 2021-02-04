@@ -7,6 +7,7 @@ import Projectile from '../../components/projectile.js';
 
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
 import { CHUN_IDLE_ANIMATION_TIME, CHUN_POSITON, CHUN_SPRITE_POSITION, CHUN_KIKOUKEN_MANA } from './chunConstant.js';
+import { audioKikoken } from '../../audio/audio.js';
 
 /**
  *
@@ -52,6 +53,7 @@ export default class Chun extends Player {
 		if (this.currentState.specialMove1 === true) {
 			if (!this.projectile && this.checkMana(CHUN_KIKOUKEN_MANA)) {
 				this.kikouken();
+				audioKikoken.play();
 
 				this.projectile = new Projectile(
 					this,
