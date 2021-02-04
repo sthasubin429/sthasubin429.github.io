@@ -8,7 +8,16 @@ import Projectile from '../../components/projectile.js';
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
 import { RYU_IDLE_ANIMATION_TIME, RYU_POSITON, RYU_SPRITE_POSITION, RYU_HADUKEN_MANA } from './ryuConstant.js';
 
+/**
+ *
+ * For Ryu Character
+ */
 export default class Ryu extends Player {
+	/**
+	 *
+	 * @param {Object} ctx Canvas Context
+	 * @param {Boolen} rotation Weather the Character is mirored or not
+	 */
 	constructor(ctx, rotation) {
 		let props = {
 			ctx: ctx,
@@ -26,6 +35,13 @@ export default class Ryu extends Player {
 		this.projectile = false;
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent Player object
+	 * @param {Integer} frameCount Current Frame count
+	 *
+	 * Updates the state of player based on input from user
+	 */
 	updatePlayer(otherPlayer, frameCount) {
 		super.checkWallColision();
 
@@ -133,6 +149,13 @@ export default class Ryu extends Player {
 		this.writePlayerName('Ryu');
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent player object
+	 * @param {Object} attackState Attack state of current player
+	 *
+	 * Animates hit for player
+	 */
 	setAttackedState(otherPlayer, attackState) {
 		otherPlayer.currentState = resetState(otherPlayer.currentState);
 
@@ -150,92 +173,172 @@ export default class Ryu extends Player {
 		attackState.attackDamage = 0;
 	}
 
+	/**
+	 *
+	 * Updates state to animate haduken
+	 */
 	haduken() {
 		this.updateState(RYU_SPRITE_POSITION.haduken, RYU_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy Kick
+	 */
 	forwardHeavyKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardHeavyKick, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium Kick
+	 */
 	forwardMediumKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardMediumKick, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Kick
+	 */
 	forwardLowKick() {
 		this.updateState(RYU_SPRITE_POSITION.forwardLowKick, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Heavy kick
+	 */
 	heavyKick() {
 		this.updateState(RYU_SPRITE_POSITION.heavyKick, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Low and Medium Kick
+	 */
 	kick() {
 		this.updateState(RYU_SPRITE_POSITION.kick, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy punch
+	 */
 	forwardHeavyPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardHeavyPunch, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium punch
+	 */
 	forwardMediumPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardMediumPuch, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Punch
+	 */
 	forwardLowPunch() {
 		this.updateState(RYU_SPRITE_POSITION.forwardLowPunch, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Medium and heavy punch
+	 */
 	punch() {
 		this.updateState(RYU_SPRITE_POSITION.punch, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Update state to animate Low punch
+	 */
 	lowPunch() {
 		this.updateState(RYU_SPRITE_POSITION.lowPuch, RYU_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Standing Block
+	 */
 	standingBlock() {
 		this.updateState(RYU_SPRITE_POSITION.standingBlock, RYU_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Crouching Block
+	 */
 	crouchingBlock() {
 		this.updateState(RYU_SPRITE_POSITION.crouchingBlock, RYU_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Idle state
+	 */
 	makeIdle() {
 		super.makeIdle(RYU_SPRITE_POSITION.idle, RYU_IDLE_ANIMATION_TIME, true);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving right
+	 */
 	moveRight() {
 		super.moveRight(RYU_SPRITE_POSITION.moveRight, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving left
+	 */
 	moveLeft() {
 		super.moveLeft(RYU_SPRITE_POSITION.moveLeft, RYU_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Jump
+	 */
 	jump() {
 		super.jump(RYU_SPRITE_POSITION.jump, RYU_IDLE_ANIMATION_TIME, false, 1);
 	}
 
+	/**
+	 *
+	 * Updates state to animte Crouch
+	 */
 	crouch() {
 		this.updateState(RYU_SPRITE_POSITION.crouch, RYU_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Front flip
+	 */
 	frontFlip() {
 		super.frontFlip(RYU_SPRITE_POSITION.frontFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Back flip
+	 */
 	backFlip() {
 		super.backFlip(RYU_SPRITE_POSITION.backFlip, RYU_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}

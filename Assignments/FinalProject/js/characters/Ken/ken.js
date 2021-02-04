@@ -9,8 +9,17 @@ import { kenSprite, ryuSprite } from '../../img/images.js';
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
 import { KEN_IDLE_ANIMATION_TIME, KEN_POSITON, KEN_SPRITE_POSITION, KEN_HADUKEN_MANA } from './kenConstant.js';
 
+/**
+ *
+ * For Ken Character
+ */
 export default class Ken extends Player {
 	constructor(ctx, rotation) {
+		/**
+		 *
+		 * @param {Object} ctx Canvas Context
+		 * @param {Boolen} rotation Weather the Character is mirored or not
+		 */
 		let props = {
 			ctx: ctx,
 			position: KEN_POSITON,
@@ -27,6 +36,13 @@ export default class Ken extends Player {
 		this.projectile = false;
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent Player object
+	 * @param {Integer} frameCount Current Frame count
+	 *
+	 * Updates the state of player based on input from user
+	 */
 	updatePlayer(otherPlayer, frameCount) {
 		super.checkWallColision();
 
@@ -134,34 +150,13 @@ export default class Ken extends Player {
 		this.writePlayerName('Ken');
 	}
 
-	updateProjectile(frameCount) {
-		if (this.projectile.checkProjectilePosition()) {
-			this.projectile = null;
-			this.currentState = resetState(this.currentState);
-			this.animation.counter = 0;
-		}
-
-		this.projectile.update(frameCount);
-
-		if (this.projectile) {
-			this.projectile.animate();
-		}
-	}
-
-	checkAttacked(otherPlayer) {
-		if (this.colision && this.isAttacked) {
-			otherPlayer.setAttackedState(otherPlayer, this.attackState);
-
-			this.attackState = {
-				attackType: null,
-				attackDamage: 0,
-			};
-		}
-
-		this.isAttacked = false;
-		this.colision = false;
-	}
-
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent player object
+	 * @param {Object} attackState Attack state of current player
+	 *
+	 * Animates hit for player
+	 */
 	setAttackedState(otherPlayer, attackState) {
 		otherPlayer.currentState = resetState(otherPlayer.currentState);
 
@@ -178,92 +173,172 @@ export default class Ken extends Player {
 		otherPlayer.health -= attackState.attackDamage;
 	}
 
+	/**
+	 *
+	 * Updates state to animate haduken
+	 */
 	haduken() {
 		this.updateState(KEN_SPRITE_POSITION.haduken, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy Kick
+	 */
 	forwardHeavyKick() {
 		this.updateState(KEN_SPRITE_POSITION.forwardHeavyKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium Kick
+	 */
 	forwardMediumKick() {
 		this.updateState(KEN_SPRITE_POSITION.forwardMediumKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Kick
+	 */
 	forwardLowKick() {
 		this.updateState(KEN_SPRITE_POSITION.forwardLowKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Heavy kick
+	 */
 	heavyKick() {
 		this.updateState(KEN_SPRITE_POSITION.heavyKick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Low and Medium Kick
+	 */
 	kick() {
 		this.updateState(KEN_SPRITE_POSITION.kick, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy punch
+	 */
 	forwardHeavyPunch() {
 		this.updateState(KEN_SPRITE_POSITION.forwardHeavyPunch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium punch
+	 */
 	forwardMediumPunch() {
 		this.updateState(KEN_SPRITE_POSITION.forwardMediumPuch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Punch
+	 */
 	forwardLowPunch() {
 		this.updateState(KEN_SPRITE_POSITION.forwardLowPunch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Medium and heavy punch
+	 */
 	punch() {
 		this.updateState(KEN_SPRITE_POSITION.punch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE / 2, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Update state to animate Low punch
+	 */
 	lowPunch() {
 		this.updateState(KEN_SPRITE_POSITION.lowPuch, KEN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Standing Block
+	 */
 	standingBlock() {
 		this.updateState(KEN_SPRITE_POSITION.standingBlock, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Crouching Block
+	 */
 	crouchingBlock() {
 		this.updateState(KEN_SPRITE_POSITION.crouchingBlock, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Idle state
+	 */
 	makeIdle() {
 		super.makeIdle(KEN_SPRITE_POSITION.idle, KEN_IDLE_ANIMATION_TIME, true);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving right
+	 */
 	moveRight() {
 		super.moveRight(KEN_SPRITE_POSITION.moveRight, KEN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving left
+	 */
 	moveLeft() {
 		super.moveLeft(KEN_SPRITE_POSITION.moveLeft, KEN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Jump
+	 */
 	jump() {
 		super.jump(KEN_SPRITE_POSITION.jump, KEN_IDLE_ANIMATION_TIME, false, 1);
 	}
 
+	/**
+	 *
+	 * Updates state to animte Crouch
+	 */
 	crouch() {
 		this.updateState(KEN_SPRITE_POSITION.crouch, KEN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Front flip
+	 */
 	frontFlip() {
 		super.frontFlip(KEN_SPRITE_POSITION.frontFlip, KEN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Back flip
+	 */
 	backFlip() {
 		super.backFlip(KEN_SPRITE_POSITION.backFlip, KEN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}

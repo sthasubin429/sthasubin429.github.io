@@ -74,7 +74,13 @@ export default class Player {
 		this.writePlayerName = this.writePlayerName.bind(this);
 	}
 
-	drawPlayer(frameCount, otherPlayer) {
+	/**
+	 *
+	 * @param {Integer} frameCount Current Frame count
+	 *
+	 * Draws Player on canvas
+	 */
+	drawPlayer(frameCount) {
 		this.changeHeight(frameCount);
 
 		if (frameCount % this.animation.animationTime === 0) {
@@ -99,9 +105,16 @@ export default class Player {
 
 		this.healthBar.drawHealthBar(this.health);
 		this.manaBar.drawManabar(frameCount);
+
 		this.isDead();
 	}
 
+	/**
+	 *
+	 * @param {Integer} frameCount
+	 *
+	 * Updates Projectile state
+	 */
 	updateProjectile(frameCount) {
 		if (this.projectile.checkProjectilePosition()) {
 			this.projectile = null;
@@ -116,6 +129,12 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Object of other player
+	 *
+	 * Checks if the attack is triggerd and hit the other player
+	 */
 	checkAttacked(otherPlayer) {
 		if (this.colision && this.isAttacked) {
 			otherPlayer.setAttackedState(otherPlayer, this.attackState);
@@ -130,6 +149,12 @@ export default class Player {
 		this.colision = false;
 	}
 
+	/**
+	 *
+	 * @param {String} name Player Name
+	 *
+	 * Writes the name of player  on canvas
+	 */
 	writePlayerName(name) {
 		this.ctx.font = '600 26px Noto Sans JP';
 		this.ctx.fillStyle = '#d83060';
@@ -140,6 +165,12 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Integer} requiredMana Required mana to perform special move
+	 *
+	 * Checks if the mana is enough to perform special move
+	 */
 	checkMana(requiredMana) {
 		if (this.manaBar.currentMana > requiredMana) {
 			return true;
@@ -148,6 +179,10 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * Checks if the player has colided with the wall
+	 */
 	checkWallColision() {
 		if (this.position.x <= 0) {
 			this.position.x = 0;
@@ -156,6 +191,12 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Object of Opponent
+	 *
+	 * Colision detection between two players
+	 */
 	checkCollision(otherPlayer) {
 		let player1Rectangle = {
 			x: 0,
@@ -200,6 +241,11 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * @param {Integer} damage Damage for the triggerd attack
+	 * @param {String} type Hit Type for opponent
+	 */
 	triggerAttack(damage, type) {
 		this.isAttacked = true;
 
@@ -208,6 +254,10 @@ export default class Player {
 		this.attackState.attackType = type;
 	}
 
+	/**
+	 *
+	 * chanes the height of player when any jump task is performed
+	 */
 	changeHeight() {
 		if (this.increaseHeight) {
 			this.position.y -= MOVE_SPEED + this.changeFactor;
@@ -220,10 +270,20 @@ export default class Player {
 		}
 	}
 
+	/**
+	 *
+	 * Returns requred height for change height function
+	 */
 	updateHeight() {
 		return CANVAS_HEIGHT - STAGE_HEIGHT - this.animation.spritePosition[this.animation.counter].height * SCALE_SPRITE;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 */
 	updateState(spritePosition, animationTime, loop) {
 		this.animation.spritePosition = spritePosition;
 
@@ -232,24 +292,51 @@ export default class Player {
 		this.animation.loop = loop;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 */
 	makeIdle(spritePosition, animationTime, loop) {
 		this.updateState(spritePosition, animationTime, loop);
 
 		this.increaseHeight = false;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 * @param {Integer} moveSpeed Speed at which x position is changed
+	 */
 	moveRight(spritePosition, animationTime, loop, moveSpeed) {
 		this.updateState(spritePosition, animationTime, loop);
 
 		this.position.x -= moveSpeed;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 * @param {Integer} moveSpeed Speed at which x position is changed
+	 */
 	moveLeft(spritePosition, animationTime, loop, moveSpeed) {
 		this.updateState(spritePosition, animationTime, loop);
 
 		this.position.x += moveSpeed;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 * @param {Integer} changeFactor How high to jump
+	 */
 	jump(spritePosition, animationTime, loop, changeFactor) {
 		this.updateState(spritePosition, animationTime, loop);
 
@@ -258,6 +345,14 @@ export default class Player {
 		this.changeFactor = changeFactor;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 * @param {Integer} changeFactor How high to jump
+	 * @param {Integer} moveSpeed Speed at which x position is changed
+	 */
 	frontFlip(spritePosition, animationTime, loop, changeFactor, moveSpeed) {
 		this.updateState(spritePosition, animationTime, loop);
 
@@ -268,6 +363,14 @@ export default class Player {
 		this.position.x += moveSpeed;
 	}
 
+	/**
+	 *
+	 * @param {Object} spritePosition Position of Image on sprite
+	 * @param {Integer} animationTime Animation time for sprite
+	 * @param {Boolen} loop Weather to loop the state or not
+	 * @param {Integer} changeFactor How high to jump
+	 * @param {Integer} moveSpeed Speed at which x position is changed
+	 */
 	backFlip(spritePosition, animationTime, loop, changeFactor, moveSpeed) {
 		this.updateState(spritePosition, animationTime, loop);
 
@@ -278,6 +381,11 @@ export default class Player {
 		this.position.x -= moveSpeed;
 	}
 
+	/**
+	 *
+	 * Checks if the player has died or not.
+	 * Returns true of the player has died
+	 */
 	isDead() {
 		if (this.health < 1) {
 			return true;

@@ -8,8 +8,17 @@ import Projectile from '../../components/projectile.js';
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
 import { CHUN_IDLE_ANIMATION_TIME, CHUN_POSITON, CHUN_SPRITE_POSITION, CHUN_KIKOUKEN_MANA } from './chunConstant.js';
 
+/**
+ *
+ * For Chun Li Character
+ */
 export default class Chun extends Player {
 	constructor(ctx, rotation) {
+		/**
+		 *
+		 * @param {Object} ctx Canvas Context
+		 * @param {Boolen} rotation Weather the Character is mirored or not
+		 */
 		let props = {
 			ctx: ctx,
 			position: CHUN_POSITON,
@@ -26,6 +35,13 @@ export default class Chun extends Player {
 		this.projectile = false;
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent Player object
+	 * @param {Integer} frameCount Current Frame count
+	 *
+	 * Updates the state of player based on input from user
+	 */
 	updatePlayer(otherPlayer, frameCount) {
 		super.checkWallColision();
 
@@ -133,6 +149,13 @@ export default class Chun extends Player {
 		this.writePlayerName('Chun Li');
 	}
 
+	/**
+	 *
+	 * @param {Object} otherPlayer Opponent player object
+	 * @param {Object} attackState Attack state of current player
+	 *
+	 * Animates hit for player
+	 */
 	setAttackedState(otherPlayer, attackState) {
 		otherPlayer.currentState = resetState(otherPlayer.currentState);
 
@@ -150,100 +173,190 @@ export default class Chun extends Player {
 		attackState.attackDamage = 0;
 	}
 
+	/**
+	 *
+	 * Updates state to animate Kikouken
+	 */
 	kikouken() {
 		this.updateState(CHUN_SPRITE_POSITION.kikouken, CHUN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy Kick
+	 */
 	forwardHeavyKick() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardHeavyKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium Kick
+	 */
 	forwardMediumKick() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardMediumKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Kick
+	 */
 	forwardLowKick() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardLowKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Heavy kick
+	 */
 	heavyKick() {
 		this.updateState(CHUN_SPRITE_POSITION.heavyKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Low Kick
+	 */
 	lowKick() {
 		this.updateState(CHUN_SPRITE_POSITION.lowKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
+
+	/**
+	 *
+	 * Updates state to animate Medium Kick
+	 */
 	mediumKick() {
 		this.updateState(CHUN_SPRITE_POSITION.mediumKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Heavy punch
+	 */
 	forwardHeavyPunch() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardHeavyPunch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Medium punch
+	 */
 	forwardMediumPunch() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardMediumPuch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Forward Low Punch
+	 */
 	forwardLowPunch() {
 		this.updateState(CHUN_SPRITE_POSITION.forwardLowPunch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate heavy punch
+	 */
 	heavyPunch() {
 		this.updateState(CHUN_SPRITE_POSITION.heavyPunch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
+
+	/**
+	 *
+	 * Updates state to animate Medium punch
+	 */
 	mediumpunch() {
 		this.updateState(CHUN_SPRITE_POSITION.mediumPunch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Update state to animate Low punch
+	 */
 	lowPunch() {
 		this.updateState(CHUN_SPRITE_POSITION.lowPuch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Standing Block
+	 */
 	standingBlock() {
 		this.updateState(CHUN_SPRITE_POSITION.standingBlock, CHUN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Crouching Block
+	 */
 	crouchingBlock() {
 		this.updateState(CHUN_SPRITE_POSITION.crouchingBlock, CHUN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Idle state
+	 */
 	makeIdle() {
 		super.makeIdle(CHUN_SPRITE_POSITION.idle, CHUN_IDLE_ANIMATION_TIME, true);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving right
+	 */
 	moveRight() {
 		super.moveRight(CHUN_SPRITE_POSITION.moveRight, CHUN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Moving left
+	 */
 	moveLeft() {
 		super.moveLeft(CHUN_SPRITE_POSITION.moveLeft, CHUN_IDLE_ANIMATION_TIME, false, MOVE_SPEED);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Jump
+	 */
 	jump() {
 		super.jump(CHUN_SPRITE_POSITION.jump, CHUN_IDLE_ANIMATION_TIME, false, 1);
 	}
 
+	/**
+	 *
+	 * Updates state to animte Crouch
+	 */
 	crouch() {
 		this.updateState(CHUN_SPRITE_POSITION.crouch, CHUN_IDLE_ANIMATION_TIME, false);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Front flip
+	 */
 	frontFlip() {
 		super.frontFlip(CHUN_SPRITE_POSITION.frontFlip, CHUN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
 
+	/**
+	 *
+	 * Updates state to animate Back flip
+	 */
 	backFlip() {
 		super.backFlip(CHUN_SPRITE_POSITION.backFlip, CHUN_IDLE_ANIMATION_TIME - 3, false, 2, MOVE_SPEED + 3);
 	}
