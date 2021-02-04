@@ -215,16 +215,7 @@ export default class Chun extends Player {
 	 */
 	heavyKick() {
 		this.updateState(CHUN_SPRITE_POSITION.heavyKick, CHUN_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE, FACE_HIT);
-	}
-
-	/**
-	 *
-	 * Updates state to animate Low Kick
-	 */
-	lowKick() {
-		this.updateState(CHUN_SPRITE_POSITION.lowKick, CHUN_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE, FACE_HIT);
+		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
 	/**
@@ -233,7 +224,16 @@ export default class Chun extends Player {
 	 */
 	mediumKick() {
 		this.updateState(CHUN_SPRITE_POSITION.mediumKick, CHUN_IDLE_ANIMATION_TIME, false);
-		this.triggerAttack(DAMAGE, FACE_HIT);
+		this.triggerAttack(DAMAGE / 2, FACE_HIT);
+	}
+
+	/**
+	 *
+	 * Updates state to animate Low Kick
+	 */
+	lowKick() {
+		this.updateState(CHUN_SPRITE_POSITION.lowKick, CHUN_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(DAMAGE / 2, FACE_HIT);
 	}
 
 	/**
