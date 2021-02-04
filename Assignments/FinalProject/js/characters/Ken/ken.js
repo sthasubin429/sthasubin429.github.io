@@ -159,6 +159,7 @@ export default class Ken extends Player {
 	 */
 	setAttackedState(attackState) {
 		this.currentState = resetState(this.currentState);
+		this.animation.counter = 0;
 
 		if (attackState.attackType === FACE_HIT) {
 			this.updateState(KEN_SPRITE_POSITION.faceHit, KEN_IDLE_ANIMATION_TIME, false);

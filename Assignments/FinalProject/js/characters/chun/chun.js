@@ -158,6 +158,7 @@ export default class Chun extends Player {
 	 */
 	setAttackedState(attackState) {
 		this.currentState = resetState(this.currentState);
+		this.animation.counter = 0;
 
 		if (attackState.attackType === FACE_HIT) {
 			this.updateState(CHUN_SPRITE_POSITION.faceHit, CHUN_IDLE_ANIMATION_TIME, false);

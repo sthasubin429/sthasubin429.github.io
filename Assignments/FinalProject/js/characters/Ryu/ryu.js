@@ -158,7 +158,7 @@ export default class Ryu extends Player {
 	 */
 	setAttackedState(attackState) {
 		this.currentState = resetState(this.currentState);
-
+		this.animation.counter = 0;
 		if (attackState.attackType === FACE_HIT) {
 			this.updateState(RYU_SPRITE_POSITION.faceHit, RYU_IDLE_ANIMATION_TIME, false);
 		} else if (attackState.attackType === STOMACH_HIT) {
