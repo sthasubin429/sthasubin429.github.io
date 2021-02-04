@@ -110,17 +110,13 @@ export default class Ryu extends Player {
 			this.crouchingBlock();
 		} else if (this.currentState.isJumping && this.currentState.isCrouching) {
 			this.standingBlock();
-		} else if (this.currentState.lowKick) {
-			this.kick();
-		} else if (this.currentState.mediumKick) {
+		} else if (this.currentState.lowKick || this.currentState.mediumKick) {
 			this.kick();
 		} else if (this.currentState.heavyKick) {
 			this.heavyKick();
 		} else if (this.currentState.lowPunch) {
 			this.lowPunch();
-		} else if (this.currentState.mediumPunch) {
-			this.punch();
-		} else if (this.currentState.heavyPunch) {
+		} else if (this.currentState.mediumPunch || this.currentState.heavyPunch) {
 			this.punch();
 		} else if (this.currentState.isMovingRight) {
 			if (this.rotation) {

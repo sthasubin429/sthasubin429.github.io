@@ -3,11 +3,12 @@ import Player from '../player.js';
 import { chunSprite } from '../../img/images.js';
 import { resetState } from '../../utility/utils.js';
 
+import { audioKikoken } from '../../audio/audio.js';
+
 import Projectile from '../../components/projectile.js';
 
 import { MOVE_SPEED, FACE_HIT, NORMAL_HIT, STOMACH_HIT, DAMAGE } from '../../utility/constant.js';
 import { CHUN_IDLE_ANIMATION_TIME, CHUN_POSITON, CHUN_SPRITE_POSITION, CHUN_KIKOUKEN_MANA } from './chunConstant.js';
-import { audioKikoken } from '../../audio/audio.js';
 
 /**
  *
