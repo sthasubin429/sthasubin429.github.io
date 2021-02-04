@@ -4,7 +4,7 @@ import Stage from './components/stage.js';
 
 import Ryu from './characters/Ryu/ryu.js';
 import Ken from './characters/Ken/ken.js';
-import Chun from './characters/Chun/Chun.js';
+import Chun from './characters/chun/chun.js';
 
 import selection from './components/select.js';
 import RoundScore from './components/score.js';
@@ -28,7 +28,7 @@ import { PLAYER2_LEFT, PLAYER2_RIGHT, PLAYER2_UP, PLAYER2_DOWN } from './utility
 import { PLAYER2_LOW_KICK, PLAYER2_MEDIUM_KICK, PLAYER2_HEAVY_KICK } from './utility/constant.js';
 import { PLAYER2_LOW_PUNCH, PLAYER2_HEAVY_PUNCH, PLAYER2_MEDIUM_PUNCH } from './utility/constant.js';
 
-import { audioSelect } from './audio/audio.js';
+import { audioPlayer1Select, audioPlayer2Select, audioSelect } from './audio/audio.js';
 
 //Main Game Function
 export default class Game {
@@ -358,6 +358,7 @@ export default class Game {
 				break;
 
 			case PLAYER1_RIGHT:
+				audioPlayer1Select.play();
 				if (this.player1Selction.index === SELECTION_POSITION.length - 1) {
 					this.player1Selction.index = 0;
 				} else {
@@ -367,6 +368,7 @@ export default class Game {
 				break;
 
 			case PLAYER1_LEFT:
+				audioPlayer1Select.play();
 				if (this.player1Selction.index === 0) {
 					this.player1Selction.index = SELECTION_POSITION.length - 1;
 				} else {
@@ -376,6 +378,7 @@ export default class Game {
 				break;
 
 			case PLAYER2_RIGHT:
+				audioPlayer2Select.play();
 				if (this.player2Selction.index === SELECTION_POSITION.length - 1) {
 					this.player2Selction.index = 0;
 				} else {
@@ -385,6 +388,7 @@ export default class Game {
 				break;
 
 			case PLAYER2_LEFT:
+				audioPlayer2Select.play();
 				if (this.player2Selction.index === 0) {
 					this.player2Selction.index = SELECTION_POSITION.length - 1;
 				} else {
