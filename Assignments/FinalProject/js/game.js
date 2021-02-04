@@ -328,7 +328,6 @@ export default class Game {
 	keyDownHandler(event) {
 		if (this.player1.keyListener) {
 			this.player1.animationComplete = false;
-			// this.player1.animation.counter = 0;
 			switch (event.keyCode) {
 				case PLAYER1_SPECIAL_MOVE1:
 					this.player1.currentState.specialMove1 = true;
@@ -367,7 +366,6 @@ export default class Game {
 		}
 		if (this.player2.keyListener) {
 			this.player2.animationComplete = false;
-			// this.player1.animation.counter = 0;
 			switch (event.keyCode) {
 				case PLAYER2_SPECIAL_MOVE1:
 					this.player2.currentState.specialMove1 = true;

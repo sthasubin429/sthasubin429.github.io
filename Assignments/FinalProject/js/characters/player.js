@@ -99,10 +99,10 @@ export default class Player {
 	}
 
 	writePlayerName(name) {
-		this.ctx.font = '600 30px Noto Sans JP';
+		this.ctx.font = '600 26px Noto Sans JP';
 		this.ctx.fillStyle = '#d83060';
 		if (this.rotation) {
-			this.ctx.fillText(`${name}`, 1070, 45);
+			this.ctx.fillText(`${name}`, 1080, 45);
 		} else {
 			this.ctx.fillText(`${name}`, 100, 45);
 		}
@@ -165,7 +165,6 @@ export default class Player {
 		//checking Collision
 		if (rectangularCollision(player1Rectangle, player2Rectangle, this.rotation)) {
 			this.colision = true;
-			// console.log('hello');
 		}
 	}
 

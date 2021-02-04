@@ -1,4 +1,4 @@
-import { CHUN_IDLE_ANIMATION_TIME, CHUN_POSITON, CHUN_SPRITE_POSITION, CHUN_HADUKEN_MANA } from './chunConstant.js';
+import { CHUN_IDLE_ANIMATION_TIME, CHUN_POSITON, CHUN_SPRITE_POSITION, CHUN_KIKOUKEN_MANA } from './chunConstant.js';
 
 import { chunSprite } from '../../img/images.js';
 
@@ -36,8 +36,8 @@ export default class Chun extends Player {
 		this.keyListener = false;
 
 		if (this.currentState.specialMove1 === true) {
-			if (!this.projectile && this.checkMana(CHUN_HADUKEN_MANA)) {
-				this.haduken();
+			if (!this.projectile && this.checkMana(CHUN_KIKOUKEN_MANA)) {
+				this.kikouken();
 
 				this.projectile = new Projectile(
 					this,
@@ -55,9 +55,9 @@ export default class Chun extends Player {
 					CHUN_IDLE_ANIMATION_TIME
 				);
 
-				this.manaBar.decreaseMana(CHUN_HADUKEN_MANA);
+				this.manaBar.decreaseMana(CHUN_KIKOUKEN_MANA);
 			} else if (this.projectile) {
-				this.haduken();
+				this.kikouken();
 			} else {
 				this.currentState = resetState(this.currentState);
 				this.currentState.isIdle = true;
@@ -94,17 +94,17 @@ export default class Chun extends Player {
 		} else if (this.currentState.isJumping && this.currentState.isCrouching) {
 			this.standingBlock();
 		} else if (this.currentState.lowKick) {
-			this.kick();
+			this.lowKick();
 		} else if (this.currentState.mediumKick) {
-			this.kick();
+			this.mediumKick();
 		} else if (this.currentState.heavyKick) {
 			this.heavyKick();
 		} else if (this.currentState.lowPunch) {
 			this.lowPunch();
 		} else if (this.currentState.mediumPunch) {
-			this.punch();
+			this.mediumpunch();
 		} else if (this.currentState.heavyPunch) {
-			this.punch();
+			this.heavyPunch();
 		} else if (this.currentState.isMovingRight) {
 			if (this.rotation) {
 				this.moveRight();
@@ -182,8 +182,8 @@ export default class Chun extends Player {
 		console.log(otherPlayer.health);
 	}
 
-	haduken() {
-		this.updateState(CHUN_SPRITE_POSITION.haduken, CHUN_IDLE_ANIMATION_TIME, false);
+	kikouken() {
+		this.updateState(CHUN_SPRITE_POSITION.kikouken, CHUN_IDLE_ANIMATION_TIME, false);
 	}
 
 	forwardHeavyKick() {
@@ -206,8 +206,12 @@ export default class Chun extends Player {
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
-	kick() {
-		this.updateState(CHUN_SPRITE_POSITION.kick, CHUN_IDLE_ANIMATION_TIME, false);
+	lowKick() {
+		this.updateState(CHUN_SPRITE_POSITION.lowKick, CHUN_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(DAMAGE, FACE_HIT);
+	}
+	mediumKick() {
+		this.updateState(CHUN_SPRITE_POSITION.mediumKick, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, FACE_HIT);
 	}
 
@@ -226,8 +230,12 @@ export default class Chun extends Player {
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 
-	punch() {
-		this.updateState(CHUN_SPRITE_POSITION.punch, CHUN_IDLE_ANIMATION_TIME, false);
+	heavyPunch() {
+		this.updateState(CHUN_SPRITE_POSITION.heavyPunch, CHUN_IDLE_ANIMATION_TIME, false);
+		this.triggerAttack(DAMAGE, NORMAL_HIT);
+	}
+	mediumpunch() {
+		this.updateState(CHUN_SPRITE_POSITION.mediumPunch, CHUN_IDLE_ANIMATION_TIME, false);
 		this.triggerAttack(DAMAGE, NORMAL_HIT);
 	}
 

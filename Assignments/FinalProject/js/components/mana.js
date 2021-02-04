@@ -6,7 +6,7 @@ export default class Mana {
 		this.player = player;
 		this.position = PLAYER_MANABAR;
 
-		this.currentMana = 0;
+		this.currentMana = 50;
 		//function binding
 		this.drawCurrentMana = this.drawCurrentMana.bind(this);
 		this.getWidth = this.getWidth.bind(this);
