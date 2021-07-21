@@ -1,0 +1,18 @@
+.main_wraper {
+   min-width: 1002px;
+   font-family: Arial, sans-serif;
+   font-size: 15px;
+}
+.container {
+   background: inherit;
+   width: 940px;
+   margin: 0 auto;
+}
+.clearfix {
+   overflow: auto;
+}
+.clearfix:after {
+   content: "";
+   clear: both;
+   display: table;
+}
